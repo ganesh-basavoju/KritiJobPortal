@@ -4,7 +4,7 @@ import { AuthContext } from './AuthContext';
 
 export const SocketContext = createContext();
 
-const socket = io.connect('http://localhost:5000');
+const socket = io.connect('https://kriti-job-backend.vercel.app/');
 
 export const SocketProvider = ({ children }) => {
     const { user } = useContext(AuthContext);
