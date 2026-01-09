@@ -1,0 +1,89 @@
+.section {
+    padding: 4rem 0;
+    width: 100%;
+}
+
+.banner {
+    background: rgba(255, 255, 255, 0.05);
+    /* Lighter grey banner */
+    border-radius: 20px;
+    padding: 2rem 3rem;
+    /* Reduced Padding */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+    max-width: 1000px;
+    /* Constrain width to make it smaller/focused */
+    margin: 0 auto;
+    /* Center it */
+}
+
+/* Optional: Add abstract texture behind if needed via pseudo-element */
+
+.content h2 {
+    font-size: 1.8rem;
+    /* Reduced Font Size */
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--color-text-main);
+}
+
+.form {
+    display: flex;
+    gap: 1rem;
+    flex: 1;
+    max-width: 500px;
+    justify-content: flex-end;
+}
+
+.inputWrapper {
+    flex: 1;
+}
+
+.inputWrapper input {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.inputWrapper input:focus {
+    border-color: var(--color-accent);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.subscribeBtn {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+@media (max-width: 968px) {
+    .banner {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem;
+    }
+
+    .content h2 {
+        font-size: 2rem;
+    }
+
+    .form {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .subscribeBtn {
+        width: 100%;
+    }
+}

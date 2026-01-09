@@ -1,0 +1,119 @@
+.footer {
+    background: #111;
+    /* Very dark footer background */
+    padding: 4rem 0 2rem;
+    color: var(--color-text-muted);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+.companyInfo h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Optional icon for logo */
+.companyInfo h2::before {
+    content: '\f21a';
+    /* FontAwesome Anchor icon or similar */
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+}
+
+.companyInfo p {
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    max-width: 300px;
+}
+
+.socials {
+    display: flex;
+    gap: 15px;
+}
+
+.socials a {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.socials a:hover {
+    background: var(--color-accent);
+    color: var(--color-primary);
+    transform: translateY(-3px);
+}
+
+.column h3 {
+    color: var(--color-accent);
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.column ul li {
+    margin-bottom: 10px;
+}
+
+.column ul li a {
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.column ul li a:hover {
+    color: #fff;
+}
+
+.bottomBar {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 2rem;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.credit {
+    color: var(--color-accent);
+    font-weight: 600;
+}
+
+@media (max-width: 968px) {
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .column {
+        text-align: center;
+    }
+
+    .socials {
+        justify-content: center;
+    }
+
+    .companyInfo {
+        text-align: center;
+    }
+
+    .companyInfo p {
+        margin: 0 auto 2rem;
+    }
+}

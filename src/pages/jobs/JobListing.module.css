@@ -1,0 +1,66 @@
+.pageContainer {
+    padding-top: 120px;
+    /* Account for fixed Navbar */
+    min-height: 100vh;
+}
+
+.pageTitle {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    background: linear-gradient(90deg, #fff, var(--color-text-muted));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+}
+
+.resultsHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.sectionTitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-text-main);
+}
+
+.relevanceBtn {
+    display: flex;
+    align-items: center;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+    background: rgba(30, 41, 59, 0.4) !important;
+}
+
+.jobsGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* 4 Columns on desktop */
+    gap: 24px;
+    margin-bottom: 60px;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1400px) {
+    .jobsGrid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 1024px) {
+    .jobsGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .jobsGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .pageTitle {
+        font-size: 2rem;
+    }
+}

@@ -1,0 +1,499 @@
+/* Main Grid Layout */
+.pageContainer {
+    padding: 2rem;
+    color: white;
+    /* Removed global max-width to fix Applicants page layout */
+    margin: 0 auto;
+}
+
+/* Specific container for Company Profile to reduce space as requested there, but keeping Applicants page full width */
+.profileContainer {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    /* reduced from above if needed, but keeping consistent */
+}
+
+/* ... Existing Styles ... */
+.companyHeaderCard {
+    background-color: #1a1a1a;
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* ... Banner and Header Styles from previous step ... */
+.companyBanner {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    position: relative;
+    background-color: #333;
+}
+
+.bannerEditBtn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    z-index: 10;
+}
+
+.bannerEditBtn:hover {
+    background: rgba(0, 0, 0, 0.8);
+    transform: scale(1.05);
+}
+
+.companyProfileHeader {
+    padding: 0 40px 30px 40px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.companyLogoWrapper {
+    margin-top: -60px;
+    margin-bottom: 15px;
+    width: 120px;
+    height: 120px;
+    position: relative;
+    border-radius: 16px;
+    background: #1a1a1a;
+    padding: 6px;
+}
+
+.companyLogo {
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    object-fit: cover;
+    background-color: white;
+}
+
+.logoEditBtn {
+    position: absolute;
+    bottom: -5px;
+    right: -5px;
+    background: #fbbf24;
+    color: #1a1a1a;
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s;
+    z-index: 10;
+}
+
+.logoEditBtn:hover {
+    transform: scale(1.1);
+}
+
+.headerContentRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.headerLeft {
+    flex: 1;
+}
+
+.companyNameInput {
+    font-size: 2rem;
+    font-weight: 700;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid #fbbf24;
+    color: white;
+    border-radius: 8px;
+    padding: 4px 10px;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.companyLocation {
+    color: #9ca3af;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 5px;
+    font-size: 1rem;
+}
+
+.companyLocationInput {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid #fbbf24;
+    color: white;
+    border-radius: 6px;
+    padding: 4px 10px;
+    font-size: 1rem;
+    width: 100%;
+}
+
+.headerEditIcon {
+    color: #fbbf24;
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 8px;
+    border-radius: 50%;
+    transition: background 0.2s;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.headerEditIcon:hover {
+    background: rgba(251, 191, 36, 0.1);
+}
+
+/* Details Section */
+.sectionContainer {
+    margin-top: 30px;
+    background: #1a1a1a;
+    border-radius: 16px;
+    padding: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.sectionHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 15px;
+}
+
+.sectionTitle {
+    font-size: 1.5rem;
+    color: white;
+    margin: 0;
+    font-weight: 600;
+}
+
+/* Editor Toolbar */
+.editorToolbar {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 15px;
+    background: #111;
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    flex-wrap: wrap;
+}
+
+.toolbarBtn {
+    background: transparent;
+    border: none;
+    color: #9ca3af;
+    cursor: pointer;
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.toolbarBtn:hover,
+.toolbarBtn.isActive {
+    background: rgba(251, 191, 36, 0.1);
+    color: #fbbf24;
+}
+
+.richTextContent {
+    color: #d1d5db;
+    min-height: 200px;
+}
+
+/* Important overrides for Tiptap content rendering */
+.tiptap {
+    min-height: 200px;
+    outline: none;
+}
+
+.tiptap p {
+    margin-bottom: 12px;
+    line-height: 1.6;
+}
+
+.tiptap h1 {
+    color: white;
+    margin-top: 24px;
+    margin-bottom: 16px;
+    font-size: 2em;
+    display: block;
+    font-weight: bold;
+}
+
+.tiptap h2 {
+    color: white;
+    margin-top: 20px;
+    margin-bottom: 14px;
+    font-size: 1.5em;
+    display: block;
+    font-weight: bold;
+}
+
+.tiptap h3 {
+    color: white;
+    margin-top: 18px;
+    margin-bottom: 10px;
+    font-size: 1.17em;
+    display: block;
+    font-weight: bold;
+}
+
+/* Explicit list styles are CRITICAL */
+.tiptap ul {
+    display: block;
+    list-style-type: disc !important;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px !important;
+    padding-left: 40px !important;
+    /* Fallback */
+}
+
+.tiptap ol {
+    display: block;
+    list-style-type: decimal !important;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px !important;
+    padding-left: 40px !important;
+    /* Fallback */
+}
+
+.tiptap li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+    margin-bottom: 4px;
+}
+
+.tiptap a {
+    color: #fbbf24;
+    text-decoration: underline;
+}
+
+.tiptap blockquote {
+    border-left: 3px solid #fbbf24;
+    padding-left: 1rem;
+    margin-left: 0;
+    color: #9ca3af;
+    font-style: italic;
+}
+
+/* Applicants Grid Layout Fixes */
+.headerRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.filterBtn {
+    background: transparent;
+    border: 1px solid #fbbf24;
+    color: #fbbf24;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+}
+
+.filterBtn:hover {
+    background: rgba(251, 191, 36, 0.1);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+    width: 100%;
+    /* Ensure full width */
+}
+
+/* Applicant Card Re-verified */
+.card {
+    background: #1a1a1a;
+    border-radius: 16px;
+    padding: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border-color: rgba(251, 191, 36, 0.2);
+}
+
+/* ... Other Card styles (avatar, info, etc) ... */
+.cardHeader {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+    position: relative;
+}
+
+.avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #333;
+}
+
+.info h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: white;
+    font-weight: 600;
+}
+
+.info p {
+    margin: 4px 0 0 0;
+    color: #9ca3af;
+    font-size: 0.9rem;
+}
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.skillTag {
+    background: rgba(255, 255, 255, 0.05);
+    color: #fbbf24;
+    font-size: 0.8rem;
+    padding: 4px 10px;
+    border-radius: 12px;
+    border: 1px solid rgba(251, 191, 36, 0.1);
+}
+
+.detailsRow {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+    color: white;
+}
+
+.salary,
+.location {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.location {
+    color: #9ca3af;
+}
+
+.bio {
+    color: #6b7280;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: auto;
+}
+
+.actionBtn {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #fbbf24;
+    background: transparent;
+    color: #fbbf24;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s;
+    text-align: center;
+}
+
+.actionBtn:hover {
+    background: rgba(251, 191, 36, 0.1);
+}
+
+.primaryBtn {
+    background: #fbbf24;
+    color: #1a1a1a;
+    border: none;
+}
+
+.primaryBtn:hover {
+    background: #f59e0b;
+}
+
+.statusWrapper {
+    margin-top: 12px;
+}
+
+.statusSelect {
+    width: 100%;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: white;
+    font-size: 0.9rem;
+    cursor: pointer;
+    outline: none;
+}
+
+.statusSelect:focus {
+    border-color: #fbbf24;
+}
+
+.statusSelect option {
+    background: #1a1a1a;
+    color: white;
+}
+
+.modalBanner {
+    height: 150px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 12px 12px 0 0;
+}

@@ -1,0 +1,56 @@
+.btn {
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    outline: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+/* Primary: Gold Glow */
+.primary {
+    background: rgba(255, 215, 0, 0.1);
+    border: 1px solid var(--color-accent);
+    color: var(--color-accent);
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.1);
+}
+
+.primary:hover {
+    background: var(--color-accent);
+    color: var(--color-primary);
+    box-shadow: var(--glow-accent);
+    transform: translateY(-2px);
+}
+
+/* Secondary: Red Glow */
+.secondary {
+    background: rgba(139, 0, 0, 0.2);
+    border: 1px solid var(--color-secondary);
+    color: #ffcccc;
+}
+
+.secondary:hover {
+    background: var(--color-secondary);
+    color: white;
+    box-shadow: var(--glow-red);
+    transform: translateY(-2px);
+}
+
+/* Outline: White Border */
+.outline {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: var(--color-text-main);
+}
+
+.outline:hover {
+    border-color: var(--color-text-main);
+    background: rgba(255, 255, 255, 0.1);
+}

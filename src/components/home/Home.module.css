@@ -1,0 +1,249 @@
+/* Base Layout Enhancements */
+.wideContainer {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+}
+
+/* Trusted Companies Section - FULL WIDTH NO PADDING */
+.trustedSection {
+    padding: 1.5rem 0;
+    /* Vertical padding only */
+    background: var(--color-primary);
+    position: relative;
+    overflow: hidden;
+    color: var(--color-text-main);
+    text-align: center;
+    width: 100%;
+}
+
+.sectionTitle {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    background: linear-gradient(90deg, #fff, #ccc);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    width: 100%;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .sectionTitle {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
+}
+
+.highlight {
+    color: var(--color-accent);
+    -webkit-text-fill-color: var(--color-accent);
+}
+
+.marqueeContainer {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+}
+
+.marqueeTrack {
+    display: inline-block;
+    animation: scroll 30s linear infinite;
+}
+
+/* Pause animation on hover */
+.marqueeContainer:hover .marqueeTrack {
+    animation-play-state: paused;
+}
+
+.companyLogo {
+    display: inline-block;
+    height: 40px;
+    margin: 0 4rem;
+    /* Increased spacing for better look */
+    filter: grayscale(100%) opacity(0.7);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .companyLogo {
+        margin: 0 2rem;
+        height: 30px;
+    }
+}
+
+.companyLogo:hover {
+    filter: grayscale(0%) opacity(1);
+    transform: scale(1.1);
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Job Categories Section - FULL WIDTH NO PADDING */
+.categoriesSection {
+    padding: 3rem 0;
+    background: linear-gradient(180deg, var(--color-primary) 0%, #050d18 100%);
+    position: relative;
+    width: 100%;
+}
+
+.subtitle {
+    color: #8892b0;
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 3rem;
+    font-size: 1.1rem;
+    padding: 0 20px;
+}
+
+/* React Slick Customization */
+.carouselWrapper {
+    padding: 0;
+    /* REMOVED padding for full width on desktop */
+    width: 100%;
+    overflow: hidden;
+    /* Ensure no scrollbars */
+}
+
+@media (max-width: 768px) {
+    .carouselWrapper {
+        /* Mobile specific fixes */
+        padding: 0 20px;
+        /* Bring back some padding on mobile so cards arn't edge-to-edge if user dislikes it, or keep 0 */
+    }
+}
+
+.categoryCard {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    margin: 15px;
+    /* Spacing between slides */
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    height: 280px;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Highlight Effect based on design request - NO borders unless hovered */
+.categoryCard:hover {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.15);
+    transform: translateY(-5px);
+    background: rgba(255, 215, 0, 0.05);
+}
+
+.iconWrapper {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(255, 215, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    color: var(--color-accent);
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.categoryCard:hover .iconWrapper {
+    background: var(--color-accent);
+    color: var(--color-primary);
+    transform: scale(1.1) rotate(5deg);
+}
+
+.cardTitle {
+    color: #fff;
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.cardDesc {
+    color: #8892b0;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.jobCount {
+    color: var(--color-accent);
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    opacity: 0.8;
+}
+
+.categoryCard:hover .jobCount {
+    opacity: 1;
+}
+
+/* Arrows */
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    /* Larger click area */
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--color-text-main);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 20;
+    transition: all 0.3s ease;
+    opacity: 0;
+}
+
+.carouselWrapper:hover .arrow {
+    opacity: 1;
+}
+
+@media (hover: none) {
+    .arrow {
+        opacity: 0.6;
+        /* Always visible on touch */
+        background: rgba(255, 255, 255, 0.1);
+    }
+}
+
+.arrow:hover {
+    background: var(--color-accent);
+    color: var(--color-primary);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+}
+
+/* Push arrows to the absolute edges of the screen for full width feel */
+.prevArrow {
+    left: 20px;
+}
+
+.nextArrow {
+    right: 20px;
+}

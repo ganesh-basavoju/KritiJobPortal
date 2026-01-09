@@ -1,0 +1,154 @@
+.editorContainer {
+    border: 1px solid #334155; /* Slate-700 */
+    border-radius: 0.5rem;
+    background: #1e293b; /* Slate-800 */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.2s ease;
+}
+
+.editorContainer:focus-within {
+    border-color: #ffd700; /* Gold */
+    box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.1);
+}
+
+.menuBar {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    background: #0f172a; /* Slate-900 */
+    border-bottom: 1px solid #334155; /* Slate-700 */
+    flex-wrap: wrap;
+}
+
+.menuBar button {
+    background: transparent;
+    border: none;
+    color: #94a3b8; /* Slate-400 */
+    cursor: pointer;
+    padding: 0.25rem;
+    border-radius: 0.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    transition: all 0.2s;
+}
+
+.menuBar button:hover:not(:disabled) {
+    background: #334155; /* Slate-700 */
+    color: #f8fafc; /* Slate-50 */
+}
+
+.menuBar button.isActive {
+    background: #ffd700; /* Gold */
+    color: #0f172a; /* Slate-900 */
+}
+
+.menuBar button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.divider {
+    width: 1px;
+    height: 1.25rem;
+    background: #334155; /* Slate-700 */
+    margin: 0 0.25rem;
+}
+
+.spacer {
+    flex: 1;
+}
+
+/* Tiptap Content Styles */
+.editorContent {
+    padding: 1rem;
+    min-height: 200px;
+    outline: none;
+    color: #e2e8f0; /* Slate-200 */
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+.editorContent p {
+    margin-bottom: 0.75rem;
+}
+
+.editorContent ul,
+.editorContent ol {
+    padding-left: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.editorContent h1,
+.editorContent h2,
+.editorContent h3 {
+    color: #f8fafc; /* Slate-50 */
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.editorContent h1 {
+    font-size: 1.5rem;
+}
+
+.editorContent h2 {
+    font-size: 1.25rem;
+}
+
+.editorContent a {
+    color: #ffd700; /* Gold */
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.editorContent code {
+    background: #334155; /* Slate-700 */
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.25rem;
+    font-family: monospace;
+    font-size: 0.85em;
+}
+
+.editorContent pre {
+    background: #0f172a; /* Slate-900 */
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    margin-bottom: 0.75rem;
+}
+
+.editorContent pre code {
+    background: transparent;
+    padding: 0;
+    color: #e2e8f0;
+}
+
+.editorContent blockquote {
+    border-left: 3px solid #ffd700; /* Gold */
+    padding-left: 1rem;
+    margin-left: 0;
+    margin-bottom: 0.75rem;
+    font-style: italic;
+    color: #94a3b8; /* Slate-400 */
+}
+
+.editorContent hr {
+    border: none;
+    border-top: 1px solid #334155; /* Slate-700 */
+    margin: 1.5rem 0;
+}
+
+/* Placeholder */
+.editorContent p.is-editor-empty:first-child::before {
+    color: #64748b; /* Slate-500 */
+    content: attr(data-placeholder);
+    float: left;
+    height: 0;
+    pointer-events: none;
+}

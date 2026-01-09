@@ -1,0 +1,270 @@
+/* Companies.module.css */
+
+/* --- Page Layout --- */
+.pageContainer {
+    padding-top: 120px;
+    min-height: 100vh;
+}
+
+.pageTitle {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    background: linear-gradient(90deg, #fff, #9ca3af);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+}
+
+/* --- Listing Grid --- */
+.companiesGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-bottom: 60px;
+}
+
+@media (max-width: 1400px) {
+    .companiesGrid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 1024px) {
+    .companiesGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .companiesGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --- Company Card --- */
+.companyCard {
+    background: #1f2937;
+    border: 1px solid #374151;
+    border-radius: 12px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+}
+
+.companyCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    border-color: #d4af37;
+}
+
+.logoWrapper {
+    width: 80px;
+    height: 80px;
+    background: #111827;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    border: 1px solid #374151;
+    overflow: hidden;
+}
+
+.logo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 10px;
+}
+
+.companyName {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #fff;
+}
+
+.location {
+    color: #9ca3af;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.viewBtn {
+    margin-top: auto;
+    padding: 8px 20px;
+    background: transparent;
+    border: 1px solid #d4af37;
+    color: #d4af37;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.companyCard:hover .viewBtn {
+    background: #d4af37;
+    color: #111827;
+}
+
+/* --- Company Details Page (Reused styles mostly, specific overrides here) --- */
+.detailsContainer {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    color: #fff;
+}
+
+.banner {
+    height: 200px;
+    background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+    border-radius: 16px;
+    position: relative;
+    margin-bottom: 60px;
+    /* Space for logo overlap */
+    border: 1px solid #374151;
+}
+
+.profileHeader {
+    position: absolute;
+    bottom: -40px;
+    left: 40px;
+    display: flex;
+    align-items: flex-end;
+    gap: 20px;
+    width: calc(100% - 80px);
+}
+
+.detailLogoWrapper {
+    width: 120px;
+    height: 120px;
+    background: #111827;
+    border-radius: 12px;
+    border: 2px solid #374151;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.headerInfo h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0;
+    margin-bottom: 5px;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.headerMeta {
+    display: flex;
+    gap: 15px;
+    color: #9ca3af;
+    /* Lightened for visibility over banner if needed, usually below */
+    padding-bottom: 10px;
+}
+
+/* Fix text below banner */
+.headerContent {
+    margin-top: 50px;
+    /* Push down content below overlapping header */
+    padding: 0 10px;
+}
+
+.detailsSection {
+    background: #1f2937;
+    border: 1px solid #374151;
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+.sectionTitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #d4af37;
+    border-bottom: 1px solid #374151;
+    padding-bottom: 10px;
+}
+
+.infoGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.infoItem label {
+    display: block;
+    color: #9ca3af;
+    font-size: 0.85rem;
+    margin-bottom: 5px;
+}
+
+.infoItem p,
+.infoItem a {
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.infoItem a:hover {
+    color: #d4af37;
+    text-decoration: underline;
+}
+
+.richTextContent {
+    line-height: 1.6;
+    color: #d1d5db;
+}
+
+.richTextContent h1,
+.richTextContent h2,
+.richTextContent h3 {
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    color: #fff;
+}
+
+.richTextContent ul,
+.richTextContent ol {
+    padding-left: 20px;
+    margin-bottom: 1em;
+}
+
+.backBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #9ca3af;
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: color 0.2s;
+    background: none;
+    border: none;
+    font-size: 1rem;
+}
+
+.backBtn:hover {
+    color: #fff;
+}
+
+.noResult {
+    text-align: center;
+    padding: 40px;
+    color: #9ca3af;
+}

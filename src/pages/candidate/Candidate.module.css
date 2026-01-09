@@ -1,0 +1,253 @@
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding-bottom: 60px;
+    padding-top: 20px;
+}
+
+/* Header Card & Banner */
+.headerCard {
+    background-color: #1a1a1a;
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.banner {
+    height: 180px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    /* Deep Purple Premium */
+    /* Optional: Add a subtle pattern overlay if supported or via another element, but gradient is safe */
+    width: 100%;
+}
+
+.profileHeader {
+    padding: 0 40px 40px 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.avatarWrapper {
+    margin-top: -75px;
+    margin-bottom: 20px;
+    position: relative;
+    width: 150px;
+    height: 150px;
+}
+
+.avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 6px solid #1a1a1a;
+    object-fit: cover;
+    background-color: #1a1a1a;
+    /* Fallback */
+}
+
+.editAvatarBtn {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background-color: #fbbf24;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #1a1a1a;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s;
+    font-size: 1.1rem;
+}
+
+.editAvatarBtn:hover {
+    transform: scale(1.1);
+}
+
+.headerInfo {
+    margin-top: 5px;
+}
+
+.nameRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.nameRow h1 {
+    font-size: 2.5rem;
+    color: white;
+    margin: 0;
+    font-weight: 700;
+}
+
+.editIcon {
+    color: #fbbf24;
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 8px;
+    border-radius: 50%;
+    transition: background 0.2s;
+    opacity: 0.8;
+}
+
+.editIcon:hover {
+    background: rgba(251, 191, 36, 0.1);
+    opacity: 1;
+}
+
+.titleLocation {
+    margin-bottom: 8px;
+}
+
+.title,
+.location {
+    color: #9ca3af;
+    font-size: 1.1rem;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.title i,
+.location i {
+    width: 20px;
+    text-align: center;
+    color: #6b7280;
+}
+
+/* Common Section Styles */
+.sectionCard {
+    background-color: transparent;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    /* Divider style */
+    padding: 40px 0;
+}
+
+.sectionHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.sectionHeader h2 {
+    color: white;
+    font-size: 1.5rem;
+    margin: 0;
+    font-weight: 600;
+}
+
+.aboutText {
+    color: #d1d5db;
+    line-height: 1.8;
+    font-size: 1.05rem;
+    white-space: pre-wrap;
+    /* Preserve line breaks */
+}
+
+/* Skills */
+.skillsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.skillTag {
+    background-color: rgba(255, 255, 255, 0.05);
+    /* Modern card tag */
+    color: #fbbf24;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid rgba(251, 191, 36, 0.2);
+    transition: all 0.2s;
+}
+
+.skillTag:hover {
+    border-color: #fbbf24;
+    background-color: rgba(251, 191, 36, 0.1);
+}
+
+.skillTag i {
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: #ef4444;
+    transition: color 0.2s;
+}
+
+.skillTag i:hover {
+    color: #ff6b6b;
+}
+
+/* Edit Inputs */
+.editInput {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid #fbbf24;
+    color: white;
+    font-size: inherit;
+    font-family: inherit;
+    padding: 8px 12px;
+    border-radius: 6px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.editTextarea {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid #fbbf24;
+    color: white;
+    width: 100%;
+    padding: 20px;
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 1rem;
+    line-height: 1.8;
+    resize: vertical;
+}
+
+.addSkillInput {
+    background: transparent;
+    border: 1px dashed #fbbf24;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    width: 200px;
+}
+
+/* Contact Grid */
+.contactGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.contactItem label {
+    display: block;
+    color: #6b7280;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+}
+
+.contactItem p {
+    color: white;
+    font-size: 1.1rem;
+    margin: 0;
+    font-weight: 500;
+}

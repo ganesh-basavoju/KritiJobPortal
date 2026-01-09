@@ -1,0 +1,301 @@
+.container {
+    /* max-width and side padding handled by global .focused-container */
+    padding-top: 120px;
+    padding-bottom: 60px;
+    color: #e5e7eb;
+    min-height: 100vh;
+}
+
+.jobWrapper {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 2rem;
+}
+
+/* Back Button */
+.backButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #3f3f46;
+    color: #fbbf24;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.backButton:hover {
+    background-color: #52525b;
+}
+
+/* Main Content Area */
+.mainContent {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Header Section */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.headerLeft {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.logoBox {
+    width: 80px;
+    height: 80px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.logoBox img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.logoBox i {
+    font-size: 2.5rem;
+    color: white;
+}
+
+.titleBox h1 {
+    font-size: 1.8rem;
+    margin: 0 0 0.5rem 0;
+    color: #ffffff;
+}
+
+.companyMeta {
+    color: #9ca3af;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.headerActions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1rem;
+}
+
+.applyButton {
+    background-color: #3f3f46;
+    color: #fbbf24;
+    border: none;
+    padding: 0.75rem 2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.applyButton:hover {
+    background-color: #fbbf24;
+    color: #1a1a1a;
+}
+
+.saveButton {
+    background: none;
+    border: none;
+    color: #fbbf24;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Highlights Grid */
+.highlightsGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin: 1rem 0 2rem 0;
+    border-top: 1px solid #3f3f46;
+    border-bottom: 1px solid #3f3f46;
+    padding: 2rem 0;
+}
+
+.highlightCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.8rem;
+}
+
+.highlightIcon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    border: 2px solid #fbbf24;
+    color: #fbbf24;
+}
+
+.highlightLabel {
+    color: #9ca3af;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.highlightValue {
+    color: #ffffff;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* Sections */
+.sectionTitle {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+}
+
+.skillsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-bottom: 2rem;
+}
+
+.skillTag {
+    background-color: #2e2e2e;
+    color: #fbbf24;
+    /* Gold text */
+    padding: 0.5rem 1.25rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    border: 1px solid #444;
+}
+
+.descriptionBox {
+    color: #d1d5db;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+}
+
+.descriptionBox p {
+    margin-bottom: 1rem;
+}
+
+.richText ul {
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.richText li {
+    margin-bottom: 0.5rem;
+}
+
+/* Company Section */
+.companySection {
+    background-color: #27272a;
+    /* Slightly lighter than bg */
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-top: 2rem;
+}
+
+.companyHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.viewCompanyBtn {
+    color: #fbbf24;
+    text-decoration: none;
+    background-color: rgba(251, 191, 36, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+.companyInfo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.companyLogoSmall {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    background: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.companyLogoSmall img {
+    width: 100%;
+}
+
+.companyName {
+    margin: 0;
+    font-size: 1.1rem;
+    color: white;
+}
+
+.employeeCount {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #9ca3af;
+}
+
+/* Sidebar */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.sidebarTitle {
+    font-size: 1.2rem;
+    margin: 0;
+    color: #e5e7eb;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .jobWrapper {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .header {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .headerActions {
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .highlightsGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

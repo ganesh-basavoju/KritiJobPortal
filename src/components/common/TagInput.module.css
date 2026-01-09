@@ -1,0 +1,79 @@
+.tagInputGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #94a3b8; /* Slate-400 */
+}
+
+.tagInputContainer {
+    border: 1px solid #334155; /* Slate-700 */
+    border-radius: 0.5rem;
+    background: #1e293b; /* Slate-800 */
+    padding: 0.5rem;
+    min-height: 46px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    transition: all 0.2s ease;
+}
+
+.tagInputContainer:focus-within {
+    border-color: #ffd700; /* Gold */
+    box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.1);
+}
+
+.tagsList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.tag {
+    background: #334155; /* Slate-700 */
+    color: #f8fafc; /* Slate-50 */
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px; /* Pill shape */
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid #475569; /* Slate-600 */
+}
+
+.removeBtn {
+    background: none;
+    border: none;
+    color: #94a3b8; /* Slate-400 */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    transition: color 0.2s;
+}
+
+.removeBtn:hover {
+    color: #ef4444; /* Red-500 */
+}
+
+.input {
+    background: transparent;
+    border: none;
+    color: #f8fafc; /* Slate-50 */
+    font-size: 0.95rem;
+    flex: 1;
+    min-width: 120px;
+    outline: none;
+    padding: 0.25rem 0;
+}
+
+.input::placeholder {
+    color: #64748b; /* Slate-500 */
+}

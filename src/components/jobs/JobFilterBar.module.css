@@ -1,0 +1,120 @@
+.filterBar {
+    background: rgba(30, 41, 59, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 15px 30px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 50;
+    /* Ensure dropdowns appear above job cards */
+}
+
+.filterGroup {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--color-text-muted);
+    flex: 1;
+    min-width: 150px;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.filterGroup:hover {
+    color: var(--color-text-main);
+}
+
+.filterGroup i {
+    color: var(--color-accent);
+    /* Gold icons */
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.filterGroup:hover i {
+    color: #fff;
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+    transform: scale(1.1);
+}
+
+/* ... existing styles ... */
+
+/* Dual Range Slider Styles */
+.sliderContainer {
+    position: relative;
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    margin-top: 10px;
+}
+
+.sliderTrack {
+    position: absolute;
+    height: 4px;
+    background: var(--color-accent);
+    border-radius: 2px;
+    z-index: 1;
+}
+
+.sliderInput {
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background: none;
+    pointer-events: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    z-index: 2;
+    top: 0;
+}
+
+.sliderInput::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    border: 2px solid var(--color-primary);
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.sliderInput::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    border: 2px solid var(--color-primary);
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+/* Mobile Responsive */
+@media (max-width: 1024px) {
+    .filterBar {
+        gap: 15px;
+        padding: 20px;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .divider {
+        display: none;
+    }
+
+    .filterGroup {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        padding-bottom: 10px;
+    }
+
+    .filterGroup:last-of-type {
+        border-bottom: none;
+    }
+}
