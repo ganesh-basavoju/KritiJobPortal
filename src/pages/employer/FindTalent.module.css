@@ -1,0 +1,412 @@
+.container {
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    color: white;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.pageTitle {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0;
+    color: white;
+}
+
+.filterBar {
+    display: flex;
+    gap: 1rem;
+    flex: 1;
+    max-width: 400px;
+    /* Reduced since only one input */
+}
+
+.searchInput {
+    flex: 1;
+    padding: 1rem 1.2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    font-size: 0.95rem;
+    transition: all 0.2s;
+    background: rgba(255, 255, 255, 0.05);
+    /* Dark transparent background */
+    color: white;
+    box-shadow: none;
+}
+
+.searchInput::placeholder {
+    color: #9ca3af;
+}
+
+.searchInput:focus {
+    outline: none;
+    border-color: #fbbf24;
+    /* Gold focus */
+    box-shadow: 0 0 0 2px rgba(251, 191, 36, 0.1);
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+/* --- Dark Theme Card --- */
+.card {
+    background: #1a1a1a;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    border-color: #fbbf24;
+}
+
+.cardHeader {
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: transparent;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #333;
+    box-shadow: none;
+}
+
+.name {
+    font-weight: 700;
+    color: white;
+    margin: 0;
+    font-size: 1.15rem;
+}
+
+.title {
+    color: #9ca3af;
+    font-size: 0.9rem;
+    margin: 4px 0 0 0;
+    font-weight: 500;
+}
+
+.cardBody {
+    padding: 1.5rem;
+    flex: 1;
+}
+
+.infoRow {
+    display: flex;
+    align-items: center;
+    color: #9ca3af;
+    font-size: 0.9rem;
+    margin-bottom: 1.25rem;
+    font-weight: 500;
+}
+
+.infoRow i {
+    color: #fbbf24;
+    /* Gold icon */
+    margin-right: 8px;
+}
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.skillTag {
+    background: rgba(255, 255, 255, 0.05);
+    color: #fbbf24;
+    padding: 0.35rem 0.85rem;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border: 1px solid rgba(251, 191, 36, 0.1);
+}
+
+.moreSkills {
+    background: rgba(255, 255, 255, 0.05);
+    color: #9ca3af;
+    padding: 0.35rem 0.75rem;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cardFooter {
+    padding: 1rem 1.5rem;
+    background: transparent;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    gap: 0.75rem;
+}
+
+.actionBtn {
+    flex: 1;
+    padding: 0.7rem 1rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: none;
+    outline: none;
+}
+
+.profileBtn {
+    background: transparent;
+    color: #fbbf24;
+    border: 1px solid #fbbf24;
+}
+
+.profileBtn:hover {
+    background: rgba(251, 191, 36, 0.1);
+}
+
+.iconBtn {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+    color: #9ca3af;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 1.1rem;
+}
+
+.msgBtn:hover {
+    background: #fbbf24;
+    color: #1a1a1a;
+    border-color: #fbbf24;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 3rem;
+    color: #9ca3af;
+}
+
+/* Modal Styles - Dark Theme Adaptation */
+/* Ideally Modal should be global, but adapting localized styles here */
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 1.5rem;
+    animation: fadeIn 0.2s ease-out;
+}
+
+.modalContent {
+    background: #111827;
+    /* Dark background */
+    border: 1px solid #374151;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 1000px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    animation: slideUp 0.3s ease-out;
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+.modalHeaderDecor {
+    height: 140px;
+    background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+    width: 100%;
+    border-bottom: 1px solid #374151;
+}
+
+.closeBtn {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    z-index: 10;
+}
+
+.closeBtn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: rotate(90deg);
+}
+
+.modalInner {
+    padding: 0 3rem 3rem 3rem;
+    margin-top: -60px;
+}
+
+.modalProfileHeader {
+    position: relative;
+    margin-bottom: 3rem;
+    display: flex;
+    align-items: flex-end;
+    gap: 2rem;
+}
+
+.modalAvatar {
+    width: 140px;
+    height: 140px;
+    border-radius: 20px;
+    object-fit: cover;
+    border: 5px solid #111827;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+    background: #1f2937;
+}
+
+.modalTitleInfo {
+    flex: 1;
+    padding-bottom: 10px;
+}
+
+.modalHeaderActions {
+    padding-bottom: 20px;
+}
+
+.modalGrid {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: 3rem;
+}
+
+.infoCard {
+    background: #1f2937;
+    border-radius: 16px;
+    padding: 1.75rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid #374151;
+}
+
+.cardTitle {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #fbbf24;
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+}
+
+.cardTitle i {
+    color: #fbbf24;
+    margin-right: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.resumeLink {
+    display: block;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.2s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+.resumeLink:hover {
+    border-color: #fbbf24;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@media (max-width: 1024px) {
+    .modalGrid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .modalProfileHeader {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .modalInner {
+        padding: 0 1.5rem 1.5rem 1.5rem;
+    }
+
+    .modalAvatar {
+        margin: 0 auto;
+    }
+
+    .modalHeaderActions {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+}

@@ -63,50 +63,39 @@ const MyJobs = () => {
 
             <div className={styles.grid}>
                  {jobs.map(job => (
-                    <div key={job._id} style={{position: 'relative'}}>
-                        <JobCard job={job} />
-                        <div style={{
-                            position: 'absolute', 
-                            bottom: '15px', 
-                            right: '15px', 
-                            display: 'flex', 
-                            gap: '10px',
-                            zIndex: 10
-                        }}>
-                            {/* Replaced existing buttons with new action buttons */}
-                            <button 
-                                className={styles.actionBtn} 
-                                onClick={(e) => { e.stopPropagation(); handleEdit(job._id); }}
-                                title="Edit Job"
-                            >
-                                <i className="fas fa-edit"></i>
-                            </button>
-                            <button 
-                                className={styles.actionBtn} 
-                                onClick={(e) => { e.stopPropagation(); navigate(`/dashboard/employer/jobs/${job._id}/applicants`); }}
-                                title="View Applicants"
-                            >
-                                <i className="fas fa-users"></i>
-                            </button>
-                            <button 
-                                onClick={(e) => {
-                                    e.stopPropagation();
-                                    handleDelete(job._id);
-                                }}
-                                style={{
-                                    background: '#ef4444', 
-                                    color: 'white', 
-                                    border: 'none', 
-                                    padding: '5px 10px', 
-                                    borderRadius: '5px',
-                                    cursor: 'pointer'
-                                }}
-                                title="Delete Job"
-                            >
-                                <i className="fas fa-trash"></i>
-                            </button>
-                        </div>
-                    </div>
+                    <JobCard 
+                        key={job._id}
+                        job={job} 
+                        hidePostedDate={true} 
+                        actionSlot={(
+                            <div className={styles.jobActionButtons}>
+                                <button 
+                                    className={styles.jobActionBtn} 
+                                    onClick={(e) => { e.stopPropagation(); handleEdit(job._id); }}
+                                    title="Edit Job"
+                                >
+                                    <i className="fas fa-edit"></i>
+                                </button>
+                                <button 
+                                    className={styles.jobActionBtn} 
+                                    onClick={(e) => { e.stopPropagation(); navigate(`/dashboard/employer/jobs/${job._id}/applicants`); }}
+                                    title="View Applicants"
+                                >
+                                    <i className="fas fa-users"></i>
+                                </button>
+                                <button 
+                                    className={`${styles.jobActionBtn} ${styles.jobDeleteBtn}`}
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        handleDelete(job._id);
+                                    }}
+                                    title="Delete Job"
+                                >
+                                    <i className="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        )}
+                    />
                  ))}
                  
                  {jobs.length === 0 && (

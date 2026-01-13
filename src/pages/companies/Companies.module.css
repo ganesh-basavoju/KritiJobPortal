@@ -138,7 +138,7 @@
 
 .profileHeader {
     position: absolute;
-    bottom: -40px;
+    bottom: 40px;
     left: 40px;
     display: flex;
     align-items: flex-end;

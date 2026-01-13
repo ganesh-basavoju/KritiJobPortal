@@ -6,19 +6,11 @@ import api from '../../utils/api';
 import styles from './JobCard.module.css';
 import { formatDistanceToNow } from 'date-fns';
 
-const JobCard = ({ job, onUnsave, isSaved, onToggleSave }) => {
+const JobCard = ({ job, onUnsave, isSaved, onToggleSave, hidePostedDate, actionSlot }) => {
   const { user } = useContext(AuthContext);
   const { addToast } = useToast();
   const navigate = useNavigate();
 
-  // We can manage 'saved' state locally or via props.
-  // Ideally, parent passes 'isSaved' if we know it.
-  // For 'SavedJobs' page, it is always saved.
-  // For 'Jobs' listing, we need to know.
-  // For Phase 1B, let's assume we handle 'unsave' callback for SavedJobs page,
-  // and for general listing we might just simple-toggle or need to fetch saved list to check status.
-  // To keep it simple: If 'onUnsave' is provided, we assume we are in SavedJobs view and clicking bookmark removes it.
-  
   // MAPPING BACKEND DATA TO UI
   const displayJob = {
       id: job._id || job.id,
@@ -34,6 +26,7 @@ const JobCard = ({ job, onUnsave, isSaved, onToggleSave }) => {
   };
 
   const toggleSave = async (e) => {
+    // ... same toggleSave logic ...
     e.stopPropagation();
     if (!user) {
         addToast('Please login to save jobs', 'info');
@@ -113,9 +106,18 @@ const JobCard = ({ job, onUnsave, isSaved, onToggleSave }) => {
         <div className={styles.salary}>
             {displayJob.salary}
         </div>
-        <div className={styles.posted}>
-            <i className="far fa-clock"></i> {displayJob.postedTime}
-        </div>
+        
+        {actionSlot ? (
+            <div className="prevent-nav">
+                {actionSlot}
+            </div>
+        ) : (
+            !hidePostedDate && (
+                <div className={styles.posted}>
+                    <i className="far fa-clock"></i> {displayJob.postedTime}
+                </div>
+            )
+        )}
       </div>
     </div>
   );

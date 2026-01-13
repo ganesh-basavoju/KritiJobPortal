@@ -22,6 +22,8 @@ import MyApplications from './pages/candidate/MyApplications';
 import SavedJobs from './pages/candidate/SavedJobs';
 import ResumeManager from './pages/candidate/ResumeManager';
 import About from './pages/About';
+import FindTalent from './pages/employer/FindTalent';
+import CandidateDetails from './pages/employer/CandidateDetails';
 
 import AdminAuthGuard from './components/auth/AdminAuthGuard';
 import AdminOverview from './pages/admin/AdminOverview';
@@ -61,6 +63,8 @@ function App() {
                     <Route path="employer/jobs/edit/:id" element={<EditJob />} />
                     <Route path="employer/applicants" element={<ApplicantList />} />
                     <Route path="employer/jobs/:jobId/applicants" element={<ApplicantList />} />
+                    <Route path="employer/find-talent" element={<FindTalent />} />
+                    <Route path="employer/candidate/:id" element={<CandidateDetails />} />
                     
                     {/* Admin Routes */}
                     <Route path="admin" element={<AdminAuthGuard />}>

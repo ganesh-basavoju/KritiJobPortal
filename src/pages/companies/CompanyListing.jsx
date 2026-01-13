@@ -72,7 +72,7 @@ const CompanyListing = () => {
                 <h1 className={styles.pageTitle}>Top Employers</h1>
                 
                 {/* Simple Search Input */}
-                <div style={{marginBottom: '2rem', maxWidth: '400px'}}>
+                <div style={{margin: '0 auto 2rem auto', maxWidth: '400px'}}>
                      <input 
                         type="text"
                         placeholder="Search companies..."

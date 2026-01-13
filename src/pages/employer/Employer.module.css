@@ -497,3 +497,47 @@
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     border-radius: 12px 12px 0 0;
 }
+
+/* --- My Jobs Page Specific Styles --- */
+/* .jobCardWrapper not needed anymore, direct JobCard used */
+
+.jobActionButtons {
+    /* Positioned inside JobCard footer via slot, so standard flex/static */
+    display: flex;
+    gap: 10px;
+    /* Remove absolute positioning to fix alignment issues */
+}
+
+.jobActionBtn {
+    background: #374151;
+    border: 1px solid #4b5563;
+    color: #e5e7eb;
+    width: 32px;
+    /* Slightly smaller to fit footer better if needed */
+    height: 32px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 0.9rem;
+}
+
+.jobActionBtn:hover {
+    background: #d4af37;
+    border-color: #d4af37;
+    color: #1f2937;
+}
+
+.jobDeleteBtn {
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    color: #ef4444;
+}
+
+.jobDeleteBtn:hover {
+    background: #ef4444;
+    border-color: #ef4444;
+    color: #fff;
+}

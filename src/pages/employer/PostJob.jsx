@@ -155,7 +155,6 @@ const PostJob = () => {
 
                 <div className={styles.actions}>
                     {/* Draft functionality not in Phase 2 scope, sticking to Publish */}
-                    <button type="button" className={styles.draftBtn} disabled>Save as Draft</button> 
                     <button type="submit" className={styles.submitBtn} disabled={loading}>
                         {loading ? 'Publishing...' : 'Publish Job'}
                     </button>

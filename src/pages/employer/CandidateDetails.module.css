@@ -1,0 +1,283 @@
+.pageContainer {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    color: white;
+}
+
+.backBtn {
+    background: transparent;
+    border: none;
+    color: #9ca3af;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 2rem;
+    padding: 0;
+    transition: color 0.2s;
+}
+
+.backBtn:hover {
+    color: #fbbf24;
+}
+
+.headerCard {
+    background: #1a1a1a;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+    margin-bottom: 2rem;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.headerBanner {
+    height: 180px;
+    background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+    width: 100%;
+}
+
+.headerContent {
+    padding: 0 40px 40px 40px;
+    margin-top: -60px;
+    display: flex;
+    align-items: flex-end;
+    gap: 30px;
+    position: relative;
+}
+
+.avatar {
+    width: 160px;
+    height: 160px;
+    border-radius: 20px;
+    border: 6px solid #1a1a1a;
+    background: #1f2937;
+    object-fit: cover;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+.headerInfo {
+    flex: 1;
+    padding-bottom: 10px;
+}
+
+.name {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: white;
+    margin: 0 0 8px 0;
+}
+
+.title {
+    font-size: 1.4rem;
+    color: #fbbf24;
+    font-weight: 500;
+    margin: 0 0 16px 0;
+}
+
+.metaTags {
+    display: flex;
+    gap: 20px;
+    color: #9ca3af;
+    font-size: 1rem;
+}
+
+.metaItem {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.metaItem i {
+    color: #fbbf24;
+}
+
+.headerActions {
+    padding-bottom: 20px;
+}
+
+.messageBtn {
+    background: #fbbf24;
+    color: #1a1a1a;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.2s;
+    box-shadow: 0 4px 6px rgba(251, 191, 36, 0.2);
+}
+
+.messageBtn:hover {
+    background: #f59e0b;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(251, 191, 36, 0.3);
+}
+
+/* Content Grid */
+.contentGrid {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: 2rem;
+}
+
+.section {
+    background: #1a1a1a;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.sectionTitle {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: white;
+    margin: 0 0 1.5rem 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sectionTitle i {
+    color: #fbbf24;
+}
+
+.aboutText {
+    color: #d1d5db;
+    line-height: 1.7;
+    font-size: 1rem;
+    white-space: pre-line;
+}
+
+.skillsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skillTag {
+    background: rgba(255, 255, 255, 0.05);
+    color: #fbbf24;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: 1px solid rgba(251, 191, 36, 0.1);
+}
+
+/* Timeline Styles */
+.timelineItem {
+    position: relative;
+    padding-left: 2rem;
+    border-left: 2px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 2rem;
+}
+
+.timelineItem:last-child {
+    padding-bottom: 0;
+}
+
+.timelineDot {
+    position: absolute;
+    left: -9px;
+    top: 0;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #1a1a1a;
+    border: 2px solid #fbbf24;
+}
+
+.timelineTitle {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: white;
+    margin: 0 0 4px 0;
+}
+
+.timelineSubtitle {
+    color: #fbbf24;
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 0 0 8px 0;
+}
+
+.timelineDate {
+    color: #6b7280;
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+}
+
+.timelineDesc {
+    color: #d1d5db;
+    line-height: 1.6;
+}
+
+/* Resume Box */
+.resumeBox {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px dashed rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.2s;
+    text-decoration: none;
+}
+
+.resumeBox:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: #fbbf24;
+}
+
+.resumeInfo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.resumeInfo i {
+    font-size: 2rem;
+    color: #ef4444;
+}
+
+.resumeText div:first-child {
+    font-weight: 600;
+    color: white;
+}
+
+.resumeText div:last-child {
+    color: #9ca3af;
+    font-size: 0.85rem;
+    margin-top: 4px;
+}
+
+@media (max-width: 1024px) {
+    .contentGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .headerContent {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-top: -80px;
+    }
+
+    .headerInfo {
+        padding-bottom: 20px;
+    }
+
+    .metaTags {
+        justify-content: center;
+    }
+}

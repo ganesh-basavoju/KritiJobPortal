@@ -31,9 +31,13 @@ const Navbar = () => {
         </div>
 
         <ul className={`${styles.navLinks} ${isOpen ? styles.active : ''}`}>
-          <li><Link to="/jobs" onClick={toggleMenu}>Find Jobs</Link></li>
-          <li><Link to="/companies" onClick={toggleMenu}>Companies</Link></li>
-          <li><Link to="/about" onClick={toggleMenu}>About</Link></li>
+          {user?.role !== 'employer' && (
+            <>
+              <li><Link to="/jobs" onClick={toggleMenu}>Find Jobs</Link></li>
+              <li><Link to="/companies" onClick={toggleMenu}>Companies</Link></li>
+              <li><Link to="/about" onClick={toggleMenu}>About</Link></li>
+            </>
+          )}
           
           {/* Mobile Only Actions */}
           <div className={styles.navActionsMobile}>
@@ -75,7 +79,7 @@ const Navbar = () => {
                         if (user?.role === 'candidate') {
                             navigate('/dashboard/candidate/profile');
                         } else {
-                            navigate('/dashboard');
+                            navigate('/dashboard/employer/company');
                         }
                       }}
                       style={{cursor: 'pointer'}}

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import styles from './Employer.module.css';
 import ApplicantCard from '../../components/employer/ApplicantCard';
-import ApplicantProfileModal from '../../components/employer/ApplicantProfileModal';
+
 import api from '../../utils/api';
 import { useToast } from '../../context/ToastContext';
 
@@ -12,7 +12,6 @@ const ApplicantList = () => {
     const { addToast } = useToast();
     const [applicants, setApplicants] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [selectedApplicant, setSelectedApplicant] = useState(null);
 
     useEffect(() => {
         const fetchApplicants = async () => {
@@ -27,6 +26,7 @@ const ApplicantList = () => {
                    const mapped = data.data.map(app => ({
                        id: app._id, 
                        applicationId: app._id,
+                       userId: app.candidateId?._id, // User ID for profile lookup
                        jobTitle: app.jobId?.title, 
                        name: app.candidateId?.name || 'Unknown',
                        email: app.candidateId?.email,
@@ -55,6 +55,14 @@ const ApplicantList = () => {
         fetchApplicants();
     }, [jobId]);
 
+    const handleViewProfile = (applicant) => {
+        if (applicant.userId) {
+            navigate(`/dashboard/employer/candidate/${applicant.userId}`);
+        } else {
+            addToast('Candidate profile not found', 'error');
+        }
+    };
+
     if (loading) return <div style={{padding: '2rem', textAlign: 'center'}}>Loading Applicants...</div>;
 
     return (
@@ -70,7 +78,7 @@ const ApplicantList = () => {
                         key={applicant.id} 
                         applicant={applicant} 
                         showJobTitle={!jobId}
-                        onProfileClick={setSelectedApplicant} 
+                        onProfileClick={() => handleViewProfile(applicant)} 
                     />
                 ))}
                 
@@ -80,13 +88,6 @@ const ApplicantList = () => {
                      </div>
                  )}
             </div>
-
-            {selectedApplicant && (
-                <ApplicantProfileModal 
-                    applicant={selectedApplicant} 
-                    onClose={() => setSelectedApplicant(null)} 
-                />
-            )}
         </div>
     );
 };

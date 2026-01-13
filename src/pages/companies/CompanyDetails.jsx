@@ -43,9 +43,7 @@ const CompanyDetails = () => {
 
                 <div className={styles.banner}>
                     {/* If we had a banner field, use it. Currently using CSS/Gradient */}
-                </div>
-                
-                <div className={styles.profileHeader}>
+                    <div className={styles.profileHeader}>
                         <div className={styles.detailLogoWrapper}>
                             <img 
                                 src={company.logoUrl || "https://via.placeholder.com/150?text=Logo"} 
@@ -62,9 +60,10 @@ const CompanyDetails = () => {
                                 )}
                             </div>
                         </div>
+                    </div>
                 </div>
 
-                <div className={styles.headerContent} style={{marginTop: '2rem'}}>
+                <div className={styles.headerContent}>
                     <div className={styles.detailsSection}>
                         <h2 className={styles.sectionTitle}>About Us</h2>
                          <div 
