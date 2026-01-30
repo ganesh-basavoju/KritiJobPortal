@@ -131,7 +131,8 @@
     background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
     border-radius: 16px;
     position: relative;
-    margin-bottom: 60px;
+    margin-top: 30px;
+    margin-bottom: 20px;
     /* Space for logo overlap */
     border: 1px solid #374151;
 }
@@ -178,7 +179,7 @@
 
 /* Fix text below banner */
 .headerContent {
-    margin-top: 50px;
+    margin-top: 30px;
     /* Push down content below overlapping header */
     padding: 0 10px;
 }

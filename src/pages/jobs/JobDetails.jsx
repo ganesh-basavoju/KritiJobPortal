@@ -99,11 +99,19 @@ const JobDetails = () => {
                                 <div className={styles.companyMeta}>
                                     <span>{companyName}</span>
                                     <span>•</span>
-                                    {/* Using createdAt for posted time (simple format) */}
                                     <span>{new Date(job.createdAt).toLocaleDateString()}</span>
                                     <span>•</span>
-                                    {/* Applicants count is not exposed in public API usually, maybe add later if backend supports */}
-                                    <span style={{color: '#4ade80'}}>{job.status}</span>
+                                    {/* Status Badge */}
+                                    <span style={{
+                                        color: job.isExpired || job.status !== 'Open' ? '#ef4444' : '#4ade80',
+                                        fontWeight: 'bold',
+                                        border: `1px solid ${job.isExpired || job.status !== 'Open' ? '#ef4444' : '#4ade80'}`,
+                                        padding: '2px 8px',
+                                        borderRadius: '12px',
+                                        fontSize: '0.8rem'
+                                    }}>
+                                        {job.isExpired ? 'Closed (Expired)' : job.status}
+                                    </span>
                                 </div>
                             </div>
                         </div>
@@ -112,14 +120,15 @@ const JobDetails = () => {
                             <button 
                                 className={styles.applyButton} 
                                 onClick={handleApplyClick}
-                                disabled={hasApplied}
+                                disabled={hasApplied || !job.canApply}
                                 style={{ 
-                                    opacity: hasApplied ? 0.7 : 1, 
-                                    cursor: hasApplied ? 'not-allowed' : 'pointer',
-                                    background: hasApplied ? '#10b981' : undefined
+                                    opacity: (hasApplied || !job.canApply) ? 0.7 : 1, 
+                                    cursor: (hasApplied || !job.canApply) ? 'not-allowed' : 'pointer',
+                                    background: hasApplied ? '#10b981' : (!job.canApply ? '#6b7280' : undefined)
                                 }}
                             >
-                                {hasApplied ? 'Applied' : 'Apply'} <i className={hasApplied ? "fas fa-check" : "fas fa-external-link-alt"} style={{ marginLeft: '8px', fontSize: '0.9em' }}></i>
+                                {hasApplied ? 'Applied' : (!job.canApply ? 'Applications Closed' : 'Apply')} 
+                                <i className={hasApplied ? "fas fa-check" : "fas fa-external-link-alt"} style={{ marginLeft: '8px', fontSize: '0.9em' }}></i>
                             </button>
                             <button className={styles.saveButton}>
                                 <i className="far fa-bookmark"></i>
@@ -148,6 +157,13 @@ const JobDetails = () => {
                             <div className={styles.highlightIcon}><i className="fas fa-bolt"></i></div>
                             <p className={styles.highlightLabel}>Job Type</p>
                             <p className={styles.highlightValue}>{type}</p>
+                        </div>
+                        <div className={styles.highlightCard}>
+                            <div className={styles.highlightIcon}><i className="fas fa-hourglass-end"></i></div>
+                            <p className={styles.highlightLabel}>Deadline</p>
+                            <p className={styles.highlightValue}>
+                                {job.applicationDeadline ? new Date(job.applicationDeadline).toLocaleDateString() : 'No Deadline'}
+                            </p>
                         </div>
                     </div>
 

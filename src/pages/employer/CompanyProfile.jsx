@@ -239,7 +239,7 @@ const CompanyProfile = () => {
             <div className={styles.companyHeaderCard}>
                 <div 
                     className={styles.companyBanner} 
-                    style={{ backgroundImage: `url(${company.banner || 'https://via.placeholder.com/1000x300?text=Company+Banner'})` }}
+                    style={company.banner ? { backgroundImage: `url(${company.banner})` } : {}}
                 >
                 </div>
                 

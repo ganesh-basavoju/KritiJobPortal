@@ -86,7 +86,7 @@ const FindTalent = () => {
     return (
         <div className={styles.container}>
             <div className={styles.header}>
-                <h2 className={styles.pageTitle}>Find Talent</h2>
+                <h1 className="text-gradient" style={{fontSize: '2rem', margin: 0}}>Find Talent</h1>
                 <div className={styles.filterBar}>
                     <input 
                         type="text" 

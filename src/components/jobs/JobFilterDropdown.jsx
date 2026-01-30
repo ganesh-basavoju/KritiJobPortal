@@ -11,15 +11,23 @@ const JobFilterDropdown = ({ options, selected, onChange, title, isOpen, onClose
     option.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+  const handleKeyDown = (e) => {
+      if (e.key === 'Enter' && searchTerm.trim()) {
+          onChange(searchTerm.trim());
+          setSearchTerm(''); // Clear after adding
+      }
+  };
+
   return (
     <div className={styles.dropdown} onClick={(e) => e.stopPropagation()}>
       <div className={styles.searchContainer}>
          <input 
             type="text" 
-            placeholder="Search" 
+            placeholder="Search or type custom..." 
             className={styles.searchInput} 
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
+            onKeyDown={handleKeyDown}
             autoFocus 
          />
       </div>
@@ -37,7 +45,14 @@ const JobFilterDropdown = ({ options, selected, onChange, title, isOpen, onClose
             </label>
             ))
         ) : (
-            <div className={styles.noResults}>No results found</div>
+            <div className={styles.noResults} onClick={() => {
+                if (searchTerm.trim()) {
+                     onChange(searchTerm.trim());
+                     setSearchTerm('');
+                }
+            }}>
+                {searchTerm ? `Add "${searchTerm}"` : 'No results'}
+            </div>
         )}
       </div>
     </div>

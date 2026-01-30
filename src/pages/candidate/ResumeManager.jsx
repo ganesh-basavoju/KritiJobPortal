@@ -69,7 +69,7 @@ const ResumeManager = () => {
 
     return (
         <div style={{ padding: '2rem' }}>
-            <h2 className="text-gradient" style={{ marginBottom: '1.5rem' }}>Resume Manager</h2>
+            <h1 className="text-gradient" style={{fontSize: '2rem', margin: 0, marginBottom: '1.5rem'}}>Resume Manager</h1>
             
             <div className="glass-card" style={{ padding: '2rem', marginBottom: '2rem', textAlign: 'center', border: '2px dashed rgba(255, 255, 255, 0.2)' }}>
                 <i className="fas fa-cloud-upload-alt" style={{ fontSize: '3rem', color: 'var(--color-accent)', marginBottom: '1rem' }}></i>

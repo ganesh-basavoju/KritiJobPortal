@@ -1,16 +1,26 @@
 import React, { useState } from 'react';
 import styles from '../../pages/employer/Employer.module.css';
+import api from '../../utils/api';
+import { useToast } from '../../context/ToastContext';
 
-const ApplicantCard = ({ applicant, onProfileClick, showJobTitle }) => {
+const ApplicantCard = ({ applicant, onProfileClick, showJobTitle, onMessageClick }) => {
+    const { addToast } = useToast();
     const [status, setStatus] = useState(applicant.status || 'Applied');
 
-    const handleStatusChange = (e) => {
-        setStatus(e.target.value);
-        // Note: Actual API call is handled in Modal for now, or we can add it here.
-        // For uniformity with Modal, let's keep it visual-only here or implement API.
-        // User requirements say "ApplicantProfileModal updated to ... provide status updates".
-        // This card dropdown seems to be a quick-access. I will leave it visual-only for now or log it.
-        console.log(`Updated status for ${applicant.name} to ${e.target.value}`);
+    const handleStatusChange = async (e) => {
+        const newStatus = e.target.value;
+        const previousStatus = status;
+        
+        setStatus(newStatus);
+        
+        try {
+            await api.put(`/applications/${applicant.applicationId}/status`, { status: newStatus });
+            addToast(`Status updated to ${newStatus}`, 'success');
+        } catch (err) {
+            console.error(err);
+            addToast('Failed to update status', 'error');
+            setStatus(previousStatus); // Revert
+        }
     };
 
     return (
@@ -49,7 +59,11 @@ const ApplicantCard = ({ applicant, onProfileClick, showJobTitle }) => {
                 >
                     Profile
                 </button>
-                <button className={`btn-primary ${styles.primaryBtn}`} style={{borderRadius:'8px', cursor:'pointer', border:'none', fontWeight:'600'}}>
+                <button 
+                    className={`btn-primary ${styles.primaryBtn}`} 
+                    style={{borderRadius:'8px', cursor:'pointer', border:'none', fontWeight:'600'}}
+                    onClick={onMessageClick}
+                >
                     Message
                 </button>
             </div>

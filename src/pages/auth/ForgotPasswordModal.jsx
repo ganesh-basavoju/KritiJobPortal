@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import styles from './Auth.module.css'; // Reusing Auth styles or create specific
 import Input from '../../components/ui/Input';
 import Button from '../../components/ui/Button';
+import api from '../../utils/api';
+import { useToast } from '../../context/ToastContext';
 
 const ForgotPasswordModal = ({ onClose }) => {
     const [step, setStep] = useState(1);
@@ -9,24 +11,60 @@ const ForgotPasswordModal = ({ onClose }) => {
     const [otp, setOtp] = useState('');
     const [newPassword, setNewPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    const [loading, setLoading] = useState(false);
+    
+    const { addToast } = useToast();
 
-    const handleSendOtp = (e) => {
+    const handleSendOtp = async (e) => {
         e.preventDefault();
-        // Mock API call
-        setTimeout(() => setStep(2), 1000);
+        setLoading(true);
+        try {
+            const { data } = await api.post('/auth/forgot-password', { email });
+            if (data.success) {
+                addToast('OTP sent successfully to your email!', 'success');
+                // For dev convenience (if present in response)
+                if (data.otp) {
+                    console.log('OTP:', data.otp);
+                }
+                setStep(2);
+            }
+        } catch (error) {
+            addToast(error.response?.data?.message || 'Failed to send OTP', 'error');
+        } finally {
+            setLoading(false);
+        }
     };
 
     const handleVerifyOtp = (e) => {
         e.preventDefault();
-        // Mock Verify
-        setTimeout(() => setStep(3), 1000);
+        // Just move to next step for UI, actual verification happens at reset or can verify here if needed.
+        // But backend reset-password takes OTP. So we just collect it here.
+        if (otp.length < 6) {
+            addToast('Please enter a valid 6-digit OTP', 'error');
+            return;
+        }
+        setStep(3);
     };
 
-    const handleResetPassword = (e) => {
+    const handleResetPassword = async (e) => {
         e.preventDefault();
-        // Mock Reset
-        alert('Password Reset Success!');
-        onClose();
+        if (newPassword !== confirmPassword) {
+            addToast('Passwords do not match', 'error');
+            return;
+        }
+        
+        setLoading(true);
+        try {
+            const { data } = await api.post('/auth/reset-password', { email, otp, password: newPassword });
+            if (data.success) {
+                addToast('Password reset successfully! Please login.', 'success');
+                onClose();
+            }
+        } catch (error) {
+           addToast(error.response?.data?.message || 'Failed to reset password', 'error');
+        } finally {
+            setLoading(false);
+        }
     };
 
     return (
@@ -50,7 +88,9 @@ const ForgotPasswordModal = ({ onClose }) => {
                             onChange={(e) => setEmail(e.target.value)} 
                             required 
                         />
-                        <Button type="submit" variant="primary" style={{width: '100%'}}>Send OTP</Button>
+                        <Button type="submit" variant="primary" style={{width: '100%'}} disabled={loading}>
+                            {loading ? 'Sending...' : 'Send OTP'}
+                        </Button>
                     </form>
                 )}
 
@@ -89,7 +129,9 @@ const ForgotPasswordModal = ({ onClose }) => {
                             onChange={(e) => setConfirmPassword(e.target.value)} 
                             required 
                         />
-                        <Button type="submit" variant="primary" style={{width: '100%'}}>Reset Password</Button>
+                        <Button type="submit" variant="primary" style={{width: '100%'}} disabled={loading}>
+                             {loading ? 'Resetting...' : 'Reset Password'}
+                        </Button>
                     </form>
                 )}
             </div>

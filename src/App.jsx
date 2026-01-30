@@ -24,6 +24,7 @@ import ResumeManager from './pages/candidate/ResumeManager';
 import About from './pages/About';
 import FindTalent from './pages/employer/FindTalent';
 import CandidateDetails from './pages/employer/CandidateDetails';
+import NotFound from './pages/NotFound';
 
 import AdminAuthGuard from './components/auth/AdminAuthGuard';
 import AdminOverview from './pages/admin/AdminOverview';
@@ -84,7 +85,10 @@ function App() {
                     
                     <Route index element={<div className="container" style={{paddingTop: '30px', color: 'white', textAlign: 'center'}}><h2>Welcome to your Dashboard</h2><p style={{color: '#aaa'}}>Select an option from the sidebar to get started.</p></div>} />
                  </Route>
-               </Routes>
+       
+
+          <Route path="*" element={<NotFound />} />
+        </Routes>
             </div>
           </Router>
         </SocketProvider>

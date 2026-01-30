@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import styles from './Employer.module.css';
 import ApplicantCard from '../../components/employer/ApplicantCard';
+import MessageModal from '../../components/common/MessageModal';
+
 
 import api from '../../utils/api';
 import { useToast } from '../../context/ToastContext';
@@ -10,24 +12,32 @@ const ApplicantList = () => {
     const { jobId } = useParams();
     const navigate = useNavigate();
     const { addToast } = useToast();
+
+
+
     const [applicants, setApplicants] = useState([]);
     const [loading, setLoading] = useState(true);
+    
+    // Message Logic
+    const [selectedApplicant, setSelectedApplicant] = useState(null);
+    const [showModal, setShowModal] = useState(false);
 
     useEffect(() => {
         const fetchApplicants = async () => {
             try {
-                let endpoint = jobId 
+                const endpoint = jobId 
                     ? `/applications/job/${jobId}`
                     : `/applications/employer/all`;
 
+                console.log('Fetching from:', endpoint);
                 const { data } = await api.get(endpoint);
                 
                 if (data.success) {
                    const mapped = data.data.map(app => ({
                        id: app._id, 
                        applicationId: app._id,
-                       userId: app.candidateId?._id, // User ID for profile lookup
-                       jobTitle: app.jobId?.title, 
+                       userId: app.candidateId?._id,
+                       jobTitle: app.jobId?.title || 'Unknown Job', 
                        name: app.candidateId?.name || 'Unknown',
                        email: app.candidateId?.email,
                        avatar: app.candidateId?.avatarUrl,
@@ -36,7 +46,6 @@ const ApplicantList = () => {
                        title: 'Candidate', 
                        skills: [], 
                        resumeLink: app.resumeUrl,
-                       // Mock data for card display to prevent crashes
                        company: '',
                        bio: '',
                        location: '',
@@ -44,10 +53,10 @@ const ApplicantList = () => {
                    }));
                    setApplicants(mapped);
                 }
-                setLoading(false);
             } catch (err) {
                 console.error(err);
                 addToast('Failed to load applicants', 'error');
+            } finally {
                 setLoading(false);
             }
         };
@@ -63,12 +72,33 @@ const ApplicantList = () => {
         }
     };
 
+    const handleMessageClick = (applicant) => {
+        setSelectedApplicant(applicant);
+        setShowModal(true);
+    };
+
+    const handleSendMessage = async (message) => {
+        try {
+            await api.post('/applications/message', {
+                applicationId: selectedApplicant.applicationId,
+                message,
+                subject: `Message regarding ${selectedApplicant.jobTitle}`
+            });
+            addToast('Email sent successfully!', 'success');
+            setShowModal(false);
+            setSelectedApplicant(null);
+        } catch (err) {
+            console.error(err);
+            addToast('Failed to send message', 'error');
+        }
+    };
+
     if (loading) return <div style={{padding: '2rem', textAlign: 'center'}}>Loading Applicants...</div>;
 
     return (
         <div className={styles.pageContainer}>
             <div className={styles.headerRow}>
-                <h2 className="text-gradient" style={{fontSize: '2rem', margin: 0}}>{jobId ? 'Job Applicants' : 'All Applicants'}</h2>
+                <h1 className="text-gradient" style={{fontSize: '2rem', margin: 0}}>{jobId ? 'Job Applicants' : 'All Applicants'}</h1>
                 <div style={{color: '#888', fontSize: '0.9rem'}}>{jobId && `Job ID: ${jobId}`}</div>
             </div>
 
@@ -78,7 +108,8 @@ const ApplicantList = () => {
                         key={applicant.id} 
                         applicant={applicant} 
                         showJobTitle={!jobId}
-                        onProfileClick={() => handleViewProfile(applicant)} 
+                        onProfileClick={() => handleViewProfile(applicant)}
+                        onMessageClick={() => handleMessageClick(applicant)}
                     />
                 ))}
                 
@@ -88,6 +119,14 @@ const ApplicantList = () => {
                      </div>
                  )}
             </div>
+
+            <MessageModal 
+                isOpen={showModal}
+                onClose={() => setShowModal(false)}
+                onSend={handleSendMessage}
+                recipientName={selectedApplicant?.name}
+                jobTitle={selectedApplicant?.jobTitle}
+            />
         </div>
     );
 };

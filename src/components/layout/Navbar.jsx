@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import styles from './Navbar.module.css';
 import Button from '../ui/Button';
 import { AuthContext } from '../../context/AuthContext';
+import NotificationDropdown from '../common/NotificationDropdown';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -68,17 +69,17 @@ const Navbar = () => {
         <div className={styles.navActions}>
           {token ? (
               <div className={styles.userControls}>
-                  <div className={styles.iconWrapper}>
-                    <i className="fas fa-bell"></i>
-                    <span className={styles.notificationDot}></span>
-                  </div>
+                  <NotificationDropdown />
                   
                   <div 
                       className={styles.userProfile} 
                       onClick={() => {
+
                         if (user?.role === 'candidate') {
                             navigate('/dashboard/candidate/profile');
-                        } else {
+                        } else if(user?.role === 'admin') {
+                            navigate('/dashboard/admin/overview');
+                        }else {
                             navigate('/dashboard/employer/company');
                         }
                       }}

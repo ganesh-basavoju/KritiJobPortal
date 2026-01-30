@@ -8,45 +8,53 @@ const Footer = () => {
                 <div className={styles.grid}>
                     <div className={styles.companyInfo}>
                         <h2 className="text-gradient">KritiJob</h2>
-                        <p>Job portal with user profiles, skill updates, certifications, work experience and admin job postings.</p>
+                        <p>Your gateway to premium career opportunities. Connect with top employers and showcase your professional journey with confidence.</p>
                         <div className={styles.socials}>
-                            <a href="#"><i className="fab fa-instagram"></i></a>
-                            <a href="#"><i className="fab fa-telegram-plane"></i></a>
-                            <a href="#"><i className="fab fa-youtube"></i></a>
+                            <a href="#" aria-label="Instagram"><i className="fab fa-instagram"></i></a>
+                            <a href="#" aria-label="LinkedIn"><i className="fab fa-linkedin-in"></i></a>
+                            <a href="#" aria-label="Twitter"><i className="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="YouTube"><i className="fab fa-youtube"></i></a>
                         </div>
                     </div>
 
                     <div className={styles.column}>
-                        <h3>Product</h3>
+                        <h3>For Candidates</h3>
                         <ul>
-                            <li><a href="#">Find Job</a></li>
-                            <li><a href="#">Find Company</a></li>
-                            <li><a href="#">Find Employee</a></li>
+                            <li><a href="/jobs">Browse Jobs</a></li>
+                            <li><a href="/companies">Top Companies</a></li>
+                            <li><a href="#">Career Advice</a></li>
+                            <li><a href="#">Salary Guide</a></li>
                         </ul>
                     </div>
 
                     <div className={styles.column}>
-                        <h3>Company</h3>
+                        <h3>For Employers</h3>
                         <ul>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Contact Us</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Terms & Conditions</a></li>
+                            <li><a href="#">Post a Job</a></li>
+                            <li><a href="#">Talent Solutions</a></li>
+                            <li><a href="#">Pricing Plans</a></li>
+                            <li><a href="#">Success Stories</a></li>
                         </ul>
                     </div>
 
                     <div className={styles.column}>
                         <h3>Support</h3>
                         <ul>
-                            <li><a href="#">Help & Support</a></li>
-                            <li><a href="#">Feedback</a></li>
-                            <li><a href="#">FAQs</a></li>
+                            <li><a href="#">Help Center</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
                         </ul>
                     </div>
                 </div>
                 
                 <div className={styles.bottomBar}>
-                    <p>Designed & Developed By <span className={styles.credit}>OnlyUsMedia</span></p>
+                    <p>&copy; {new Date().getFullYear()} KritiJob. Designed & Developed By <span className={styles.credit}><a href="https://www.onlyusmedia.in" target="_blank" rel="noopener noreferrer">OnlyUsMedia</a></span></p>
+                    <div className={styles.legalLinks}>
+                        <a href="#">Privacy</a>
+                        <a href="#">Terms</a>
+                        <a href="#">Sitemap</a>
+                    </div>
                 </div>
             </div>
         </footer>

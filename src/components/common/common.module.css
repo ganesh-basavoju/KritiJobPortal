@@ -1,0 +1,162 @@
+.notificationContainer {
+    position: relative;
+    display: inline-block;
+}
+
+.iconBtn {
+    background: transparent;
+    border: none;
+    color: #9ca3af;
+    font-size: 1.2rem;
+    cursor: pointer;
+    position: relative;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.2s;
+}
+
+.iconBtn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #f3f4f6;
+}
+
+.notificationDot {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: #ef4444;
+    color: white;
+    border: 2px solid #111827;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+}
+
+.dropdown {
+    position: absolute;
+    right: 0;
+    top: 50px;
+    width: 320px;
+    background: #1f2937;
+    border: 1px solid #374151;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    overflow: hidden;
+    animation: fadeIn 0.2s ease-out;
+}
+
+.dropdownHeader {
+    padding: 15px;
+    border-bottom: 1px solid #374151;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dropdownHeader h4 {
+    margin: 0;
+    color: #f3f4f6;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.unreadCount {
+    background-color: #374151;
+    color: #9ca3af;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 0.75rem;
+}
+
+.notificationList {
+    max-height: 350px;
+    overflow-y: auto;
+}
+
+.emptyState {
+    padding: 30px 20px;
+    text-align: center;
+    color: #9ca3af;
+    font-size: 0.9rem;
+}
+
+.notificationItem {
+    padding: 12px 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    cursor: pointer;
+    transition: background 0.2s;
+    display: block;
+    text-align: left;
+    width: 100%;
+}
+
+.notificationItem:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.unread {
+    background-color: rgba(251, 191, 36, 0.05);
+    border-left: 3px solid #fbbf24;
+}
+
+.itemHeader {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.itemTitle {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #f3f4f6;
+}
+
+.itemTime {
+    font-size: 0.75rem;
+    color: #6b7280;
+}
+
+.itemMessage {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #9ca3af;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.dropdownFooter {
+    padding: 10px;
+    border-top: 1px solid #374151;
+    text-align: center;
+    background-color: #1f2937;
+}
+
+.viewAllBtn {
+    background: none;
+    border: none;
+    color: #60a5fa;
+    font-size: 0.85rem;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.viewAllBtn:hover {
+    text-decoration: underline;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

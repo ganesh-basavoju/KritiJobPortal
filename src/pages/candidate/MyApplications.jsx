@@ -53,7 +53,7 @@ const MyApplications = () => {
 
     return (
         <div style={{ padding: '2rem' }}>
-            <h2 className="text-gradient" style={{ marginBottom: '1.5rem' }}>My Applications</h2>
+            <h1 className="text-gradient" style={{fontSize: '2rem', margin: 0, marginBottom: '1.5rem'}}>My Applications</h1>
 
             <div className="glass-card" style={{ padding: '0' }}>
                 <table style={{ width: '100%', borderCollapse: 'collapse' }}>

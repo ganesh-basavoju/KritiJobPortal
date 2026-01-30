@@ -23,7 +23,8 @@ const EditJob = () => {
         salaryRange: '', 
         skillsRequired: [],
         description: '',
-        status: 'Open'
+        status: 'Open',
+        applicationDeadline: ''
     });
 
     useEffect(() => {
@@ -40,7 +41,8 @@ const EditJob = () => {
                         salaryRange: job.salaryRange || '',
                         skillsRequired: job.skillsRequired || [],
                         description: job.description || '',
-                        status: job.status || 'Open'
+                        status: job.status || 'Open',
+                        applicationDeadline: job.applicationDeadline ? job.applicationDeadline.split('T')[0] : ''
                     });
                     setLoading(false);
                 }
@@ -95,12 +97,10 @@ const EditJob = () => {
         }
     };
 
-    if (loading) return <div className="focused-container" style={{textAlign:'center', padding:'50px'}}>Loading job details...</div>;
-
     return (
         <div className={styles.pageContainer}>
             <div className={styles.header}>
-                <h1>Edit Job</h1>
+                <h1 className="text-gradient" style={{fontSize: '2rem', margin: 0}}>Edit Job</h1>
             </div>
 
             <form className={styles.formGrid} onSubmit={handleSubmit}>
@@ -112,6 +112,26 @@ const EditJob = () => {
                     onChange={handleChange} 
                     required
                 />
+                 
+                <div style={{display:'flex', flexDirection:'column', gap:'0.5rem'}}>
+                    <label style={{fontSize:'0.9rem', color:'#d1d5db', fontWeight:'500'}}>Application Deadline</label>
+                    <input 
+                        type="date"
+                        name="applicationDeadline"
+                        value={jobData.applicationDeadline}
+                        onChange={handleChange}
+                        min={new Date().toISOString().split('T')[0]}
+                        required
+                        style={{
+                            padding: '10px',
+                            background: 'rgba(255, 255, 255, 0.05)',
+                            border: '1px solid rgba(255, 255, 255, 0.1)',
+                            borderRadius: '8px',
+                            color: 'white',
+                            outline: 'none'
+                        }}
+                    />
+                </div>
                 
                 {/* Row 2 */}
                 <Select 

@@ -27,11 +27,11 @@
 /* ... Banner and Header Styles from previous step ... */
 .companyBanner {
     height: 200px;
-    background-size: cover;
-    background-position: center;
+    background: url('/images/profile-banner.png') center/cover no-repeat;
     width: 100%;
     position: relative;
     background-color: #333;
+    /* Fallback */
 }
 
 .bannerEditBtn {

@@ -30,7 +30,7 @@ const Login = () => {
             } else if (data.role === 'candidate') {
                 navigate('/dashboard/candidate/profile');
             } else {
-                navigate('/dashboard');
+                navigate('/dashboard/admin/overview');
             }
         } catch (err) {
             console.error(err);

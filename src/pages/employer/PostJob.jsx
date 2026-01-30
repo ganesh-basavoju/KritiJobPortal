@@ -15,12 +15,13 @@ const PostJob = () => {
 
     const [jobData, setJobData] = useState({
         title: '',
-        experienceLevel: '', // Updated name to match DB Schema: experienceLevel
-        type: '', // Matches DB: type
+        experienceLevel: '', 
+        type: '', 
         location: '', 
-        salaryRange: '', // Updated name to match DB Schema
-        skillsRequired: [], // Updated name to match DB Schema
-        description: '' 
+        salaryRange: '', 
+        skillsRequired: [], 
+        description: '',
+        applicationDeadline: '' 
     });
 
     const handleChange = (e) => {
@@ -57,7 +58,8 @@ const PostJob = () => {
                 salaryRange: jobData.salaryRange,
                 experienceLevel: jobData.experienceLevel,
                 skillsRequired: jobData.skillsRequired,
-                status: 'Open' // Default status
+                applicationDeadline: jobData.applicationDeadline, // Send Deadline
+                status: 'Open' 
             });
 
             addToast('Job posted successfully!', 'success');
@@ -79,7 +81,7 @@ const PostJob = () => {
     return (
         <div className={styles.pageContainer}>
             <div className={styles.header}>
-                <h1>Post a Job</h1>
+                <h1 className="text-gradient" style={{fontSize: '2rem', margin: 0}}>Post a Job</h1>
             </div>
 
             <form className={styles.formGrid} onSubmit={handleSubmit}>
@@ -93,8 +95,26 @@ const PostJob = () => {
                     required
                 />
                 
-                {/* Company Name is inferred from Backend logic for Employer */}
-                
+                <div style={{display:'flex', flexDirection:'column', gap:'0.5rem'}}>
+                    <label style={{fontSize:'0.9rem', color:'#d1d5db', fontWeight:'500'}}>Application Deadline</label>
+                    <input 
+                        type="date"
+                        name="applicationDeadline"
+                        value={jobData.applicationDeadline}
+                        onChange={handleChange}
+                        min={new Date().toISOString().split('T')[0]}
+                        required
+                        style={{
+                            padding: '10px',
+                            background: 'rgba(255, 255, 255, 0.05)',
+                            border: '1px solid rgba(255, 255, 255, 0.1)',
+                            borderRadius: '8px',
+                            color: 'white',
+                            outline: 'none'
+                        }}
+                    />
+                </div>
+
                 {/* Row 2 */}
                 <Select 
                     label="Experience"
