@@ -19,6 +19,7 @@ const JobDetails = () => {
     const [loading, setLoading] = useState(true);
     const [showModal, setShowModal] = useState(false);
     const [hasApplied, setHasApplied] = useState(false);
+    const [candidateStatus, setCandidateStatus] = useState(null);
 
     useEffect(() => {
         const fetchJobAndStatus = async () => {
@@ -29,12 +30,19 @@ const JobDetails = () => {
                     setJob(data.data);
                 }
                 
-                // 2. Check if applied (only if candidate)
+                // 2. Check if applied and limits (only if candidate)
                 if (user && user.role === 'candidate') {
-                    const appRes = await api.get('/applications/my-applications');
+                    const [appRes, subRes] = await Promise.all([
+                        api.get('/applications/my-applications'),
+                        api.get('/subscriptions/status')
+                    ]);
+                    
                     if (appRes.data.success) {
                         const isApplied = appRes.data.data.some(app => app.jobId._id === id || app.jobId === id);
                         setHasApplied(isApplied);
+                    }
+                    if (subRes.data.success) {
+                        setCandidateStatus(subRes.data.data);
                     }
                 }
                 
@@ -59,6 +67,14 @@ const JobDetails = () => {
             addToast('Only candidates can apply to jobs', 'warning');
             return;
         }
+
+        // Limit Check
+        if (candidateStatus && !candidateStatus.isPremium && candidateStatus.currentMonthApplications >= candidateStatus.applicationLimit) {
+            addToast('You have reached your monthly application limit. Upgrade to Premium for unlimited applications!', 'error');
+            navigate('/dashboard/candidate/subscription');
+            return;
+        }
+
         setShowModal(true);
     };
 

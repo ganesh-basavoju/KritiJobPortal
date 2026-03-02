@@ -48,6 +48,16 @@ const CandidateProfile = () => {
                         avatarUrl: profile.avatarUrl || ''
                     });
                     if (profile.avatarUrl) setAvatarPreview(profile.avatarUrl);
+                    
+                    // Fetch subscription status alongside profile
+                    try {
+                        const subRes = await api.get('/subscriptions/status');
+                        if (subRes.data.success) {
+                            setFormData(prev => ({ ...prev, isPremium: subRes.data.data.isPremium }));
+                        }
+                    } catch (subErr) {
+                        console.error('Error fetching sub status', subErr);
+                    }
                 }
                 setLoading(false);
             } catch (err) {
@@ -168,6 +178,20 @@ const CandidateProfile = () => {
                         <div className={styles.nameRow}>
                              {/* Name is usually managed in Account Settings, but display here */}
                              <h1>{formData.name}</h1>
+                             {formData.isPremium && (
+                                 <span style={{
+                                     backgroundColor: 'var(--color-primary)',
+                                     color: 'white',
+                                     padding: '4px 10px',
+                                     borderRadius: '12px',
+                                     fontSize: '0.8rem',
+                                     fontWeight: 'bold',
+                                     marginLeft: '10px',
+                                     textTransform: 'uppercase'
+                                 }}>
+                                     ★ Premium
+                                 </span>
+                             )}
                         </div>
 
                         <div className={styles.titleLocation}>

@@ -21,6 +21,7 @@ import CandidateProfile from './pages/candidate/CandidateProfile';
 import MyApplications from './pages/candidate/MyApplications';
 import SavedJobs from './pages/candidate/SavedJobs';
 import ResumeManager from './pages/candidate/ResumeManager';
+import Subscription from './pages/candidate/Subscription';
 import About from './pages/About';
 import FindTalent from './pages/employer/FindTalent';
 import CandidateDetails from './pages/employer/CandidateDetails';
@@ -82,6 +83,7 @@ function App() {
                     <Route path="candidate/savedjobs" element={<SavedJobs />} />
                     <Route path="candidate/applications" element={<MyApplications />} />
                     <Route path="candidate/resume" element={<ResumeManager />} />
+                    <Route path="candidate/subscription" element={<Subscription />} />
                     
                     <Route index element={<div className="container" style={{paddingTop: '30px', color: 'white', textAlign: 'center'}}><h2>Welcome to your Dashboard</h2><p style={{color: '#aaa'}}>Select an option from the sidebar to get started.</p></div>} />
                  </Route>

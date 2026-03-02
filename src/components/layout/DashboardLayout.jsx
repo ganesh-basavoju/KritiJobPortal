@@ -30,6 +30,7 @@ const DashboardLayout = () => {
         { path: '/dashboard/candidate/applications', label: 'My Applications', icon: 'fa-file-alt' },
         { path: '/dashboard/candidate/resume', label: 'Resume', icon: 'fa-file-upload' },
         { path: '/dashboard/candidate/savedjobs', label: 'Saved Jobs', icon: 'fa-bookmark' },
+        { path: '/dashboard/candidate/subscription', label: 'Premium Plans', icon: 'fa-star' },
         // { path: '/dashboard/candidate/profile', label: 'Profile Settings', icon: 'fa-cog' },
     ];
 
