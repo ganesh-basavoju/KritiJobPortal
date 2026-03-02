@@ -58,7 +58,7 @@ const Navbar = () => {
                         <Button variant="outline" className={styles.loginBtn}>Login</Button>
                     </Link>
                     <Link to="/signup" onClick={toggleMenu}>
-                        <Button variant="primary">Register</Button>
+                        <Button variant="cta">Register</Button>
                     </Link>
                   </>
               )}
@@ -97,7 +97,7 @@ const Navbar = () => {
                     <Button variant="outline" className={styles.loginBtn}>Login</Button>
                   </Link>
                   <Link to="/signup">
-                    <Button variant="primary">Register</Button>
+                    <Button variant="cta">Register</Button>
                   </Link>
               </>
           )}

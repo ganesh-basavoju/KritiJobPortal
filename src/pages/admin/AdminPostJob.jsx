@@ -9,7 +9,7 @@ const AdminPostJob = () => {
                 <h1 className={styles.pageTitle}>Post Job (Admin Mode)</h1>
             </div>
             {/* We will wrap or adapt PostJob to allow Company Selection */}
-            <div style={{background: '#1a1a1a', borderRadius: '16px', padding: '20px'}}>
+            <div className={styles.card}>
                 <PostJob isAdmin={true} /> 
             </div>
         </div>

@@ -82,9 +82,11 @@ const CompanyListing = () => {
                             width: '100%',
                             padding: '12px 16px',
                             borderRadius: '8px',
-                            border: '1px solid rgba(255,255,255,0.1)',
-                            background: 'rgba(255,255,255,0.05)',
-                            color: 'white'
+                            border: '1px solid var(--color-border)',
+                            background: '#ffffff',
+                            color: 'var(--color-text-main)',
+                            outline: 'none',
+                            boxShadow: 'var(--shadow-sm)'
                         }}
                      />
                 </div>

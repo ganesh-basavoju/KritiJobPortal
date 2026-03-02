@@ -1,6 +1,6 @@
 .section {
     padding: 6rem 0;
-    background: var(--color-primary);
+    background: var(--color-surface-muted);
     position: relative;
     width: 100%;
 }
@@ -24,18 +24,18 @@
 
 .card {
     padding: 2rem;
-    border: 1px solid rgba(255, 215, 0, 0.3);
-    /* Gold border as requested */
+    border: 1px solid var(--color-border);
     border-radius: 12px;
-    background: rgba(255, 255, 255, 0.03);
+    background: #ffffff;
     transition: all 0.3s ease;
     height: 100%;
+    box-shadow: var(--shadow-sm);
 }
 
 .card:hover {
     transform: translateY(-5px);
-    border-color: var(--color-accent);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-lg);
 }
 
 .userInfo {
@@ -50,7 +50,7 @@
     height: 60px;
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid var(--color-accent);
+    border: 2px solid var(--color-primary);
 }
 
 .userInfo h4 {
@@ -66,11 +66,11 @@
 }
 
 .filled {
-    color: var(--color-accent);
+    color: #f59e0b;
 }
 
 .empty {
-    color: #444;
+    color: var(--color-border);
 }
 
 .reviewText {

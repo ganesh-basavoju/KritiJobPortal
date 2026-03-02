@@ -212,9 +212,9 @@ const FindTalent = () => {
                                     className={styles.modalAvatar}
                                 />
                                 <div className={styles.modalTitleInfo}>
-                                    <h2 style={{fontSize: '1.8rem', fontWeight: 'bold', margin: '0 0 5px 0', color: 'white'}}>{selectedCandidate.user.name}</h2>
-                                    <p style={{fontSize: '1.2rem', color: '#fbbf24', fontWeight: '500'}}>{selectedCandidate.title || 'Candidate'}</p>
-                                    <div style={{display: 'flex', alignItems: 'center', marginTop: '10px', color: '#9ca3af', fontSize: '0.9rem'}}>
+                                    <h2 style={{fontSize: '1.8rem', fontWeight: 'bold', margin: '0 0 5px 0', color: 'var(--color-text-main)'}}>{selectedCandidate.user.name}</h2>
+                                    <p style={{fontSize: '1.2rem', color: 'var(--color-text-muted)', fontWeight: '500'}}>{selectedCandidate.title || 'Candidate'}</p>
+                                    <div style={{display: 'flex', alignItems: 'center', marginTop: '10px', color: 'var(--color-text-muted)', fontSize: '0.9rem'}}>
                                         <i className="fas fa-map-marker-alt" style={{marginRight: '8px'}}></i> {selectedCandidate.location || 'Location not specified'}
                                         <span style={{margin: '0 12px'}}>•</span>
                                         <i className="fas fa-envelope" style={{marginRight: '8px'}}></i> {selectedCandidate.user.email}
@@ -225,7 +225,7 @@ const FindTalent = () => {
                                         variant="primary" 
                                         size="lg"
                                         onClick={() => handleMessage(selectedCandidate.user._id)} // Pass UserID
-                                        style={{background: '#fbbf24', color: '#1a1a1a', border: 'none'}}
+                                        style={{background: 'var(--color-primary)', color: 'white', border: 'none'}}
                                     >
                                         <i className="fas fa-paper-plane" style={{marginRight: '8px'}}></i> Send Message
                                     </Button>
@@ -237,7 +237,7 @@ const FindTalent = () => {
                                 <div className={styles.modalLeftCol}>
                                     <div className={styles.infoCard}>
                                         <h4 className={styles.cardTitle}><i className="fas fa-user-circle"></i> About</h4>
-                                        <p style={{color: '#d1d5db', lineHeight: '1.6', whiteSpace: 'pre-line'}}>
+                                        <p style={{color: 'var(--color-text-main)', lineHeight: '1.6', whiteSpace: 'pre-line'}}>
                                             {selectedCandidate.about || "This candidate hasn't added a bio yet."}
                                         </p>
                                     </div>
@@ -248,7 +248,7 @@ const FindTalent = () => {
                                             {selectedCandidate.skills?.length > 0 ? selectedCandidate.skills.map((skill, i) => (
                                                 <span key={i} className={styles.skillChip}>{skill}</span>
                                             )) : (
-                                                <span style={{color: '#6b7280', fontStyle: 'italic'}}>No skills listed</span>
+                                                <span style={{color: 'var(--color-text-muted)', fontStyle: 'italic'}}>No skills listed</span>
                                             )}
                                         </div>
                                     </div>
@@ -265,14 +265,14 @@ const FindTalent = () => {
                                                 <div style={{display: 'flex', alignItems: 'center'}}>
                                                     <i className="fas fa-file-pdf" style={{color: '#ef4444', fontSize: '1.5rem', marginRight: '12px'}}></i>
                                                     <div>
-                                                        <span style={{fontWeight: '600', color: 'white', display: 'block'}}>Review Resume</span>
-                                                        <p style={{fontSize: '0.8rem', color: '#9ca3af', margin: 0}}>Click to view/download PDF</p>
+                                                        <span style={{fontWeight: '600', color: 'var(--color-text-main)', display: 'block'}}>Review Resume</span>
+                                                        <p style={{fontSize: '0.8rem', color: 'var(--color-text-muted)', margin: 0}}>Click to view/download PDF</p>
                                                     </div>
                                                 </div>
-                                                <i className="fas fa-external-link-alt" style={{color: '#9ca3af'}}></i>
+                                                <i className="fas fa-external-link-alt" style={{color: 'var(--color-text-muted)'}}></i>
                                             </a>
                                          ) : (
-                                             <div style={{padding: '1rem', background: 'rgba(255,255,255,0.05)', borderRadius: '8px', textAlign: 'center', color: '#6b7280'}}>
+                                             <div style={{padding: '1rem', background: 'var(--color-surface-muted)', borderRadius: '8px', textAlign: 'center', color: 'var(--color-text-muted)'}}>
                                                  No resume uploaded
                                              </div>
                                          )}
@@ -286,18 +286,18 @@ const FindTalent = () => {
                                         <div style={{display: 'flex', flexDirection: 'column', gap: '1.5rem'}}>
                                             {selectedCandidate.experience && selectedCandidate.experience.length > 0 ? (
                                                 selectedCandidate.experience.map((exp, i) => (
-                                                    <div key={i} style={{position: 'relative', paddingLeft: '1.5rem', borderLeft: '2px solid rgba(255,255,255,0.1)', paddingBottom: '0.5rem'}}>
-                                                        <div style={{position: 'absolute', left: '-9px', top: '0', width: '16px', height: '16px', borderRadius: '50%', background: '#1f2937', border: '2px solid #fbbf24'}}></div>
-                                                        <h5 style={{fontWeight: 'bold', fontSize: '1.1rem', color: 'white', margin: 0}}>{exp.jobTitle}</h5>
-                                                        <p style={{color: '#fbbf24', fontWeight: '500', margin: '2px 0 4px 0'}}>{exp.company}</p>
-                                                        <p style={{fontSize: '0.85rem', color: '#6b7280', marginBottom: '8px'}}>
+                                                    <div key={i} style={{position: 'relative', paddingLeft: '1.5rem', borderLeft: '2px solid var(--color-border)', paddingBottom: '0.5rem'}}>
+                                                        <div style={{position: 'absolute', left: '-9px', top: '0', width: '16px', height: '16px', borderRadius: '50%', background: 'white', border: '2px solid var(--color-primary)'}}></div>
+                                                        <h5 style={{fontWeight: 'bold', fontSize: '1.1rem', color: 'var(--color-text-main)', margin: 0}}>{exp.jobTitle}</h5>
+                                                        <p style={{color: 'var(--color-primary)', fontWeight: '500', margin: '2px 0 4px 0'}}>{exp.company}</p>
+                                                        <p style={{fontSize: '0.85rem', color: 'var(--color-text-muted)', marginBottom: '8px'}}>
                                                             {new Date(exp.startDate).getFullYear()} - {exp.endDate ? new Date(exp.endDate).getFullYear() : 'Present'}
                                                         </p>
-                                                        <p style={{color: '#d1d5db', fontSize: '0.9rem', lineHeight: '1.6'}}>{exp.description}</p>
+                                                        <p style={{color: 'var(--color-text-main)', fontSize: '0.9rem', lineHeight: '1.6'}}>{exp.description}</p>
                                                     </div>
                                                 ))
                                             ) : (
-                                                <div style={{color: '#6b7280', fontStyle: 'italic'}}>No experience listed</div>
+                                                <div style={{color: 'var(--color-text-muted)', fontStyle: 'italic'}}>No experience listed</div>
                                             )}
                                         </div>
                                     </div>
@@ -308,18 +308,18 @@ const FindTalent = () => {
                                             {selectedCandidate.education && selectedCandidate.education.length > 0 ? (
                                                 selectedCandidate.education.map((edu, i) => (
                                                     <div key={i} style={{display: 'flex', alignItems: 'flex-start'}}>
-                                                       <div style={{background: 'rgba(251, 191, 36, 0.1)', padding: '8px', borderRadius: '4px', marginRight: '12px'}}>
-                                                           <i className="fas fa-university" style={{color: '#fbbf24'}}></i>
+                                                       <div style={{background: 'var(--color-surface-muted)', padding: '8px', borderRadius: '4px', marginRight: '12px'}}>
+                                                           <i className="fas fa-university" style={{color: 'var(--color-primary)'}}></i>
                                                        </div>
                                                        <div>
-                                                            <h5 style={{fontWeight: 'bold', color: 'white', margin: 0}}>{edu.degree}</h5>
-                                                            <p style={{color: '#d1d5db', margin: '2px 0'}}>{edu.school}</p>
-                                                            <p style={{fontSize: '0.85rem', color: '#6b7280'}}>{edu.year}</p>
+                                                            <h5 style={{fontWeight: 'bold', color: 'var(--color-text-main)', margin: 0}}>{edu.degree}</h5>
+                                                            <p style={{color: 'var(--color-text-main)', margin: '2px 0'}}>{edu.school}</p>
+                                                            <p style={{fontSize: '0.85rem', color: 'var(--color-text-muted)'}}>{edu.year}</p>
                                                        </div>
                                                     </div>
                                                 ))
                                             ) : (
-                                                <div style={{color: '#6b7280', fontStyle: 'italic'}}>No education listed</div>
+                                                <div style={{color: 'var(--color-text-muted)', fontStyle: 'italic'}}>No education listed</div>
                                             )}
                                         </div>
                                     </div>

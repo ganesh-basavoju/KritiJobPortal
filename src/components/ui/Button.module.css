@@ -14,43 +14,60 @@
     text-transform: uppercase;
 }
 
-/* Primary: Gold Glow */
+/* Primary: Royal Blue */
 .primary {
-    background: rgba(255, 215, 0, 0.1);
-    border: 1px solid var(--color-accent);
-    color: var(--color-accent);
-    box-shadow: 0 0 10px rgba(255, 215, 0, 0.1);
+    background: var(--color-primary);
+    border: 1px solid var(--color-primary);
+    color: white;
+    box-shadow: 0 4px 6px -1px rgba(1, 65, 163, 0.2);
 }
 
 .primary:hover {
-    background: var(--color-accent);
-    color: var(--color-primary);
-    box-shadow: var(--glow-accent);
-    transform: translateY(-2px);
+    background: var(--color-primary-dark);
+    border-color: var(--color-primary-dark);
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 10px -1px rgba(1, 65, 163, 0.3);
 }
 
-/* Secondary: Red Glow */
+/* CTA: Vibrant Green (For Post Job, Find Job, etc) */
+.cta {
+    background: var(--color-accent);
+    border: 1px solid var(--color-accent);
+    color: white;
+    box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.2);
+}
+
+.cta:hover {
+    background: var(--color-accent-hover);
+    border-color: var(--color-accent-hover);
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 10px -1px rgba(16, 185, 129, 0.3);
+}
+
+/* Secondary: Muted Gray/Blue for Cancel/Back */
 .secondary {
-    background: rgba(139, 0, 0, 0.2);
-    border: 1px solid var(--color-secondary);
-    color: #ffcccc;
+    background: var(--color-surface-muted);
+    border: 1px solid var(--color-border);
+    color: var(--color-text-muted);
 }
 
 .secondary:hover {
-    background: var(--color-secondary);
-    color: white;
-    box-shadow: var(--glow-red);
-    transform: translateY(-2px);
+    background: #e2e8f0;
+    color: var(--color-text-main);
+    transform: translateY(-1px);
 }
 
-/* Outline: White Border */
+/* Outline: Blue Border & Text */
 .outline {
     background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    color: var(--color-text-main);
+    border: 1px solid var(--color-primary);
+    color: var(--color-primary);
 }
 
 .outline:hover {
-    border-color: var(--color-text-main);
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(1, 65, 163, 0.05);
+    border-color: var(--color-primary);
+    color: var(--color-primary-dark);
 }

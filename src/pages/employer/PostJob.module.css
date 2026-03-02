@@ -2,7 +2,7 @@
     padding: 2rem;
     max-width: 1200px;
     margin: 0 auto;
-    color: #f8fafc; /* Slate-50 */
+    color: var(--color-text-main);
     min-height: 100vh;
 }
 
@@ -13,7 +13,7 @@
 .header h1 {
     font-size: 2rem;
     font-weight: 700;
-    color: #f8fafc;
+    color: var(--color-text-main);
     margin-bottom: 0.5rem;
 }
 
@@ -21,11 +21,11 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: 1.5rem;
-    background: #0f172a; /* Slate-900 */
-    padding: 2rem;
+    background: #ffffff;
+    padding: 2.5rem;
     border-radius: 1rem;
-    border: 1px solid #1e293b; /* Slate-800 */
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-md);
 }
 
 @media (min-width: 768px) {
@@ -41,8 +41,8 @@
 .label {
     display: block;
     font-size: 0.875rem;
-    font-weight: 500;
-    color: #94a3b8; /* Slate-400 */
+    font-weight: 600;
+    color: var(--color-text-moved);
     margin-bottom: 0.5rem;
 }
 
@@ -55,25 +55,27 @@
 }
 
 .submitBtn {
-    background: #ffd700; /* Gold */
-    color: #0f172a; /* Slate-900 */
+    background: var(--color-primary);
+    color: white;
     font-weight: 600;
     padding: 0.75rem 2rem;
     border-radius: 0.5rem;
     border: none;
     cursor: pointer;
     transition: all 0.2s;
+    box-shadow: var(--shadow-sm);
 }
 
 .submitBtn:hover {
-    background: #e6c200;
+    background: var(--color-primary-dark);
     transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
 }
 
 .draftBtn {
     background: transparent;
-    color: #ffd700; /* Gold */
-    border: 1px solid #ffd700;
+    color: var(--color-primary);
+    border: 1px solid var(--color-primary);
     font-weight: 600;
     padding: 0.75rem 2rem;
     border-radius: 0.5rem;
@@ -82,5 +84,5 @@
 }
 
 .draftBtn:hover {
-    background: rgba(255, 215, 0, 0.1);
+    background: var(--color-surface-muted);
 }

@@ -45,13 +45,13 @@ const AdminOverview = () => {
         fetchData();
     }, []);
 
-    if (loading) return <div style={{padding: '50px', textAlign: 'center', color:'white'}}>Loading Dashboard...</div>;
+    if (loading) return <div style={{padding: '50px', textAlign: 'center', color:'var(--color-text-main)'}}>Loading Dashboard...</div>;
 
     return (
         <div className={styles.pageContainer}>
             <div className={styles.headerRow}>
                 <h1 className={styles.pageTitle}>Dashboard Overview</h1>
-                <div style={{color: '#9ca3af', fontSize: '0.9rem'}}>
+                <div style={{color: 'var(--color-text-muted)', fontSize: '0.9rem'}}>
                     Real-time Data
                 </div>
             </div>
@@ -64,7 +64,7 @@ const AdminOverview = () => {
                             <p className={styles.kpiLabel}>{stat.label}</p>
                             <h2 className={styles.kpiValue}>{stat.value}</h2>
                         </div>
-                        <div className={styles.kpiIcon} style={{ color: stat.color, background: `${stat.color}20` }}>
+                        <div className={styles.kpiIcon} style={{ color: stat.color, background: `${stat.color}10` }}>
                             <i className={`fas ${stat.icon}`}></i>
                         </div>
                     </div>
@@ -79,7 +79,7 @@ const AdminOverview = () => {
                         <button className={styles.actionBtn}>Refresh</button>
                      </div>
                      <div className={styles.activityList}>
-                         {recentActivity.length === 0 ? <p style={{color:'#666', padding:'20px'}}>No recent activity.</p> : recentActivity.map(item => (
+                         {recentActivity.length === 0 ? <p style={{color:'var(--color-text-muted)', padding:'20px'}}>No recent activity.</p> : recentActivity.map(item => (
                              <div key={item.id} className={styles.activityItem}>
                                  <div className={styles.activityIcon}>
                                      {item.type === 'user' && <i className="fas fa-user-plus" style={{color: '#3b82f6'}}></i>}
@@ -99,10 +99,10 @@ const AdminOverview = () => {
                 <div className={styles.chartContainer}>
                      <div className={styles.chartHeader}>
                         <h3 className={styles.chartTitle}>Platform Growth</h3>
-                        <div style={{fontSize:'0.8rem', color:'#aaa'}}>Visual only (Placeholder)</div>
+                        <div style={{fontSize:'0.8rem', color:'var(--color-text-muted)'}}>Visual only (Placeholder)</div>
                      </div>
-                     <div style={{height: '250px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(255,255,255,0.02)', borderRadius: '8px', border: '1px dashed #4b5563'}}>
-                         <p style={{color: '#6b7280'}}>Growth Chart Visualization</p>
+                     <div style={{height: '250px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--color-surface-muted)', borderRadius: '8px', border: '1px dashed var(--color-border)'}}>
+                         <p style={{color: 'var(--color-text-muted)'}}>Growth Chart Visualization</p>
                      </div>
                 </div>
             </div>

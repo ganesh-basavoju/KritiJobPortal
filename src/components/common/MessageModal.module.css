@@ -13,9 +13,9 @@
 }
 
 .modal {
-    background: #1a1a1a;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-xl);
     border-radius: 12px;
     width: 90%;
     max-width: 500px;
@@ -38,7 +38,7 @@
 
 .header {
     padding: 20px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid var(--color-border);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -46,14 +46,14 @@
 
 .header h3 {
     margin: 0;
-    color: white;
+    color: var(--color-text-main);
     font-size: 1.2rem;
 }
 
 .closeBtn {
     background: transparent;
     border: none;
-    color: #9ca3af;
+    color: var(--color-text-muted);
     font-size: 1.5rem;
     cursor: pointer;
     line-height: 1;
@@ -62,7 +62,7 @@
 }
 
 .closeBtn:hover {
-    color: white;
+    color: var(--color-primary);
 }
 
 .body {
@@ -71,37 +71,39 @@
 
 .info {
     margin: 0 0 15px 0;
-    color: #9ca3af;
+    color: var(--color-text-muted);
     font-size: 0.95rem;
     line-height: 1.5;
 }
 
 .highlight {
-    color: #fbbf24;
+    color: var(--color-primary);
     font-weight: 500;
 }
 
 .textarea {
     width: 100%;
-    background: rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: #ffffff;
+    border: 1px solid var(--color-border);
     border-radius: 8px;
     padding: 12px;
-    color: white;
+    color: var(--color-text-main);
     font-family: inherit;
     font-size: 0.95rem;
     resize: vertical;
     outline: none;
     transition: border-color 0.2s;
+    box-shadow: var(--shadow-sm);
 }
 
 .textarea:focus {
-    border-color: #fbbf24;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px rgba(1, 65, 163, 0.1);
 }
 
 .footer {
     padding: 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px solid var(--color-border);
     display: flex;
     justify-content: flex-end;
     gap: 12px;
@@ -109,8 +111,8 @@
 
 .cancelBtn {
     background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: #e5e7eb;
+    border: 1px solid var(--color-border);
+    color: var(--color-text-muted);
     padding: 10px 20px;
     border-radius: 8px;
     cursor: pointer;
@@ -119,13 +121,14 @@
 }
 
 .cancelBtn:hover {
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--color-surface-muted);
+    color: var(--color-text-main);
 }
 
 .sendBtn {
-    background: #fbbf24;
-    border: 1px solid #fbbf24;
-    color: #1a1a1a;
+    background: var(--color-primary);
+    border: 1px solid var(--color-primary);
+    color: #ffffff;
     padding: 10px 24px;
     border-radius: 8px;
     cursor: pointer;
@@ -134,8 +137,8 @@
 }
 
 .sendBtn:hover:not(:disabled) {
-    background: #f59e0b;
-    border-color: #f59e0b;
+    background: var(--color-primary-dark);
+    border-color: var(--color-primary-dark);
 }
 
 .sendBtn:disabled {

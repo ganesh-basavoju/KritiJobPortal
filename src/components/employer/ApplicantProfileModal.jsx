@@ -18,15 +18,16 @@ const modalOverlayStyle = {
 };
 
 const modalContentStyle = {
-    backgroundColor: '#1a1a1a',
+    backgroundColor: '#ffffff',
     borderRadius: '16px',
     width: '100%',
     maxWidth: '800px',
     maxHeight: '90vh',
     overflowY: 'auto',
-    border: '1px solid rgba(255, 255, 255, 0.1)',
+    border: '1px solid var(--color-border)',
     position: 'relative',
-    paddingBottom: '20px'
+    paddingBottom: '20px',
+    boxShadow: 'var(--shadow-xl)'
 };
 
 const ApplicantProfileModal = ({ applicant, onClose }) => {
@@ -62,9 +63,9 @@ const ApplicantProfileModal = ({ applicant, onClose }) => {
                         position: 'absolute',
                         top: '10px',
                         right: '10px',
-                        background: 'rgba(0,0,0,0.5)',
+                        background: 'rgba(0,0,0,0.1)',
                         border: 'none',
-                        color: 'white',
+                        color: 'var(--color-text-main)',
                         width: '32px',
                         height: '32px',
                         borderRadius: '50%',
@@ -87,8 +88,9 @@ const ApplicantProfileModal = ({ applicant, onClose }) => {
                                 width: '120px', 
                                 height: '120px', 
                                 borderRadius: '50%', 
-                                border: '6px solid #1a1a1a',
-                                objectFit: 'cover'
+                                border: '6px solid #ffffff',
+                                objectFit: 'cover',
+                                boxShadow: 'var(--shadow-sm)'
                             }} 
                         />
                         <div style={{ display: 'flex', gap: '10px', marginBottom: '10px' }}>
@@ -99,18 +101,18 @@ const ApplicantProfileModal = ({ applicant, onClose }) => {
                     </div>
 
                     <div style={{ marginTop: '15px' }}>
-                        <h1 style={{ color: 'white', fontSize: '2rem', margin: 0 }}>{applicant.name}</h1>
-                        <p style={{ color: '#fbbf24', fontSize: '1.2rem', margin: '5px 0' }}>
+                        <h1 style={{ color: 'var(--color-text-main)', fontSize: '2rem', margin: 0 }}>{applicant.name}</h1>
+                        <p style={{ color: 'var(--color-primary)', fontSize: '1.2rem', margin: '5px 0' }}>
                             <i className="fas fa-briefcase"></i> {applicant.title}
                         </p>
-                        <p style={{ color: '#9ca3af' }}>
+                        <p style={{ color: 'var(--color-text-muted)' }}>
                             <i className="fas fa-map-marker-alt"></i> {applicant.location}
                         </p>
                     </div>
 
                     {/* Status Manager in Modal */}
-                    <div style={{ marginTop: '20px', background: 'rgba(255,255,255,0.05)', padding: '15px', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.1)' }}>
-                        <label style={{ color: '#fbbf24', fontSize: '0.9rem', fontWeight: 'bold', display: 'block', marginBottom: '8px' }}>
+                    <div style={{ marginTop: '20px', background: 'var(--color-surface-muted)', padding: '15px', borderRadius: '8px', border: '1px solid var(--color-border)' }}>
+                        <label style={{ color: 'var(--color-primary)', fontSize: '0.9rem', fontWeight: 'bold', display: 'block', marginBottom: '8px' }}>
                             APPLICATION STATUS
                         </label>
                         <select 
@@ -130,14 +132,14 @@ const ApplicantProfileModal = ({ applicant, onClose }) => {
 
                     {/* Content Sections */}
                     <div style={{ marginTop: '30px' }}>
-                        <h2 style={{ color: 'white', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '10px' }}>About</h2>
-                        <p style={{ color: '#d1d5db', lineHeight: '1.6', marginTop: '10px' }}>
+                        <h2 style={{ color: 'var(--color-text-main)', borderBottom: '1px solid var(--color-border)', paddingBottom: '10px' }}>About</h2>
+                        <p style={{ color: 'var(--color-text-main)', lineHeight: '1.6', marginTop: '10px' }}>
                             {applicant.bio}
                         </p>
                     </div>
 
                     <div style={{ marginTop: '30px' }}>
-                        <h2 style={{ color: 'white', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '10px' }}>Skills</h2>
+                        <h2 style={{ color: 'var(--color-text-main)', borderBottom: '1px solid var(--color-border)', paddingBottom: '10px' }}>Skills</h2>
                         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginTop: '15px' }}>
                             {applicant.skills.map((skill, idx) => (
                                 <span key={idx} className={styles.skillTag} style={{ fontSize: '1rem', padding: '8px 16px' }}>
@@ -148,7 +150,7 @@ const ApplicantProfileModal = ({ applicant, onClose }) => {
                     </div>
 
                     <div style={{ marginTop: '30px', marginBottom: '20px' }}>
-                        <h2 style={{ color: 'white', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '10px' }}>Resume</h2>
+                        <h2 style={{ color: 'var(--color-text-main)', borderBottom: '1px solid var(--color-border)', paddingBottom: '10px' }}>Resume</h2>
                         <div style={{ marginTop: '15px' }}>
                             <a 
                                 href={applicant.resumeLink || '#'} 
@@ -158,8 +160,8 @@ const ApplicantProfileModal = ({ applicant, onClose }) => {
                                     display: 'inline-flex', 
                                     alignItems: 'center', 
                                     gap: '10px', 
-                                    background: '#fbbf24', 
-                                    color: '#1a1a1a', 
+                                    background: 'var(--color-secondary)', 
+                                    color: 'white', 
                                     padding: '12px 24px', 
                                     borderRadius: '8px', 
                                     textDecoration: 'none',

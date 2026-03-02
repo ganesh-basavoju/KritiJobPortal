@@ -4,29 +4,23 @@
 }
 
 .banner {
-    background: rgba(255, 255, 255, 0.05);
-    /* Lighter grey banner */
+    background: var(--color-surface-muted);
     border-radius: 20px;
     padding: 2rem 3rem;
-    /* Reduced Padding */
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 2rem;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--color-border);
     position: relative;
     overflow: hidden;
     max-width: 1000px;
-    /* Constrain width to make it smaller/focused */
     margin: 0 auto;
-    /* Center it */
+    box-shadow: var(--shadow-sm);
 }
-
-/* Optional: Add abstract texture behind if needed via pseudo-element */
 
 .content h2 {
     font-size: 1.8rem;
-    /* Reduced Font Size */
     font-weight: 700;
     line-height: 1.2;
     color: var(--color-text-main);
@@ -48,17 +42,22 @@
     width: 100%;
     padding: 1rem 1.5rem;
     border-radius: 8px;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: #fff;
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    color: var(--color-text-main);
     font-size: 1rem;
     outline: none;
     transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
 }
 
 .inputWrapper input:focus {
-    border-color: var(--color-accent);
-    background: rgba(255, 255, 255, 0.15);
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px rgba(1, 65, 163, 0.1);
+}
+
+.inputWrapper input::placeholder {
+    color: var(--color-text-muted);
 }
 
 .subscribeBtn {

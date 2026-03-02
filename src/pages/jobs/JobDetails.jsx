@@ -91,7 +91,7 @@ const JobDetails = () => {
                     {/* Header Section */}
                     <div className={styles.header}>
                         <div className={styles.headerLeft}>
-                            <div className={styles.logoBox} style={{ backgroundColor: '#2d3748' }}>
+                            <div className={styles.logoBox}>
                                 {companyLogo ? <img src={companyLogo} alt={companyName} /> : <i className="fas fa-building"></i>}
                             </div>
                             <div className={styles.titleBox}>
@@ -103,9 +103,9 @@ const JobDetails = () => {
                                     <span>•</span>
                                     {/* Status Badge */}
                                     <span style={{
-                                        color: job.isExpired || job.status !== 'Open' ? '#ef4444' : '#4ade80',
+                                        color: job.isExpired || job.status !== 'Open' ? '#ef4444' : '#10b981',
                                         fontWeight: 'bold',
-                                        border: `1px solid ${job.isExpired || job.status !== 'Open' ? '#ef4444' : '#4ade80'}`,
+                                        border: `1px solid ${job.isExpired || job.status !== 'Open' ? '#ef4444' : '#10b981'}`,
                                         padding: '2px 8px',
                                         borderRadius: '12px',
                                         fontSize: '0.8rem'
@@ -124,7 +124,7 @@ const JobDetails = () => {
                                 style={{ 
                                     opacity: (hasApplied || !job.canApply) ? 0.7 : 1, 
                                     cursor: (hasApplied || !job.canApply) ? 'not-allowed' : 'pointer',
-                                    background: hasApplied ? '#10b981' : (!job.canApply ? '#6b7280' : undefined)
+                                    background: hasApplied ? '#10b981' : (!job.canApply ? 'var(--color-text-muted)' : undefined)
                                 }}
                             >
                                 {hasApplied ? 'Applied' : (!job.canApply ? 'Applications Closed' : 'Apply')} 
@@ -196,14 +196,13 @@ const JobDetails = () => {
                                 <button 
                                     onClick={() => navigate(`/company/${job.companyId._id}`)} 
                                     className={styles.viewCompanyBtn}
-                                    style={{background: 'none', border:'1px solid rgba(255,255,255,0.2)', color:'white', cursor:'pointer'}}
                                 >
                                     Company Page
                                 </button>
                             </div>
                             <div className={styles.companyInfo}>
-                                <div className={styles.companyLogoSmall} style={{ backgroundColor: '#2d3748' }}>
-                                    {companyLogo ? <img src={companyLogo} alt={companyName} /> : <i className="fas fa-building" style={{ color: 'white' }}></i>}
+                                <div className={styles.companyLogoSmall}>
+                                    {companyLogo ? <img src={companyLogo} alt={companyName} /> : <i className="fas fa-building" style={{ color: 'var(--color-primary)' }}></i>}
                                 </div>
                                 <div>
                                     <h3 className={styles.companyName}>{companyName}</h3>

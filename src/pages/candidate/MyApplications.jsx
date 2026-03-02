@@ -53,34 +53,34 @@ const MyApplications = () => {
 
     return (
         <div style={{ padding: '2rem' }}>
-            <h1 className="text-gradient" style={{fontSize: '2rem', margin: 0, marginBottom: '1.5rem'}}>My Applications</h1>
+            <h1 style={{fontSize: '2rem', margin: 0, marginBottom: '1.5rem', color: 'var(--color-text-main)'}}>My Applications</h1>
 
-            <div className="glass-card" style={{ padding: '0' }}>
+            <div style={{ padding: '0', background: 'white', borderRadius: '16px', border: '1px solid var(--color-border)', boxShadow: 'var(--shadow-sm)', overflow: 'hidden' }}>
                 <table style={{ width: '100%', borderCollapse: 'collapse' }}>
                     <thead>
-                        <tr style={{ background: 'rgba(255, 255, 255, 0.05)', textAlign: 'left' }}>
-                            <th style={{ padding: '1rem' }}>Job Title</th>
-                            <th style={{ padding: '1rem' }}>Company</th>
-                            <th style={{ padding: '1rem' }}>Date Applied</th>
-                            <th style={{ padding: '1rem' }}>Status</th>
-                            <th style={{ padding: '1rem', textAlign: 'right' }}>Actions</th>
+                        <tr style={{ background: 'var(--color-surface-muted)', textAlign: 'left', borderBottom: '1px solid var(--color-border)' }}>
+                            <th style={{ padding: '1rem', color: 'var(--color-text-main)', fontWeight: '600' }}>Job Title</th>
+                            <th style={{ padding: '1rem', color: 'var(--color-text-main)', fontWeight: '600' }}>Company</th>
+                            <th style={{ padding: '1rem', color: 'var(--color-text-main)', fontWeight: '600' }}>Date Applied</th>
+                            <th style={{ padding: '1rem', color: 'var(--color-text-main)', fontWeight: '600' }}>Status</th>
+                            <th style={{ padding: '1rem', textAlign: 'right', color: 'var(--color-text-main)', fontWeight: '600' }}>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
                         {applications.map(app => (
-                            <tr key={app._id} style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.05)' }}>
-                                <td style={{ padding: '1rem', fontWeight: 'bold' }}>{app.jobId?.title || 'Unknown Job'}</td>
-                                <td style={{ padding: '1rem', color: 'var(--color-text-secondary)' }}>
+                            <tr key={app._id} style={{ borderBottom: '1px solid var(--color-border)' }}>
+                                <td style={{ padding: '1rem', fontWeight: 'bold', color: 'var(--color-text-main)' }}>{app.jobId?.title || 'Unknown Job'}</td>
+                                <td style={{ padding: '1rem', color: 'var(--color-text-muted)' }}>
                                     {app.jobId?.companyId?.name || 'Unknown Company'}
                                 </td>
-                                <td style={{ padding: '1rem', color: 'var(--color-text-secondary)' }}>
+                                <td style={{ padding: '1rem', color: 'var(--color-text-muted)' }}>
                                     {app.createdAt ? format(new Date(app.createdAt), 'MMM dd, yyyy') : '-'}
                                 </td>
                                 <td style={{ padding: '1rem' }}>{getStatusBadge(app.status)}</td>
                                 <td style={{ padding: '1rem', textAlign: 'right' }}>
                                     <button 
                                         className="btn-text"
-                                        style={{ color: 'var(--color-accent)', fontWeight: '500', cursor: 'pointer', background: 'none', border: 'none' }}
+                                        style={{ color: 'var(--color-primary)', fontWeight: '500', cursor: 'pointer', background: 'none', border: 'none' }}
                                         onClick={() => setSelectedApp(app)}
                                     >
                                         View Details
@@ -90,7 +90,7 @@ const MyApplications = () => {
                         ))}
                         {applications.length === 0 && (
                             <tr>
-                                <td colSpan="5" style={{ padding: '2rem', textAlign: 'center', color: 'var(--color-text-secondary)' }}>
+                                <td colSpan="5" style={{ padding: '2rem', textAlign: 'center', color: 'var(--color-text-muted)' }}>
                                     You haven't applied to any jobs yet.
                                 </td>
                             </tr>

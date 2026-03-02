@@ -1,7 +1,6 @@
 .filterBar {
-    background: rgba(30, 41, 59, 0.7);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: #ffffff;
+    border: 1px solid var(--color-border);
     border-radius: 12px;
     padding: 15px 30px;
     display: flex;
@@ -11,7 +10,7 @@
     flex-wrap: wrap;
     position: relative;
     z-index: 50;
-    /* Ensure dropdowns appear above job cards */
+    box-shadow: var(--shadow-sm);
 }
 
 .filterGroup {
@@ -31,15 +30,13 @@
 }
 
 .filterGroup i {
-    color: var(--color-accent);
-    /* Gold icons */
+    color: var(--color-primary);
     font-size: 1.1rem;
     transition: all 0.3s ease;
 }
 
 .filterGroup:hover i {
-    color: #fff;
-    text-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+    color: var(--color-primary-dark);
     transform: scale(1.1);
 }
 
@@ -50,7 +47,7 @@
     position: relative;
     width: 100%;
     height: 4px;
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--color-border);
     border-radius: 2px;
     margin-top: 10px;
 }
@@ -58,7 +55,7 @@
 .sliderTrack {
     position: absolute;
     height: 4px;
-    background: var(--color-accent);
+    background: var(--color-primary);
     border-radius: 2px;
     z-index: 1;
 }
@@ -80,20 +77,22 @@
     width: 16px;
     height: 16px;
     border-radius: 50%;
-    background: var(--color-accent);
-    border: 2px solid var(--color-primary);
+    background: var(--color-primary);
+    border: 2px solid #ffffff;
     cursor: pointer;
     pointer-events: auto;
+    box-shadow: var(--shadow-sm);
 }
 
 .sliderInput::-moz-range-thumb {
     width: 16px;
     height: 16px;
     border-radius: 50%;
-    background: var(--color-accent);
-    border: 2px solid var(--color-primary);
+    background: var(--color-primary);
+    border: 2px solid #ffffff;
     cursor: pointer;
     pointer-events: auto;
+    box-shadow: var(--shadow-sm);
 }
 
 /* Mobile Responsive */
@@ -110,7 +109,7 @@
     }
 
     .filterGroup {
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        border-bottom: 1px solid var(--color-border);
         padding-bottom: 10px;
     }
 

@@ -1,8 +1,6 @@
 .card {
-    background: rgba(30, 41, 59, 0.7);
-    /* Dark semi-transparent blue/grey */
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: #ffffff;
+    border: 1px solid var(--color-border);
     border-radius: 16px;
     padding: 24px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -12,17 +10,17 @@
     display: flex;
     flex-direction: column;
     gap: 16px;
+    box-shadow: var(--shadow-sm);
 }
 
 .card:hover {
     transform: translateY(-4px);
-    border-color: var(--color-accent);
-    /* Gold border on hover */
-    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-lg);
 }
 
 .card:hover .title {
-    color: var(--color-accent);
+    color: var(--color-primary);
 }
 
 .header {
@@ -39,8 +37,10 @@
     align-items: center;
     justify-content: center;
     font-size: 1.5rem;
-    color: #fff;
+    color: var(--color-text-main);
     flex-shrink: 0;
+    border: 1px solid var(--color-border);
+    background: var(--color-surface-muted);
 }
 
 .companyIcon img {
@@ -85,7 +85,7 @@
 }
 
 .bookmark:hover {
-    color: var(--color-accent);
+    color: var(--color-primary);
 }
 
 .tags {
@@ -98,18 +98,17 @@
     font-size: 0.8rem;
     padding: 6px 12px;
     border-radius: 20px;
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--color-surface-muted);
     color: var(--color-text-muted);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--color-border);
     font-weight: 500;
 }
 
-/* Specific Tag Colors based on Screenshot logic (Gold/Yellow text) */
+/* First tag highlighted with primary color */
 .tag:first-child {
-    color: #FFD700;
-    /* Gold */
-    background: rgba(255, 215, 0, 0.1);
-    border-color: rgba(255, 215, 0, 0.2);
+    color: var(--color-primary);
+    background: rgba(1, 65, 163, 0.08);
+    border-color: rgba(1, 65, 163, 0.2);
 }
 
 .description {
@@ -121,7 +120,6 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
     margin-bottom: auto;
-    /* Push footer down */
 }
 
 .footer {
@@ -129,7 +127,7 @@
     justify-content: space-between;
     align-items: center;
     padding-top: 16px;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px solid var(--color-border);
 }
 
 .salary {

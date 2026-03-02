@@ -1,9 +1,8 @@
-/* Admin Portal Styles - Consistent with Premium Dark Theme */
+/* Admin Portal Styles - Light Theme */
 .pageContainer {
     padding: 2rem;
-    color: white;
+    color: var(--color-text-main);
     max-width: 1400px;
-    /* Wider for tables/charts */
     margin: 0 auto;
 }
 
@@ -16,27 +15,25 @@
 
 .pageTitle {
     font-size: 2rem;
-    background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--color-text-main);
     margin: 0;
     font-weight: 700;
 }
 
 /* Cards & Containers */
 .card {
-    background: #1a1a1a;
+    background: #ffffff;
     border-radius: 16px;
     padding: 24px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-sm);
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    border-color: rgba(251, 191, 36, 0.1);
+    box-shadow: var(--shadow-md);
+    border-color: var(--color-primary-light);
 }
 
 /* KPI Cards */
@@ -48,66 +45,68 @@
 }
 
 .kpiCard {
-    background: linear-gradient(145deg, #1f2937 0%, #111827 100%);
+    background: #ffffff;
     padding: 24px;
     border-radius: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--color-border);
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    box-shadow: var(--shadow-sm);
 }
 
 .kpiValue {
     font-size: 2.5rem;
     font-weight: 700;
-    color: white;
+    color: var(--color-text-main);
     margin: 10px 0 0 0;
 }
 
 .kpiLabel {
-    color: #9ca3af;
+    color: var(--color-text-muted);
     font-size: 0.9rem;
     margin: 0;
 }
 
 .kpiIcon {
     font-size: 1.5rem;
-    color: #fbbf24;
-    background: rgba(251, 191, 36, 0.1);
+    color: var(--color-primary);
+    background: var(--color-surface-muted);
     padding: 12px;
     border-radius: 12px;
 }
 
 /* Tables */
 .tableContainer {
-    background: #1a1a1a;
+    background: #ffffff;
     border-radius: 16px;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-sm);
 }
 
 .table {
     width: 100%;
     border-collapse: collapse;
-    color: #d1d5db;
+    color: var(--color-text-main);
 }
 
 .table th {
-    background: #111827;
+    background: var(--color-surface);
     padding: 16px 24px;
     text-align: left;
     font-weight: 600;
-    color: #9ca3af;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--color-text-muted);
+    border-bottom: 1px solid var(--color-border);
 }
 
 .table td {
     padding: 16px 24px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid var(--color-border);
 }
 
 .table tr:hover {
-    background: rgba(255, 255, 255, 0.02);
+    background: var(--color-surface-muted);
 }
 
 /* Badges */
@@ -115,38 +114,38 @@
     padding: 4px 10px;
     border-radius: 12px;
     font-size: 0.8rem;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 .badgeActive {
-    background: rgba(16, 185, 129, 0.2);
-    color: #34d399;
-    border: 1px solid rgba(16, 185, 129, 0.2);
+    background: #dcfce7;
+    color: #166534;
+    border: 1px solid #bbf7d0;
 }
 
 .badgeBlocked {
-    background: rgba(239, 68, 68, 0.2);
-    color: #f87171;
-    border: 1px solid rgba(239, 68, 68, 0.2);
+    background: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
 }
 
 .badgeAdmin {
-    background: rgba(251, 191, 36, 0.2);
-    color: #fbbf24;
-    border: 1px solid rgba(251, 191, 36, 0.2);
+    background: #fef3c7;
+    color: #b45309;
+    border: 1px solid #fde68a;
 }
 
 .badgeEmployer {
-    background: rgba(99, 102, 241, 0.2);
-    color: #818cf8;
-    border: 1px solid rgba(99, 102, 241, 0.2);
+    background: #e0e7ff;
+    color: #3730a3;
+    border: 1px solid #c7d2fe;
 }
 
 /* Buttons & Actions */
 .actionBtn {
     background: transparent;
     border: none;
-    color: #9ca3af;
+    color: var(--color-text-muted);
     cursor: pointer;
     font-size: 1rem;
     transition: color 0.2s;
@@ -154,7 +153,7 @@
 }
 
 .actionBtn:hover {
-    color: white;
+    color: var(--color-primary);
 }
 
 .actionBtn.delete:hover {
@@ -162,16 +161,16 @@
 }
 
 .actionBtn.edit:hover {
-    color: #fbbf24;
+    color: var(--color-primary);
 }
 
 .actionBtn.view:hover {
-    color: #60a5fa;
+    color: var(--color-secondary);
 }
 
 .primaryBtn {
-    background: #fbbf24;
-    color: #1a1a1a;
+    background: var(--color-primary);
+    color: #ffffff;
     border: none;
     padding: 10px 20px;
     border-radius: 8px;
@@ -184,7 +183,7 @@
 }
 
 .primaryBtn:hover {
-    background: #f59e0b;
+    background: var(--color-primary-dark);
 }
 
 /* Charts Area */
@@ -196,11 +195,12 @@
 }
 
 .chartContainer {
-    background: #1a1a1a;
+    background: #ffffff;
     border-radius: 16px;
     padding: 24px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--color-border);
     min-height: 300px;
+    box-shadow: var(--shadow-sm);
 }
 
 .chartHeader {
@@ -213,6 +213,6 @@
 .chartTitle {
     font-size: 1.1rem;
     font-weight: 600;
-    color: white;
+    color: var(--color-text-main);
     margin: 0;
 }

@@ -26,7 +26,7 @@ const Hero = () => {
               <i className="fas fa-map-marker-alt"></i>
               <input type="text" placeholder="Location" />
             </div>
-            <Button variant="primary" className={styles.searchBtn}>Search Jobs</Button>
+            <Button variant="cta" className={styles.searchBtn}>Search Jobs</Button>
           </div>
 
           <div className={styles.stats}>

@@ -100,7 +100,7 @@ const EditJob = () => {
     return (
         <div className={styles.pageContainer}>
             <div className={styles.header}>
-                <h1 className="text-gradient" style={{fontSize: '2rem', margin: 0}}>Edit Job</h1>
+                <h1 style={{fontSize: '2rem', margin: 0, color: 'var(--color-text-main)'}}>Edit Job</h1>
             </div>
 
             <form className={styles.formGrid} onSubmit={handleSubmit}>
@@ -114,7 +114,7 @@ const EditJob = () => {
                 />
                  
                 <div style={{display:'flex', flexDirection:'column', gap:'0.5rem'}}>
-                    <label style={{fontSize:'0.9rem', color:'#d1d5db', fontWeight:'500'}}>Application Deadline</label>
+                    <label style={{fontSize:'0.875rem', color:'var(--color-text-muted)', fontWeight:'600'}}>Application Deadline</label>
                     <input 
                         type="date"
                         name="applicationDeadline"
@@ -124,11 +124,12 @@ const EditJob = () => {
                         required
                         style={{
                             padding: '10px',
-                            background: 'rgba(255, 255, 255, 0.05)',
-                            border: '1px solid rgba(255, 255, 255, 0.1)',
+                            background: '#ffffff',
+                            border: '1px solid var(--color-border)',
                             borderRadius: '8px',
-                            color: 'white',
-                            outline: 'none'
+                            color: 'var(--color-text-main)',
+                            outline: 'none',
+                            fontFamily: 'inherit'
                         }}
                     />
                 </div>

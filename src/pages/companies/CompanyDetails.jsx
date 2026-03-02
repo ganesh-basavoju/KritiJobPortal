@@ -56,7 +56,7 @@ const CompanyDetails = () => {
                             <div className={styles.headerMeta}>
                                 <span><i className="fas fa-map-marker-alt"></i> {company.location}</span>
                                 {company.website && (
-                                    <span><i className="fas fa-globe"></i> <a href={company.website} target="_blank" rel="noreferrer" style={{color: '#9ca3af', textDecoration: 'none'}}>Website</a></span>
+                                    <span><i className="fas fa-globe"></i> <a href={company.website} target="_blank" rel="noreferrer" style={{color: 'var(--color-primary)', textDecoration: 'none'}}>Website</a></span>
                                 )}
                             </div>
                         </div>

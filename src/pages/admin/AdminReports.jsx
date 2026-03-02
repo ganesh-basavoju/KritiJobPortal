@@ -8,12 +8,12 @@ import api from '../../utils/api';
 
 const ROLE_COLORS = ['#34d399', '#818cf8', '#f59e0b'];
 
-// Custom Tooltip for dark theme
+// Custom Tooltip for light theme
 const CustomTooltip = ({ active, payload, label }) => {
     if (active && payload && payload.length) {
         return (
-            <div style={{ background: '#1f2937', border: '1px solid #374151', padding: '10px', borderRadius: '8px' }}>
-                <p style={{ margin: 0, fontWeight: 'bold', color: '#fff' }}>{label}</p>
+            <div style={{ background: '#ffffff', border: '1px solid var(--color-border)', padding: '10px', borderRadius: '8px', boxShadow: 'var(--shadow-sm)' }}>
+                <p style={{ margin: 0, fontWeight: 'bold', color: 'var(--color-text-main)' }}>{label}</p>
                 {payload.map((entry, index) => (
                     <p key={index} style={{ margin: 0, color: entry.color }}>
                         {entry.name}: {entry.value}
@@ -71,14 +71,14 @@ const AdminReports = () => {
         fetchReports();
     }, []);
 
-    if (loading) return <div style={{padding:'20px', color:'white'}}>Loading Reports...</div>;
+    if (loading) return <div style={{padding:'20px', color:'var(--color-text-main)'}}>Loading Reports...</div>;
 
     return (
         <div className={styles.pageContainer}>
             <div className={styles.headerRow}>
                 <h1 className={styles.pageTitle}>Reports & Analytics</h1>
                 <div style={{ display: 'flex', gap: '10px' }}>
-                     <select className={styles.actionBtn} style={{ background: '#1a1a1a', border: '1px solid rgba(255,255,255,0.1)', padding: '8px 12px', borderRadius: '8px' }}>
+                     <select className={styles.actionBtn} style={{ border: '1px solid var(--color-border)', padding: '8px 12px', borderRadius: '8px', color: 'var(--color-text-main)' }}>
                         <option>Last 6 Months</option>
                         <option>Last Year</option>
                         <option>All Time</option>
@@ -95,12 +95,12 @@ const AdminReports = () => {
                     </div>
                     <ResponsiveContainer width="100%" height={300}>
                         <LineChart data={userGrowth}>
-                            <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
-                            <XAxis dataKey="name" stroke="#9ca3af" />
-                            <YAxis stroke="#9ca3af" />
+                            <CartesianGrid strokeDasharray="3 3" stroke="var(--color-border)" />
+                            <XAxis dataKey="name" stroke="var(--color-text-muted)" />
+                            <YAxis stroke="var(--color-text-muted)" />
                             <Tooltip content={<CustomTooltip />} />
                             <Legend />
-                            <Line type="monotone" dataKey="users" stroke="#fbbf24" strokeWidth={2} activeDot={{ r: 8 }} />
+                            <Line type="monotone" dataKey="users" stroke="var(--color-primary)" strokeWidth={2} activeDot={{ r: 8 }} />
                         </LineChart>
                     </ResponsiveContainer>
                 </div>
@@ -112,9 +112,9 @@ const AdminReports = () => {
                     </div>
                     <ResponsiveContainer width="100%" height={300}>
                         <BarChart data={jobStats}>
-                            <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
-                            <XAxis dataKey="name" stroke="#9ca3af" />
-                            <YAxis stroke="#9ca3af" />
+                            <CartesianGrid strokeDasharray="3 3" stroke="var(--color-border)" />
+                            <XAxis dataKey="name" stroke="var(--color-text-muted)" />
+                            <YAxis stroke="var(--color-text-muted)" />
                             <Tooltip content={<CustomTooltip />} />
                             <Legend />
                             {/* Simplified to single bar as backend aggregation is simple type count */}

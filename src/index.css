@@ -1,28 +1,49 @@
 @import "tailwindcss";
 
 :root {
-  /* Premium Color Palette */
-  --color-primary: #0a192f;
-  /* ... */
-  /* Dark Blue (Background/Base) */
-  --color-secondary: #8b0000;
-  /* Dark Red (Accents/Highlights) */
-  --color-accent: #ffd700;
-  /* Gold/Yellow (CTAs/Important Links) */
-  --color-text-main: #ffffff;
-  /* White (Text/Lines) */
-  --color-text-muted: #a8b2d1;
-  /* Muted Text */
+  /* Premium Job Portal Theme */
 
-  /* Glassmorphism & Effects */
-  --color-glass: rgba(255, 255, 255, 0.05);
-  --color-glass-border: rgba(255, 255, 255, 0.1);
-  --backdrop-blur: 10px;
+  /* Primary Brand Color: Royal Blue */
+  --color-primary: #0141a3;
+  --color-primary-light: #3b82f6;
+  --color-primary-dark: #003080;
 
-  /* Glow Effects */
-  --glow-primary: 0 0 10px rgba(10, 25, 47, 0.7);
-  --glow-accent: 0 0 15px rgba(255, 215, 0, 0.4);
-  --glow-red: 0 0 15px rgba(139, 0, 0, 0.4);
+  /* Secondary: Soft Gray/Blue for backgrounds */
+  --color-secondary: #f1f5f9;
+
+  /* Accent: Vibrant Green for High-Value CTAs (Post Job, Find Job) */
+  --color-accent: #10b981;
+  --color-accent-hover: #059669;
+
+  /* Backgrounds */
+  --color-background: #ffffff;
+  --color-surface: #ffffff;
+  --color-surface-muted: #f8fafc;
+
+  /* Text Colors */
+  --color-text-main: #0f172a;
+  /* Dark Slate */
+  --color-text-muted: #64748b;
+  /* Slate Gray */
+  --color-text-inverted: #ffffff;
+  /* White text for buttons/dark bgs */
+
+  /* Borders */
+  --color-border: #e2e8f0;
+  --color-glass-border: rgba(0, 0, 0, 0.05);
+
+  /* Glassmorphism & Effects (Subtle for Light Theme) */
+  --color-glass: rgba(255, 255, 255, 0.8);
+  --backdrop-blur: 12px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+
+  /* Glow Effects (Modified for Light Theme) */
+  --glow-primary: 0 0 15px rgba(1, 65, 163, 0.3);
+  --glow-accent: 0 0 15px rgba(16, 185, 129, 0.4);
 
   /* Typography */
   --font-main: 'Outfit', sans-serif;
@@ -37,7 +58,7 @@
 
 body {
   font-family: var(--font-main);
-  background-color: var(--color-primary);
+  background-color: var(--color-background);
   color: var(--color-text-main);
   min-height: 100vh;
   line-height: 1.6;
@@ -60,18 +81,16 @@ button {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-primary);
+  background: var(--color-secondary);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-accent);
-  /* Changed from secondary (red) to accent (gold) */
+  background: #cbd5e1;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #e6c200;
-  /* Darker gold */
+  background: #94a3b8;
 }
 
 /* Utilities */
@@ -114,7 +133,7 @@ button {
 }
 
 .text-gradient {
-  background: linear-gradient(90deg, var(--color-text-main), var(--color-accent));
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -243,13 +262,13 @@ button:active {
 .toast {
   padding: 12px 20px;
   border-radius: 8px;
-  background: rgba(10, 25, 47, 0.95);
-  border: 1px solid var(--color-glass-border);
-  color: white;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-main);
   display: flex;
   align-items: center;
   gap: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--shadow-lg);
   animation: slideInRight 0.3s ease-out;
   min-width: 250px;
 }

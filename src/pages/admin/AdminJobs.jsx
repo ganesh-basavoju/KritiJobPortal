@@ -59,7 +59,7 @@ const AdminJobs = () => {
         ? jobs 
         : jobs.filter(j => j.status === (filter === 'active' ? 'Open' : 'Closed'));
 
-    if (loading) return <div style={{padding:'20px', color:'white'}}>Loading Jobs...</div>;
+    if (loading) return <div style={{padding:'20px', color:'var(--color-text-main)'}}>Loading Jobs...</div>;
 
     return (
         <div className={styles.pageContainer}>
@@ -67,7 +67,7 @@ const AdminJobs = () => {
                 <h1 className={styles.pageTitle}>Job Management</h1>
                 <select 
                     className={styles.actionBtn} 
-                    style={{background: '#1f2937', border: '1px solid #374151', padding: '6px 12px', borderRadius: '6px', color: 'white'}}
+                    style={{border: '1px solid var(--color-border)', padding: '6px 12px', borderRadius: '6px', color: 'var(--color-text-main)'}}
                     value={filter}
                     onChange={(e) => setFilter(e.target.value)}
                 >
@@ -90,9 +90,9 @@ const AdminJobs = () => {
                     <tbody>
                         {filteredJobs.map(job => (
                             <tr key={job._id}>
-                                <td style={{fontWeight: 500, color: 'white'}}>{job.title}</td>
+                                <td style={{fontWeight: 500, color: 'var(--color-text-main)'}}>{job.title}</td>
                                 <td>{job.companyId?.name || 'Company'}</td>
-                                <td style={{color: '#9ca3af', fontSize: '0.9rem'}}>{job.createdAt ? format(new Date(job.createdAt), 'yyyy-MM-dd') : '-'}</td>
+                                <td style={{color: 'var(--color-text-muted)', fontSize: '0.9rem'}}>{job.createdAt ? format(new Date(job.createdAt), 'yyyy-MM-dd') : '-'}</td>
                                 <td>
                                     <span className={`${styles.badge} ${job.status === 'Open' ? styles.badgeActive : styles.badgeBlocked}`}>
                                         {job.status}

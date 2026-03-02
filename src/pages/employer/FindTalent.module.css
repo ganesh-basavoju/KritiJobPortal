@@ -2,7 +2,7 @@
     padding: 2rem;
     max-width: 1400px;
     margin: 0 auto;
-    color: white;
+    color: var(--color-text-main);
 }
 
 .header {
@@ -18,7 +18,7 @@
     font-size: 2rem;
     font-weight: 700;
     margin: 0;
-    color: white;
+    color: var(--color-text-main);
 }
 
 .filterBar {
@@ -26,32 +26,29 @@
     gap: 1rem;
     flex: 1;
     max-width: 400px;
-    /* Reduced since only one input */
 }
 
 .searchInput {
     flex: 1;
     padding: 1rem 1.2rem;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--color-border);
     border-radius: 12px;
     font-size: 0.95rem;
     transition: all 0.2s;
-    background: rgba(255, 255, 255, 0.05);
-    /* Dark transparent background */
-    color: white;
-    box-shadow: none;
+    background: #ffffff;
+    color: var(--color-text-main);
+    box-shadow: var(--shadow-sm);
 }
 
 .searchInput::placeholder {
-    color: #9ca3af;
+    color: var(--color-text-muted);
 }
 
 .searchInput:focus {
     outline: none;
-    border-color: #fbbf24;
-    /* Gold focus */
-    box-shadow: 0 0 0 2px rgba(251, 191, 36, 0.1);
-    background: rgba(0, 0, 0, 0.2);
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px rgba(1, 65, 163, 0.1);
+    background: #ffffff;
 }
 
 .grid {
@@ -60,11 +57,11 @@
     gap: 2rem;
 }
 
-/* --- Dark Theme Card --- */
+/* --- Light Theme Card --- */
 .card {
-    background: #1a1a1a;
+    background: #ffffff;
     border-radius: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--color-border);
     padding: 0;
     display: flex;
     flex-direction: column;
@@ -72,13 +69,13 @@
     cursor: pointer;
     overflow: hidden;
     position: relative;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--shadow-sm);
 }
 
 .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-    border-color: #fbbf24;
+    box-shadow: var(--shadow-xl);
+    border-color: var(--color-primary);
 }
 
 .cardHeader {
@@ -87,7 +84,7 @@
     align-items: center;
     gap: 1rem;
     background: transparent;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid var(--color-border);
 }
 
 .avatar {
@@ -95,19 +92,19 @@
     height: 64px;
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid #333;
-    box-shadow: none;
+    border: 2px solid #ffffff;
+    box-shadow: var(--shadow-sm);
 }
 
 .name {
     font-weight: 700;
-    color: white;
+    color: var(--color-text-main);
     margin: 0;
     font-size: 1.15rem;
 }
 
 .title {
-    color: #9ca3af;
+    color: var(--color-text-muted);
     font-size: 0.9rem;
     margin: 4px 0 0 0;
     font-weight: 500;
@@ -121,15 +118,14 @@
 .infoRow {
     display: flex;
     align-items: center;
-    color: #9ca3af;
+    color: var(--color-text-muted);
     font-size: 0.9rem;
     margin-bottom: 1.25rem;
     font-weight: 500;
 }
 
 .infoRow i {
-    color: #fbbf24;
-    /* Gold icon */
+    color: var(--color-primary);
     margin-right: 8px;
 }
 
@@ -140,28 +136,28 @@
 }
 
 .skillTag {
-    background: rgba(255, 255, 255, 0.05);
-    color: #fbbf24;
+    background: var(--color-surface-muted);
+    color: var(--color-primary);
     padding: 0.35rem 0.85rem;
     border-radius: 8px;
     font-size: 0.75rem;
     font-weight: 600;
-    border: 1px solid rgba(251, 191, 36, 0.1);
+    border: 1px solid rgba(1, 65, 163, 0.1);
 }
 
 .moreSkills {
-    background: rgba(255, 255, 255, 0.05);
-    color: #9ca3af;
+    background: var(--color-surface-muted);
+    color: var(--color-text-muted);
     padding: 0.35rem 0.75rem;
     border-radius: 8px;
     font-size: 0.75rem;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--color-border);
 }
 
 .cardFooter {
     padding: 1rem 1.5rem;
-    background: transparent;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    background: var(--color-surface-muted);
+    border-top: 1px solid var(--color-border);
     display: flex;
     gap: 0.75rem;
 }
@@ -179,13 +175,13 @@
 }
 
 .profileBtn {
-    background: transparent;
-    color: #fbbf24;
-    border: 1px solid #fbbf24;
+    background: #ffffff;
+    color: var(--color-primary);
+    border: 1px solid var(--color-primary);
 }
 
 .profileBtn:hover {
-    background: rgba(251, 191, 36, 0.1);
+    background: var(--color-surface-muted);
 }
 
 .iconBtn {
@@ -195,18 +191,18 @@
     align-items: center;
     justify-content: center;
     border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    background: rgba(255, 255, 255, 0.05);
-    color: #9ca3af;
+    border: 1px solid var(--color-border);
+    background: #ffffff;
+    color: var(--color-text-muted);
     cursor: pointer;
     transition: all 0.2s;
     font-size: 1.1rem;
 }
 
 .msgBtn:hover {
-    background: #fbbf24;
-    color: #1a1a1a;
-    border-color: #fbbf24;
+    background: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
 }
 
 .pagination {
@@ -215,18 +211,17 @@
     align-items: center;
     gap: 1rem;
     margin-top: 3rem;
-    color: #9ca3af;
+    color: var(--color-text-muted);
 }
 
-/* Modal Styles - Dark Theme Adaptation */
-/* Ideally Modal should be global, but adapting localized styles here */
+/* Modal Styles - Light Theme Adaptation */
 .modalOverlay {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(4px);
     display: flex;
     justify-content: center;
@@ -237,27 +232,26 @@
 }
 
 .modalContent {
-    background: #111827;
-    /* Dark background */
-    border: 1px solid #374151;
+    background: #ffffff;
+    border: 1px solid var(--color-border);
     border-radius: 20px;
     width: 100%;
     max-width: 1000px;
     max-height: 90vh;
     overflow-y: auto;
     position: relative;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    box-shadow: var(--shadow-xl);
     animation: slideUp 0.3s ease-out;
     display: flex;
     flex-direction: column;
-    color: white;
+    color: var(--color-text-main);
 }
 
 .modalHeaderDecor {
     height: 140px;
-    background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+    background: linear-gradient(135deg, var(--color-primary) 0%, #002b6e 100%);
     width: 100%;
-    border-bottom: 1px solid #374151;
+    border-bottom: 1px solid var(--color-border);
 }
 
 .closeBtn {
@@ -267,7 +261,7 @@
     width: 36px;
     height: 36px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.2);
     color: white;
     border: none;
     cursor: pointer;
@@ -279,7 +273,7 @@
 }
 
 .closeBtn:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.3);
     transform: rotate(90deg);
 }
 
@@ -301,9 +295,9 @@
     height: 140px;
     border-radius: 20px;
     object-fit: cover;
-    border: 5px solid #111827;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
-    background: #1f2937;
+    border: 5px solid #ffffff;
+    box-shadow: var(--shadow-md);
+    background: #ffffff;
 }
 
 .modalTitleInfo {
@@ -322,44 +316,45 @@
 }
 
 .infoCard {
-    background: #1f2937;
+    background: #ffffff;
     border-radius: 16px;
     padding: 1.75rem;
     margin-bottom: 1.5rem;
-    border: 1px solid #374151;
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-sm);
 }
 
 .cardTitle {
     font-size: 1.1rem;
     font-weight: 700;
-    color: #fbbf24;
+    color: var(--color-text-main);
     margin-bottom: 1.25rem;
     display: flex;
     align-items: center;
 }
 
 .cardTitle i {
-    color: #fbbf24;
+    color: var(--color-primary);
     margin-right: 0.5rem;
     font-size: 1.1rem;
 }
 
 .resumeLink {
     display: block;
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--color-surface-muted);
     padding: 1rem;
     border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--color-border);
     transition: all 0.2s;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: white;
+    color: var(--color-text-main);
 }
 
 .resumeLink:hover {
-    border-color: #fbbf24;
-    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--color-primary);
+    background: rgba(1, 65, 163, 0.05);
 }
 
 @keyframes fadeIn {

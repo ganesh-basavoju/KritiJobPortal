@@ -15,14 +15,14 @@
 }
 
 .modal {
-    background-color: #1a1a1a;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: #ffffff;
+    border: 1px solid var(--color-border);
     border-radius: 12px;
     padding: 2.5rem;
     width: 100%;
     max-width: 700px;
     position: relative;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    box-shadow: var(--shadow-xl);
     animation: slideUp 0.3s ease;
     max-height: 90vh;
     overflow-y: auto;
@@ -56,29 +56,29 @@
     align-items: flex-start;
     margin-bottom: 2rem;
     padding-bottom: 1rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid var(--color-border);
 }
 
 .title {
     font-size: 1.5rem;
-    color: #ffffff;
+    color: var(--color-text-main);
     margin: 0 0 0.5rem 0;
 }
 
 .subtitle {
-    color: #9ca3af;
+    color: var(--color-text-muted);
     margin: 0;
     font-size: 0.95rem;
 }
 
 .subtitle strong {
-    color: #fbbf24;
+    color: var(--color-primary);
 }
 
 .closeBtn {
     background: none;
     border: none;
-    color: #9ca3af;
+    color: var(--color-text-muted);
     font-size: 1.25rem;
     cursor: pointer;
     padding: 0.5rem;
@@ -86,7 +86,7 @@
 }
 
 .closeBtn:hover {
-    color: #ffffff;
+    color: var(--color-primary);
 }
 
 .form {
@@ -108,7 +108,7 @@
 }
 
 .formGroup label {
-    color: #e5e7eb;
+    color: var(--color-text-main);
     font-size: 0.9rem;
     font-weight: 500;
 }
@@ -120,21 +120,22 @@
 
 .formGroup input,
 .formGroup textarea {
-    background-color: #27272a;
-    border: 1px solid #3f3f46;
+    background-color: #ffffff;
+    border: 1px solid var(--color-border);
     border-radius: 8px;
     padding: 0.75rem 1rem;
-    color: #ffffff;
+    color: var(--color-text-main);
     font-size: 0.95rem;
     transition: all 0.2s;
     font-family: inherit;
+    box-shadow: var(--shadow-sm);
 }
 
 .formGroup input:focus,
 .formGroup textarea:focus {
     outline: none;
-    border-color: #fbbf24;
-    box-shadow: 0 0 0 2px rgba(251, 191, 36, 0.1);
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px rgba(1, 65, 163, 0.1);
 }
 
 .formGroup textarea {
@@ -158,25 +159,25 @@
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    background-color: #27272a;
-    border: 1px dashed #52525b;
+    background-color: var(--color-surface);
+    border: 1px dashed var(--color-border);
     border-radius: 8px;
     padding: 0.75rem 1rem;
-    color: #9ca3af;
+    color: var(--color-text-muted);
     cursor: pointer;
     transition: all 0.2s;
     width: 100%;
 }
 
 .fileLabel:hover {
-    border-color: #fbbf24;
-    color: #fbbf24;
-    background-color: rgba(251, 191, 36, 0.05);
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    background-color: rgba(1, 65, 163, 0.05);
 }
 
 .fileInput:focus+.fileLabel {
-    border-color: #fbbf24;
-    box-shadow: 0 0 0 2px rgba(251, 191, 36, 0.1);
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px rgba(1, 65, 163, 0.1);
 }
 
 .actions {
@@ -186,8 +187,8 @@
 }
 
 .submitBtn {
-    background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
-    color: #1a1a1a;
+    background: var(--color-primary);
+    color: #ffffff;
     border: none;
     padding: 0.75rem 2.5rem;
     border-radius: 8px;
@@ -200,7 +201,8 @@
 
 .submitBtn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(251, 191, 36, 0.3);
+    background: var(--color-primary-dark);
+    box-shadow: var(--shadow-md);
 }
 
 @media (max-width: 600px) {

@@ -21,7 +21,7 @@ const CreateCompany = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch('https://kriti-job-backend.vercel.app/api/companies', {
+            const response = await fetch('http://localhost:5000/api/companies', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -44,7 +44,7 @@ const CreateCompany = () => {
 
     return (
         <div className={styles.formContainer}>
-            <h2 className="text-gradient">Create Company Profile</h2>
+            <h2 style={{fontSize: '2rem', fontWeight: 'bold', color: 'var(--color-text-main)', marginBottom: '0.5rem'}}>Create Company Profile</h2>
             <p className={styles.subtitle}>Establish your company identity before posting jobs.</p>
             
             {message && <div className={styles.message}>{message}</div>}

@@ -37,7 +37,7 @@ const MenuBar = ({ editor }) => {
             >
                 <i className="fas fa-underline"></i>
             </button>
-            <span style={{width: '1px', background: 'rgba(255,255,255,0.1)', margin: '0 4px'}}></span>
+            <span style={{width: '1px', background: 'var(--color-border)', margin: '0 4px'}}></span>
             <button
                 onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}
                 className={`${styles.toolbarBtn} ${editor.isActive('heading', { level: 1 }) ? styles.isActive : ''}`}
@@ -52,7 +52,7 @@ const MenuBar = ({ editor }) => {
             >
                 H2
             </button>
-            <span style={{width: '1px', background: 'rgba(255,255,255,0.1)', margin: '0 4px'}}></span>
+            <span style={{width: '1px', background: 'var(--color-border)', margin: '0 4px'}}></span>
             <button
                 onClick={() => editor.chain().focus().toggleBulletList().run()}
                 className={`${styles.toolbarBtn} ${editor.isActive('bulletList') ? styles.isActive : ''}`}
@@ -213,7 +213,7 @@ const CompanyProfile = () => {
     return (
         <div className={styles.profileContainer}>
             {/* Global Actions */}
-            <div style={{display: 'flex', justifyContent: 'flex-end', marginBottom: '1rem'}}>
+            <div style={{display: 'flex', justifyContent: 'flex-end', marginBottom: '1rem', gap: '1rem'}}>
                 {isEditing ? (
                      <button 
                         onClick={handleSave}
@@ -227,7 +227,7 @@ const CompanyProfile = () => {
                     <button 
                         onClick={() => setIsEditing(true)}
                         className={styles.filterBtn}
-                        style={{background: '#fbbf24', color: 'black', border:'none'}}
+                        style={{background: 'var(--color-primary)', color: 'white', border:'none', cursor: 'pointer'}}
                     >
                         <i className="fas fa-pencil-alt" style={{marginRight:'8px'}}></i>
                         Edit Profile
@@ -249,6 +249,7 @@ const CompanyProfile = () => {
                             src={logoPreview || company.logo || "https://via.placeholder.com/150?text=Logo"} 
                             alt={company.name} 
                             className={styles.companyLogo} 
+                            style={{backgroundColor: 'white'}}
                         />
                         {isEditing && (
                             <label className={styles.logoEditBtn}>
@@ -270,7 +271,7 @@ const CompanyProfile = () => {
                                     autoFocus
                                 />
                             ) : (
-                                <h1 style={{fontSize: '2rem', fontWeight: 'bold', margin: '0 0 5px 0', color: 'white'}}>{company.name}</h1>
+                                <h1 style={{fontSize: '2rem', fontWeight: 'bold', margin: '0 0 5px 0', color: 'var(--color-text-main)'}}>{company.name}</h1>
                             )}
 
                              {isEditing ? (
@@ -297,7 +298,7 @@ const CompanyProfile = () => {
                                     {company.website && (
                                         <>
                                             <span style={{margin:'0 5px'}}>•</span>
-                                            <a href={company.website} target="_blank" rel="noopener noreferrer" style={{color:'white'}}>{company.website}</a>
+                                            <a href={company.website} target="_blank" rel="noopener noreferrer" style={{color:'var(--color-primary)'}}>{company.website}</a>
                                         </>
                                     )}
                                 </div>

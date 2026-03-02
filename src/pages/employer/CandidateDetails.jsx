@@ -138,7 +138,7 @@ const CandidateDetails = () => {
                                 <i className="fas fa-external-link-alt text-gray-500"></i>
                             </a>
                         ) : (
-                            <div className="text-gray-500 italic text-center p-4 bg-gray-800 rounded-lg">No resume uploaded</div>
+                            <div className="text-gray-500 italic text-center p-4 bg-gray-50 rounded-lg border border-gray-200">No resume uploaded</div>
                         )}
                     </div>
                 </div>

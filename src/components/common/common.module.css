@@ -6,7 +6,7 @@
 .iconBtn {
     background: transparent;
     border: none;
-    color: #9ca3af;
+    color: var(--color-text-muted);
     font-size: 1.2rem;
     cursor: pointer;
     position: relative;
@@ -16,8 +16,8 @@
 }
 
 .iconBtn:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: #f3f4f6;
+    background-color: rgba(1, 65, 163, 0.1);
+    color: var(--color-primary);
 }
 
 .notificationDot {
@@ -26,7 +26,7 @@
     right: 5px;
     background: #ef4444;
     color: white;
-    border: 2px solid #111827;
+    border: 2px solid #ffffff;
     border-radius: 50%;
     width: 10px;
     height: 10px;
@@ -37,10 +37,10 @@
     right: 0;
     top: 50px;
     width: 320px;
-    background: #1f2937;
-    border: 1px solid #374151;
+    background: #ffffff;
+    border: 1px solid var(--color-border);
     border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    box-shadow: var(--shadow-lg);
     z-index: 1000;
     overflow: hidden;
     animation: fadeIn 0.2s ease-out;
@@ -48,22 +48,23 @@
 
 .dropdownHeader {
     padding: 15px;
-    border-bottom: 1px solid #374151;
+    border-bottom: 1px solid var(--color-border);
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background: var(--color-surface-muted);
 }
 
 .dropdownHeader h4 {
     margin: 0;
-    color: #f3f4f6;
+    color: var(--color-text-main);
     font-size: 1rem;
     font-weight: 600;
 }
 
 .unreadCount {
-    background-color: #374151;
-    color: #9ca3af;
+    background-color: var(--color-primary);
+    color: white;
     padding: 2px 8px;
     border-radius: 10px;
     font-size: 0.75rem;
@@ -77,27 +78,28 @@
 .emptyState {
     padding: 30px 20px;
     text-align: center;
-    color: #9ca3af;
+    color: var(--color-text-muted);
     font-size: 0.9rem;
 }
 
 .notificationItem {
     padding: 12px 15px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid var(--color-border);
     cursor: pointer;
     transition: background 0.2s;
     display: block;
     text-align: left;
     width: 100%;
+    background: #ffffff;
 }
 
 .notificationItem:hover {
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: var(--color-surface-muted);
 }
 
 .unread {
-    background-color: rgba(251, 191, 36, 0.05);
-    border-left: 3px solid #fbbf24;
+    background-color: rgba(1, 65, 163, 0.05);
+    border-left: 3px solid var(--color-primary);
 }
 
 .itemHeader {
@@ -109,18 +111,18 @@
 .itemTitle {
     font-weight: 600;
     font-size: 0.9rem;
-    color: #f3f4f6;
+    color: var(--color-text-main);
 }
 
 .itemTime {
     font-size: 0.75rem;
-    color: #6b7280;
+    color: var(--color-text-muted);
 }
 
 .itemMessage {
     margin: 0;
     font-size: 0.85rem;
-    color: #9ca3af;
+    color: var(--color-text-muted);
     line-height: 1.4;
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -131,22 +133,23 @@
 
 .dropdownFooter {
     padding: 10px;
-    border-top: 1px solid #374151;
+    border-top: 1px solid var(--color-border);
     text-align: center;
-    background-color: #1f2937;
+    background-color: var(--color-surface-muted);
 }
 
 .viewAllBtn {
     background: none;
     border: none;
-    color: #60a5fa;
+    color: var(--color-primary);
     font-size: 0.85rem;
     cursor: pointer;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 .viewAllBtn:hover {
     text-decoration: underline;
+    color: var(--color-primary-dark);
 }
 
 @keyframes fadeIn {

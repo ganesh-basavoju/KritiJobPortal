@@ -69,12 +69,12 @@ const ResumeManager = () => {
 
     return (
         <div style={{ padding: '2rem' }}>
-            <h1 className="text-gradient" style={{fontSize: '2rem', margin: 0, marginBottom: '1.5rem'}}>Resume Manager</h1>
+            <h1 style={{fontSize: '2rem', margin: 0, marginBottom: '1.5rem', color: 'var(--color-text-main)'}}>Resume Manager</h1>
             
-            <div className="glass-card" style={{ padding: '2rem', marginBottom: '2rem', textAlign: 'center', border: '2px dashed rgba(255, 255, 255, 0.2)' }}>
-                <i className="fas fa-cloud-upload-alt" style={{ fontSize: '3rem', color: 'var(--color-accent)', marginBottom: '1rem' }}></i>
-                <h3>Upload your Resume</h3>
-                <p style={{ color: 'var(--color-text-secondary)', marginBottom: '1.5rem' }}>
+            <div style={{ padding: '2rem', marginBottom: '2rem', textAlign: 'center', border: '2px dashed var(--color-border)', background: '#ffffff', borderRadius: '16px' }}>
+                <i className="fas fa-cloud-upload-alt" style={{ fontSize: '3rem', color: 'var(--color-primary)', marginBottom: '1rem' }}></i>
+                <h3 style={{color: 'var(--color-text-main)', marginBottom: '0.5rem'}}>Upload your Resume</h3>
+                <p style={{ color: 'var(--color-text-muted)', marginBottom: '1.5rem' }}>
                     Drag and drop your file here, or click to browse (PDF, DOCX)
                 </p>
                 <input 
@@ -90,29 +90,29 @@ const ResumeManager = () => {
             </div>
 
             <h3 style={{ marginBottom: '1rem', color: 'var(--color-text-main)' }}>Uploaded Resumes</h3>
-            <div className="glass-card" style={{ padding: '0' }}>
+            <div style={{ padding: '0', background: '#ffffff', borderRadius: '16px', border: '1px solid var(--color-border)', boxShadow: 'var(--shadow-sm)', overflow: 'hidden' }}>
                 <table style={{ width: '100%', borderCollapse: 'collapse' }}>
                     <thead>
-                        <tr style={{ background: 'rgba(255, 255, 255, 0.05)', textAlign: 'left' }}>
-                            <th style={{ padding: '1rem' }}>File Name</th>
-                            <th style={{ padding: '1rem' }}>Date Uploaded</th>
-                            <th style={{ padding: '1rem', textAlign: 'right' }}>Actions</th>
+                        <tr style={{ background: 'var(--color-surface-muted)', textAlign: 'left', borderBottom: '1px solid var(--color-border)' }}>
+                            <th style={{ padding: '1rem', color: 'var(--color-text-main)', fontWeight: '600' }}>File Name</th>
+                            <th style={{ padding: '1rem', color: 'var(--color-text-main)', fontWeight: '600' }}>Date Uploaded</th>
+                            <th style={{ padding: '1rem', textAlign: 'right', color: 'var(--color-text-main)', fontWeight: '600' }}>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
                         {resumes.map(resume => (
-                            <tr key={resume._id} style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.05)' }}>
-                                <td style={{ padding: '1rem', display: 'flex', alignItems: 'center', gap: '10px' }}>
+                            <tr key={resume._id} style={{ borderBottom: '1px solid var(--color-border)' }}>
+                                <td style={{ padding: '1rem', display: 'flex', alignItems: 'center', gap: '10px', color: 'var(--color-text-main)' }}>
                                     <i className="fas fa-file-pdf" style={{ color: '#e74c3c' }}></i>
                                     {resume.name}
                                 </td>
-                                <td style={{ padding: '1rem', color: 'var(--color-text-secondary)' }}>
+                                <td style={{ padding: '1rem', color: 'var(--color-text-muted)' }}>
                                     {format(new Date(resume.uploadedAt), 'MMM dd, yyyy')}
                                 </td>
                                 <td style={{ padding: '1rem', textAlign: 'right' }}>
                                     <button 
                                         onClick={() => window.open(resume.url, '_blank')}
-                                        style={{ background: 'none', border: 'none', color: 'var(--color-text-main)', cursor: 'pointer', marginRight: '1rem' }}
+                                        style={{ background: 'none', border: 'none', color: 'var(--color-primary)', cursor: 'pointer', marginRight: '1rem' }}
                                         title="Download/View"
                                     >
                                         <i className="fas fa-download"></i>
@@ -129,7 +129,7 @@ const ResumeManager = () => {
                         ))}
                         {resumes.length === 0 && (
                             <tr>
-                                <td colSpan="3" style={{ padding: '2rem', textAlign: 'center', color: 'var(--color-text-secondary)' }}>
+                                <td colSpan="3" style={{ padding: '2rem', textAlign: 'center', color: 'var(--color-text-muted)' }}>
                                     No resumes uploaded yet.
                                 </td>
                             </tr>

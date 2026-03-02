@@ -1,7 +1,7 @@
 /* Main Grid Layout */
 .pageContainer {
     padding: 2rem;
-    color: white;
+    color: var(--color-text-main);
     /* Removed global max-width to fix Applicants page layout */
     margin: 0 auto;
 }
@@ -16,12 +16,12 @@
 
 /* ... Existing Styles ... */
 .companyHeaderCard {
-    background-color: #1a1a1a;
+    background-color: #ffffff;
     border-radius: 16px;
     overflow: hidden;
     margin-bottom: 2rem;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-md);
 }
 
 /* ... Banner and Header Styles from previous step ... */
@@ -38,9 +38,9 @@
     position: absolute;
     top: 20px;
     right: 20px;
-    background: rgba(0, 0, 0, 0.6);
-    color: white;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--color-primary);
+    border: 1px solid var(--color-border);
     border-radius: 50%;
     width: 40px;
     height: 40px;
@@ -50,11 +50,13 @@
     cursor: pointer;
     transition: all 0.2s;
     z-index: 10;
+    box-shadow: var(--shadow-sm);
 }
 
 .bannerEditBtn:hover {
-    background: rgba(0, 0, 0, 0.8);
+    background: #ffffff;
     transform: scale(1.05);
+    box-shadow: var(--shadow-md);
 }
 
 .companyProfileHeader {
@@ -71,8 +73,10 @@
     height: 120px;
     position: relative;
     border-radius: 16px;
-    background: #1a1a1a;
+    background: #ffffff;
     padding: 6px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
 }
 
 .companyLogo {
@@ -87,8 +91,8 @@
     position: absolute;
     bottom: -5px;
     right: -5px;
-    background: #fbbf24;
-    color: #1a1a1a;
+    background: var(--color-primary);
+    color: white;
     border: none;
     border-radius: 50%;
     width: 36px;
@@ -97,13 +101,14 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    box-shadow: var(--shadow-sm);
     transition: transform 0.2s;
     z-index: 10;
 }
 
 .logoEditBtn:hover {
     transform: scale(1.1);
+    background: var(--color-primary-dark);
 }
 
 .headerContentRow {
@@ -120,9 +125,9 @@
 .companyNameInput {
     font-size: 2rem;
     font-weight: 700;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid #fbbf24;
-    color: white;
+    background: var(--color-surface-muted);
+    border: 1px solid var(--color-primary);
+    color: var(--color-text-main);
     border-radius: 8px;
     padding: 4px 10px;
     width: 100%;
@@ -130,7 +135,7 @@
 }
 
 .companyLocation {
-    color: #9ca3af;
+    color: var(--color-text-muted);
     display: flex;
     align-items: center;
     gap: 8px;
@@ -139,9 +144,9 @@
 }
 
 .companyLocationInput {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid #fbbf24;
-    color: white;
+    background: var(--color-surface-muted);
+    border: 1px solid var(--color-primary);
+    color: var(--color-text-main);
     border-radius: 6px;
     padding: 4px 10px;
     font-size: 1rem;
@@ -149,26 +154,28 @@
 }
 
 .headerEditIcon {
-    color: #fbbf24;
+    color: var(--color-primary);
     cursor: pointer;
     font-size: 1.2rem;
     padding: 8px;
     border-radius: 50%;
     transition: background 0.2s;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(1, 65, 163, 0.05);
 }
 
 .headerEditIcon:hover {
-    background: rgba(251, 191, 36, 0.1);
+    background: rgba(1, 65, 163, 0.1);
 }
 
 /* Details Section */
+/* Details Section */
 .sectionContainer {
     margin-top: 30px;
-    background: #1a1a1a;
+    background: #ffffff;
     border-radius: 16px;
     padding: 30px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-sm);
 }
 
 .sectionHeader {
@@ -176,13 +183,13 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid var(--color-border);
     padding-bottom: 15px;
 }
 
 .sectionTitle {
     font-size: 1.5rem;
-    color: white;
+    color: var(--color-text-main);
     margin: 0;
     font-weight: 600;
 }
@@ -192,17 +199,17 @@
     display: flex;
     gap: 8px;
     margin-bottom: 15px;
-    background: #111;
+    background: var(--color-surface-muted);
     padding: 8px;
     border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--color-border);
     flex-wrap: wrap;
 }
 
 .toolbarBtn {
     background: transparent;
     border: none;
-    color: #9ca3af;
+    color: var(--color-text-muted);
     cursor: pointer;
     padding: 6px 10px;
     border-radius: 4px;
@@ -217,12 +224,12 @@
 
 .toolbarBtn:hover,
 .toolbarBtn.isActive {
-    background: rgba(251, 191, 36, 0.1);
-    color: #fbbf24;
+    background: rgba(1, 65, 163, 0.1);
+    color: var(--color-primary);
 }
 
 .richTextContent {
-    color: #d1d5db;
+    color: var(--color-text-main);
     min-height: 200px;
 }
 
@@ -230,15 +237,17 @@
 .tiptap {
     min-height: 200px;
     outline: none;
+    color: var(--color-text-main);
 }
 
 .tiptap p {
     margin-bottom: 12px;
     line-height: 1.6;
+    color: var(--color-text-main);
 }
 
 .tiptap h1 {
-    color: white;
+    color: var(--color-text-main);
     margin-top: 24px;
     margin-bottom: 16px;
     font-size: 2em;
@@ -247,7 +256,7 @@
 }
 
 .tiptap h2 {
-    color: white;
+    color: var(--color-text-main);
     margin-top: 20px;
     margin-bottom: 14px;
     font-size: 1.5em;
@@ -256,7 +265,7 @@
 }
 
 .tiptap h3 {
-    color: white;
+    color: var(--color-text-main);
     margin-top: 18px;
     margin-bottom: 10px;
     font-size: 1.17em;
@@ -296,15 +305,15 @@
 }
 
 .tiptap a {
-    color: #fbbf24;
+    color: var(--color-primary);
     text-decoration: underline;
 }
 
 .tiptap blockquote {
-    border-left: 3px solid #fbbf24;
+    border-left: 3px solid var(--color-primary);
     padding-left: 1rem;
     margin-left: 0;
-    color: #9ca3af;
+    color: var(--color-text-muted);
     font-style: italic;
 }
 
@@ -318,8 +327,8 @@
 
 .filterBtn {
     background: transparent;
-    border: 1px solid #fbbf24;
-    color: #fbbf24;
+    border: 1px solid var(--color-primary);
+    color: var(--color-primary);
     padding: 8px 16px;
     border-radius: 8px;
     cursor: pointer;
@@ -331,7 +340,7 @@
 }
 
 .filterBtn:hover {
-    background: rgba(251, 191, 36, 0.1);
+    background: rgba(1, 65, 163, 0.1);
 }
 
 .grid {
@@ -344,10 +353,10 @@
 
 /* Applicant Card Re-verified */
 .card {
-    background: #1a1a1a;
+    background: #ffffff;
     border-radius: 16px;
     padding: 24px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--color-border);
     transition: transform 0.2s, box-shadow 0.2s;
     display: flex;
     flex-direction: column;
@@ -355,8 +364,8 @@
 
 .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    border-color: rgba(251, 191, 36, 0.2);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-primary);
 }
 
 /* ... Other Card styles (avatar, info, etc) ... */
@@ -372,19 +381,19 @@
     height: 60px;
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid #333;
+    border: 2px solid var(--color-border);
 }
 
 .info h3 {
     margin: 0;
     font-size: 1.1rem;
-    color: white;
+    color: var(--color-text-main);
     font-weight: 600;
 }
 
 .info p {
     margin: 4px 0 0 0;
-    color: #9ca3af;
+    color: var(--color-text-muted);
     font-size: 0.9rem;
 }
 
@@ -396,12 +405,12 @@
 }
 
 .skillTag {
-    background: rgba(255, 255, 255, 0.05);
-    color: #fbbf24;
+    background: var(--color-surface-muted);
+    color: var(--color-primary);
     font-size: 0.8rem;
     padding: 4px 10px;
     border-radius: 12px;
-    border: 1px solid rgba(251, 191, 36, 0.1);
+    border: 1px solid rgba(1, 65, 163, 0.1);
 }
 
 .detailsRow {
@@ -409,7 +418,7 @@
     justify-content: space-between;
     margin-bottom: 20px;
     font-size: 0.9rem;
-    color: white;
+    color: var(--color-text-main);
 }
 
 .salary,
@@ -420,16 +429,17 @@
 }
 
 .location {
-    color: #9ca3af;
+    color: var(--color-text-muted);
 }
 
 .bio {
-    color: #6b7280;
+    color: var(--color-text-muted);
     font-size: 0.85rem;
     line-height: 1.5;
     margin-bottom: 20px;
     display: -webkit-box;
     -webkit-line-clamp: 3;
+    line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
@@ -444,9 +454,9 @@
 .actionBtn {
     padding: 10px;
     border-radius: 8px;
-    border: 1px solid #fbbf24;
+    border: 1px solid var(--color-primary);
     background: transparent;
-    color: #fbbf24;
+    color: var(--color-primary);
     cursor: pointer;
     font-weight: 500;
     transition: all 0.2s;
@@ -454,17 +464,17 @@
 }
 
 .actionBtn:hover {
-    background: rgba(251, 191, 36, 0.1);
+    background: rgba(1, 65, 163, 0.1);
 }
 
 .primaryBtn {
-    background: #fbbf24;
-    color: #1a1a1a;
+    background: var(--color-primary);
+    color: white;
     border: none;
 }
 
 .primaryBtn:hover {
-    background: #f59e0b;
+    background: var(--color-primary-dark);
 }
 
 .statusWrapper {
@@ -474,22 +484,24 @@
 .statusSelect {
     width: 100%;
     padding: 10px;
-    background: rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: #ffffff;
+    border: 1px solid var(--color-border);
     border-radius: 8px;
-    color: white;
+    color: var(--color-text-main);
     font-size: 0.9rem;
     cursor: pointer;
     outline: none;
+    box-shadow: var(--shadow-sm);
 }
 
 .statusSelect:focus {
-    border-color: #fbbf24;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px rgba(1, 65, 163, 0.1);
 }
 
 .statusSelect option {
-    background: #1a1a1a;
-    color: white;
+    background: #ffffff;
+    color: var(--color-text-main);
 }
 
 .modalBanner {
@@ -509,9 +521,9 @@
 }
 
 .jobActionBtn {
-    background: #374151;
-    border: 1px solid #4b5563;
-    color: #e5e7eb;
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    color: var(--color-text-main);
     width: 32px;
     /* Slightly smaller to fit footer better if needed */
     height: 32px;
@@ -525,13 +537,13 @@
 }
 
 .jobActionBtn:hover {
-    background: #d4af37;
-    border-color: #d4af37;
-    color: #1f2937;
+    background: var(--color-surface-muted);
+    border-color: var(--color-primary);
+    color: var(--color-primary);
 }
 
 .jobDeleteBtn {
-    background: rgba(239, 68, 68, 0.1);
+    background: rgba(239, 68, 68, 0.05);
     border: 1px solid rgba(239, 68, 68, 0.2);
     color: #ef4444;
 }

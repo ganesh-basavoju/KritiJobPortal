@@ -1,9 +1,10 @@
 .container {
     /* max-width and side padding handled by global .focused-container */
-    padding-top: 120px;
+    padding-top: 100px;
     padding-bottom: 60px;
-    color: #e5e7eb;
+    color: var(--color-text-main);
     min-height: 100vh;
+    background-color: var(--color-surface-muted);
 }
 
 .jobWrapper {
@@ -17,20 +18,23 @@
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background-color: #3f3f46;
-    color: #fbbf24;
+    background-color: white;
+    color: var(--color-text-muted);
     padding: 0.5rem 1rem;
     border-radius: 8px;
     text-decoration: none;
     font-weight: 500;
     margin-bottom: 2rem;
-    border: none;
+    border: 1px solid var(--color-border);
     cursor: pointer;
     transition: all 0.2s;
+    box-shadow: var(--shadow-sm);
 }
 
 .backButton:hover {
-    background-color: #52525b;
+    background-color: var(--color-surface-muted);
+    color: var(--color-primary);
+    border-color: var(--color-primary);
 }
 
 /* Main Content Area */
@@ -46,6 +50,11 @@
     justify-content: space-between;
     align-items: flex-start;
     margin-bottom: 1rem;
+    background: #ffffff;
+    padding: 24px;
+    border-radius: 16px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
 }
 
 .headerLeft {
@@ -61,27 +70,30 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    background: #ffffff;
+    border: 1px solid var(--color-border);
 }
 
 .logoBox img {
     width: 100%;
     height: 100%;
     object-fit: contain;
+    padding: 8px;
 }
 
 .logoBox i {
     font-size: 2.5rem;
-    color: white;
+    color: var(--color-primary);
 }
 
 .titleBox h1 {
     font-size: 1.8rem;
     margin: 0 0 0.5rem 0;
-    color: #ffffff;
+    color: var(--color-text-main);
 }
 
 .companyMeta {
-    color: #9ca3af;
+    color: var(--color-text-muted);
     font-size: 1rem;
     display: flex;
     align-items: center;
@@ -96,27 +108,33 @@
 }
 
 .applyButton {
-    background-color: #3f3f46;
-    color: #fbbf24;
+    background-color: var(--color-primary);
+    color: white;
     border: none;
     padding: 0.75rem 2rem;
     border-radius: 8px;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.2s;
+    box-shadow: 0 4px 6px -1px rgba(1, 65, 163, 0.2);
 }
 
 .applyButton:hover {
-    background-color: #fbbf24;
-    color: #1a1a1a;
+    background-color: var(--color-primary-dark);
+    transform: translateY(-1px);
 }
 
 .saveButton {
     background: none;
     border: none;
-    color: #fbbf24;
+    color: var(--color-primary);
     font-size: 1.5rem;
     cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.saveButton:hover {
+    transform: scale(1.1);
 }
 
 /* Highlights Grid */
@@ -124,10 +142,12 @@
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 1rem;
-    margin: 1rem 0 2rem 0;
-    border-top: 1px solid #3f3f46;
-    border-bottom: 1px solid #3f3f46;
-    padding: 2rem 0;
+    margin: 0;
+    padding: 24px;
+    background: #ffffff;
+    border-radius: 16px;
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-sm);
 }
 
 .highlightCard {
@@ -146,50 +166,59 @@
     align-items: center;
     justify-content: center;
     font-size: 1.25rem;
-    border: 2px solid #fbbf24;
-    color: #fbbf24;
+    border: 1px solid rgba(1, 65, 163, 0.2);
+    color: var(--color-primary);
+    background: rgba(1, 65, 163, 0.05);
 }
 
 .highlightLabel {
-    color: #9ca3af;
+    color: var(--color-text-muted);
     font-size: 0.9rem;
     margin: 0;
 }
 
 .highlightValue {
-    color: #ffffff;
+    color: var(--color-text-main);
     font-weight: 600;
     margin: 0;
 }
 
 /* Sections */
+.section {
+    background: #ffffff;
+    padding: 24px;
+    border-radius: 16px;
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-sm);
+}
+
 .sectionTitle {
     font-size: 1.25rem;
     margin-bottom: 1.5rem;
-    color: #ffffff;
+    color: var(--color-text-main);
+    font-weight: 600;
 }
 
 .skillsContainer {
     display: flex;
     flex-wrap: wrap;
     gap: 0.8rem;
-    margin-bottom: 2rem;
+    margin-bottom: 0;
 }
 
 .skillTag {
-    background-color: #2e2e2e;
-    color: #fbbf24;
-    /* Gold text */
+    background-color: var(--color-surface-muted);
+    color: var(--color-primary);
     padding: 0.5rem 1.25rem;
     border-radius: 20px;
     font-size: 0.9rem;
-    border: 1px solid #444;
+    border: 1px solid rgba(1, 65, 163, 0.1);
 }
 
 .descriptionBox {
-    color: #d1d5db;
+    color: var(--color-text-main);
     line-height: 1.7;
-    margin-bottom: 2rem;
+    margin-bottom: 0;
 }
 
 .descriptionBox p {
@@ -207,11 +236,12 @@
 
 /* Company Section */
 .companySection {
-    background-color: #27272a;
-    /* Slightly lighter than bg */
+    background-color: #ffffff;
     padding: 1.5rem;
     border-radius: 12px;
-    margin-top: 2rem;
+    margin-top: 0;
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-sm);
 }
 
 .companyHeader {
@@ -222,12 +252,19 @@
 }
 
 .viewCompanyBtn {
-    color: #fbbf24;
+    color: var(--color-primary);
     text-decoration: none;
-    background-color: rgba(251, 191, 36, 0.1);
+    background-color: transparent;
     padding: 0.5rem 1rem;
     border-radius: 6px;
     font-size: 0.9rem;
+    border: 1px solid var(--color-primary);
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.viewCompanyBtn:hover {
+    background-color: rgba(1, 65, 163, 0.05);
 }
 
 .companyInfo {
@@ -240,26 +277,31 @@
     width: 48px;
     height: 48px;
     border-radius: 8px;
-    background: #333;
+    background: #ffffff;
     display: flex;
     align-items: center;
     justify-content: center;
+    border: 1px solid var(--color-border);
+    padding: 4px;
 }
 
 .companyLogoSmall img {
     width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 .companyName {
     margin: 0;
     font-size: 1.1rem;
-    color: white;
+    color: var(--color-text-main);
+    font-weight: 600;
 }
 
 .employeeCount {
     margin: 0;
     font-size: 0.85rem;
-    color: #9ca3af;
+    color: var(--color-text-muted);
 }
 
 /* Sidebar */
@@ -272,7 +314,8 @@
 .sidebarTitle {
     font-size: 1.2rem;
     margin: 0;
-    color: #e5e7eb;
+    color: var(--color-text-main);
+    font-weight: 600;
 }
 
 /* Responsive */

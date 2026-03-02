@@ -8,24 +8,25 @@
 .label {
     font-size: 0.875rem;
     font-weight: 500;
-    color: #94a3b8; /* Slate-400 */
+    color: var(--color-text-main);
 }
 
 .tagInputContainer {
-    border: 1px solid #334155; /* Slate-700 */
+    border: 1px solid var(--color-border);
     border-radius: 0.5rem;
-    background: #1e293b; /* Slate-800 */
+    background: #ffffff;
     padding: 0.5rem;
     min-height: 46px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     transition: all 0.2s ease;
+    box-shadow: var(--shadow-sm);
 }
 
 .tagInputContainer:focus-within {
-    border-color: #ffd700; /* Gold */
-    box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.1);
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px rgba(1, 65, 163, 0.1);
 }
 
 .tagsList {
@@ -36,21 +37,22 @@
 }
 
 .tag {
-    background: #334155; /* Slate-700 */
-    color: #f8fafc; /* Slate-50 */
+    background: var(--color-surface-muted);
+    color: var(--color-primary);
     padding: 0.25rem 0.75rem;
-    border-radius: 9999px; /* Pill shape */
+    border-radius: 9999px;
     font-size: 0.875rem;
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    border: 1px solid #475569; /* Slate-600 */
+    border: 1px solid var(--color-border);
+    font-weight: 500;
 }
 
 .removeBtn {
     background: none;
     border: none;
-    color: #94a3b8; /* Slate-400 */
+    color: var(--color-text-muted);
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -60,13 +62,13 @@
 }
 
 .removeBtn:hover {
-    color: #ef4444; /* Red-500 */
+    color: #ef4444;
 }
 
 .input {
     background: transparent;
     border: none;
-    color: #f8fafc; /* Slate-50 */
+    color: var(--color-text-main);
     font-size: 0.95rem;
     flex: 1;
     min-width: 120px;
@@ -75,5 +77,5 @@
 }
 
 .input::placeholder {
-    color: #64748b; /* Slate-500 */
+    color: var(--color-text-muted);
 }

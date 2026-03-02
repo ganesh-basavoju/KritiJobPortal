@@ -46,15 +46,29 @@ const MyJobs = () => {
         }
     };
 
+    const handleToggleVisibility = async (jobId) => {
+        try {
+            const { data } = await api.put(`/jobs/${jobId}/toggle-visibility`);
+            if (data.success) {
+                setJobs(jobs.map(j => j._id === jobId ? { ...j, isActive: data.data.isActive } : j));
+                addToast(data.data.isActive ? 'Job is now visible' : 'Job is now hidden', 'success');
+            }
+        } catch (err) {
+            console.error(err);
+            const msg = err.response?.data?.message || 'Failed to toggle visibility';
+            addToast(msg, 'error');
+        }
+    };
+
     if (loading) return <div style={{padding: '2rem', textAlign: 'center'}}>Loading...</div>;
 
     return (
         <div className={styles.pageContainer}>
             <div className={styles.headerRow}>
-                 <h1 className="text-gradient" style={{fontSize: '2rem', margin: 0}}>My Jobs</h1>
+                 <h1 style={{fontSize: '2rem', margin: 0, color: 'var(--color-text-main)'}}>My Jobs</h1>
                  <button 
                     className={styles.filterBtn} 
-                    style={{background: '#fbbf24', color: '#1a1a1a', border: 'none'}}
+                    style={{background: 'var(--color-secondary)', color: 'white', border: 'none'}}
                     onClick={() => navigate('/dashboard/employer/post-job')}
                 >
                     <i className="fas fa-plus"></i> Post a Job
@@ -84,6 +98,17 @@ const MyJobs = () => {
                                     <i className="fas fa-users"></i>
                                 </button>
                                 <button 
+                                    className={styles.jobActionBtn} 
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        handleToggleVisibility(job._id);
+                                    }}
+                                    title={job.isActive ? "Hide Job from Find Jobs" : "Show Job in Find Jobs"}
+                                    style={{ color: job.isActive !== false ? 'var(--color-text-main)' : 'var(--color-text-muted)' }}
+                                >
+                                    <i className={job.isActive !== false ? "fas fa-eye" : "fas fa-eye-slash"}></i>
+                                </button>
+                                <button 
                                     className={`${styles.jobActionBtn} ${styles.jobDeleteBtn}`}
                                     onClick={(e) => {
                                         e.stopPropagation();
@@ -99,10 +124,10 @@ const MyJobs = () => {
                  ))}
                  
                  {jobs.length === 0 && (
-                     <div style={{gridColumn: '1/-1', textAlign: 'center', padding: '40px', color: '#9ca3af', background: 'rgba(255,255,255,0.05)', borderRadius: '12px'}}>
+                     <div style={{gridColumn: '1/-1', textAlign: 'center', padding: '40px', color: 'var(--color-text-muted)', background: 'var(--color-surface-muted)', borderRadius: '12px', border: '1px solid var(--color-border)'}}>
                          <p>You haven't posted any jobs yet.</p>
                          <button 
-                            style={{marginTop: '10px', background: 'none', border:'1px solid #fbbf24', color: '#fbbf24', padding:'8px 16px', borderRadius:'8px', cursor:'pointer'}}
+                            style={{marginTop: '10px', background: 'none', border:'1px solid var(--color-primary)', color: 'var(--color-primary)', padding:'8px 16px', borderRadius:'8px', cursor:'pointer'}}
                             onClick={() => navigate('/dashboard/employer/post-job')}
                          >
                              Create your first job

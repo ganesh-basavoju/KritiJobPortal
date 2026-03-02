@@ -6,6 +6,7 @@
     align-items: center;
     position: relative;
     overflow: hidden;
+    background: linear-gradient(135deg, #ffffff 0%, #eff6ff 100%);
 }
 
 .heroContainer {
@@ -22,14 +23,14 @@
 
 .badge {
     display: inline-block;
-    background: rgba(255, 215, 0, 0.1);
-    color: var(--color-accent);
+    background: rgba(1, 65, 163, 0.1);
+    color: var(--color-primary);
     padding: 8px 16px;
     border-radius: 20px;
     font-size: 0.9rem;
     font-weight: 600;
     margin-bottom: 20px;
-    border: 1px solid rgba(255, 215, 0, 0.2);
+    border: 1px solid rgba(1, 65, 163, 0.2);
 }
 
 .title {
@@ -52,6 +53,10 @@
     padding: 10px;
     gap: 10px;
     margin-bottom: 50px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--color-border);
 }
 
 .inputGroup {
@@ -60,7 +65,7 @@
     align-items: center;
     gap: 10px;
     padding: 0 15px;
-    border-right: 1px solid var(--color-glass-border);
+    border-right: 1px solid var(--color-border);
 }
 
 .inputGroup:last-of-type {
@@ -88,7 +93,7 @@
 .statItem h3 {
     font-size: 2rem;
     font-weight: 700;
-    color: var(--color-text-main);
+    color: var(--color-primary);
 }
 
 .statItem p {
@@ -110,10 +115,10 @@
     position: absolute;
     width: 400px;
     height: 400px;
-    background: var(--color-secondary);
+    background: var(--color-primary);
     border-radius: 50%;
     filter: blur(100px);
-    opacity: 0.2;
+    opacity: 0.05;
     z-index: -1;
 }
 
@@ -121,11 +126,17 @@
     position: absolute;
     width: 260px;
     animation: float 6s ease-in-out infinite;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--color-border);
 }
 
 .card h4 {
     font-size: 1.2rem;
     margin-bottom: 5px;
+    color: var(--color-text-main);
 }
 
 .card p {
@@ -136,7 +147,7 @@
 
 .card span {
     display: inline-block;
-    color: var(--color-accent);
+    color: var(--color-primary);
     font-weight: 600;
 }
 
@@ -144,14 +155,14 @@
     top: 10%;
     right: 15%;
     animation-delay: 0s;
-    border-left: 4px solid var(--color-accent);
+    border-left: 4px solid var(--color-primary);
 }
 
 .card2 {
     bottom: 20%;
     left: 10%;
     animation-delay: 3s;
-    border-left: 4px solid var(--color-secondary);
+    border-left: 4px solid var(--color-accent);
 }
 
 @keyframes float {
@@ -190,7 +201,7 @@
     .inputGroup {
         width: 100%;
         border-right: none;
-        border-bottom: 1px solid var(--color-glass-border);
+        border-bottom: 1px solid var(--color-border);
         padding: 15px;
     }
 

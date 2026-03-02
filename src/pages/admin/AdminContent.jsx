@@ -57,7 +57,7 @@ const AdminContent = () => {
         }
     };
 
-    if (loading) return <div style={{padding:'20px', color:'white'}}>Loading Editor...</div>;
+    if (loading) return <div style={{padding:'20px', color:'var(--color-text-main)'}}>Loading Editor...</div>;
 
     return (
         <div className={styles.pageContainer}>
@@ -69,12 +69,12 @@ const AdminContent = () => {
             </div>
             
             <div className={styles.card}>
-                <div style={{display: 'flex', gap: '10px', marginBottom: '20px', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '10px'}}>
+                <div style={{display: 'flex', gap: '10px', marginBottom: '20px', borderBottom: '1px solid var(--color-border)', paddingBottom: '10px'}}>
                     {TAB_DATA.map(tab => (
                         <button 
                             key={tab.id}
                             className={activeTab === tab.id ? styles.primaryBtn : styles.actionBtn}
-                            style={activeTab === tab.id ? {} : { padding: '10px 20px', borderRadius: '8px', background: 'transparent', border: '1px solid rgba(255,255,255,0.1)' }}
+                            style={activeTab === tab.id ? {} : { padding: '10px 20px', borderRadius: '8px', background: 'transparent', border: '1px solid var(--color-border)' }}
                             onClick={() => setActiveTab(tab.id)}
                         >
                             {tab.label}

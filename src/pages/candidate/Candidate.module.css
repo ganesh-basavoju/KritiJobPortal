@@ -7,20 +7,19 @@
 
 /* Header Card & Banner */
 .headerCard {
-    background-color: #1a1a1a;
+    background-color: #ffffff;
     border-radius: 16px;
     overflow: hidden;
     margin-bottom: 2rem;
     position: relative;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-md);
 }
 
 .banner {
     height: 180px;
     background: url('/images/profile-banner.png') center/cover no-repeat;
-    /* Deep Purple Premium fallback */
-    background-color: #0a192f;
+    background-color: var(--color-surface-muted);
     width: 100%;
 }
 
@@ -42,17 +41,17 @@
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    border: 6px solid #1a1a1a;
+    border: 6px solid #ffffff;
     object-fit: cover;
-    background-color: #1a1a1a;
-    /* Fallback */
+    background-color: #ffffff;
+    box-shadow: var(--shadow-sm);
 }
 
 .editAvatarBtn {
     position: absolute;
     bottom: 10px;
     right: 10px;
-    background-color: #fbbf24;
+    background-color: var(--color-primary);
     border: none;
     border-radius: 50%;
     width: 40px;
@@ -61,14 +60,15 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    color: #1a1a1a;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    color: white;
+    box-shadow: var(--shadow-sm);
     transition: transform 0.2s;
     font-size: 1.1rem;
 }
 
 .editAvatarBtn:hover {
     transform: scale(1.1);
+    background-color: var(--color-primary-dark);
 }
 
 .headerInfo {
@@ -84,13 +84,13 @@
 
 .nameRow h1 {
     font-size: 2.5rem;
-    color: white;
+    color: var(--color-text-main);
     margin: 0;
     font-weight: 700;
 }
 
 .editIcon {
-    color: #fbbf24;
+    color: var(--color-primary);
     cursor: pointer;
     font-size: 1.2rem;
     padding: 8px;
@@ -100,7 +100,7 @@
 }
 
 .editIcon:hover {
-    background: rgba(251, 191, 36, 0.1);
+    background: var(--color-surface-muted);
     opacity: 1;
 }
 
@@ -108,13 +108,12 @@
     margin-bottom: 8px;
     display: flex;
     justify-content: space-between;
-    /* Pushes content and icon apart */
     align-items: center;
 }
 
 .title,
 .location {
-    color: #9ca3af;
+    color: var(--color-text-muted);
     font-size: 1.1rem;
     margin: 0;
     display: flex;
@@ -126,14 +125,13 @@
 .location i {
     width: 20px;
     text-align: center;
-    color: #6b7280;
+    color: var(--color-text-muted);
 }
 
 /* Common Section Styles */
 .sectionCard {
     background-color: transparent;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-    /* Divider style */
+    border-top: 1px solid var(--color-border);
     padding: 40px 0;
 }
 
@@ -145,18 +143,17 @@
 }
 
 .sectionHeader h2 {
-    color: white;
+    color: var(--color-text-main);
     font-size: 1.5rem;
     margin: 0;
     font-weight: 600;
 }
 
 .aboutText {
-    color: #d1d5db;
+    color: var(--color-text-main);
     line-height: 1.8;
     font-size: 1.05rem;
     white-space: pre-wrap;
-    /* Preserve line breaks */
 }
 
 /* Skills */
@@ -167,22 +164,21 @@
 }
 
 .skillTag {
-    background-color: rgba(255, 255, 255, 0.05);
-    /* Modern card tag */
-    color: #fbbf24;
+    background-color: var(--color-surface-muted);
+    color: var(--color-primary);
     padding: 10px 20px;
     border-radius: 8px;
     font-size: 0.95rem;
     display: flex;
     align-items: center;
     gap: 10px;
-    border: 1px solid rgba(251, 191, 36, 0.2);
+    border: 1px solid var(--color-border);
     transition: all 0.2s;
 }
 
 .skillTag:hover {
-    border-color: #fbbf24;
-    background-color: rgba(251, 191, 36, 0.1);
+    border-color: var(--color-primary);
+    background-color: #e0e7ff;
 }
 
 .skillTag i {
@@ -198,21 +194,22 @@
 
 /* Edit Inputs */
 .editInput {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid #fbbf24;
-    color: white;
+    background: #ffffff;
+    border: 1px solid var(--color-primary);
+    color: var(--color-text-main);
     font-size: inherit;
     font-family: inherit;
     padding: 8px 12px;
     border-radius: 6px;
     width: 100%;
     max-width: 400px;
+    box-shadow: var(--shadow-sm);
 }
 
 .editTextarea {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid #fbbf24;
-    color: white;
+    background: #ffffff;
+    border: 1px solid var(--color-primary);
+    color: var(--color-text-main);
     width: 100%;
     padding: 20px;
     border-radius: 12px;
@@ -220,12 +217,13 @@
     font-size: 1rem;
     line-height: 1.8;
     resize: vertical;
+    box-shadow: var(--shadow-sm);
 }
 
 .addSkillInput {
     background: transparent;
-    border: 1px dashed #fbbf24;
-    color: white;
+    border: 1px dashed var(--color-primary);
+    color: var(--color-text-main);
     padding: 10px 20px;
     border-radius: 8px;
     font-size: 0.95rem;
@@ -241,7 +239,7 @@
 
 .contactItem label {
     display: block;
-    color: #6b7280;
+    color: var(--color-text-muted);
     font-size: 0.9rem;
     margin-bottom: 8px;
     text-transform: uppercase;
@@ -250,7 +248,7 @@
 }
 
 .contactItem p {
-    color: white;
+    color: var(--color-text-main);
     font-size: 1.1rem;
     margin: 0;
     font-weight: 500;

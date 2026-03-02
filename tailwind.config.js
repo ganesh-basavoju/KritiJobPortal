@@ -7,11 +7,13 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#0a192f',
-        secondary: '#8b0000',
-        accent: '#ffd700',
-        'text-main': '#ffffff',
-        'text-muted': '#a8b2d1',
+        primary: 'var(--color-primary)',
+        secondary: 'var(--color-secondary)',
+        accent: 'var(--color-accent)',
+        'text-main': 'var(--color-text-main)',
+        'text-muted': 'var(--color-text-muted)',
+        surface: 'var(--color-surface)',
+        border: 'var(--color-border)',
       },
       fontFamily: {
         sans: ['Outfit', 'sans-serif'],

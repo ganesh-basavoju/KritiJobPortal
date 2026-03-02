@@ -11,19 +11,19 @@ const About = () => {
                 </div>
 
                 <div className={styles.contentGrid}>
-                    <div className={`glass-card ${styles.card}`}>
+                    <div className={styles.card}>
                         <div className={styles.iconBox}><i className="fas fa-rocket"></i></div>
                         <h3>Our Mission</h3>
                         <p>To bridge the gap between top-tier talent and world-class organizations through seamless, intelligent technology.</p>
                     </div>
 
-                    <div className={`glass-card ${styles.card}`}>
+                    <div className={styles.card}>
                         <div className={styles.iconBox}><i className="fas fa-users"></i></div>
                         <h3>For Candidates</h3>
                         <p>We provide a premium platform to showcase your skills, track applications, and find roles that truly match your expertise.</p>
                     </div>
 
-                    <div className={`glass-card ${styles.card}`}>
+                    <div className={styles.card}>
                         <div className={styles.iconBox}><i className="fas fa-building"></i></div>
                         <h3>For Employers</h3>
                         <p>Streamline your hiring process with our advanced applicant tracking system and reach thousands of qualified professionals.</p>

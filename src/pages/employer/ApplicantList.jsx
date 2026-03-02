@@ -93,13 +93,13 @@ const ApplicantList = () => {
         }
     };
 
-    if (loading) return <div style={{padding: '2rem', textAlign: 'center'}}>Loading Applicants...</div>;
+    if (loading) return <div style={{padding: '2rem', textAlign: 'center', color: 'var(--color-text-main)'}}>Loading Applicants...</div>;
 
     return (
         <div className={styles.pageContainer}>
             <div className={styles.headerRow}>
-                <h1 className="text-gradient" style={{fontSize: '2rem', margin: 0}}>{jobId ? 'Job Applicants' : 'All Applicants'}</h1>
-                <div style={{color: '#888', fontSize: '0.9rem'}}>{jobId && `Job ID: ${jobId}`}</div>
+                <h1 style={{fontSize: '2rem', margin: 0, color: 'var(--color-text-main)'}}>{jobId ? 'Job Applicants' : 'All Applicants'}</h1>
+                <div style={{color: 'var(--color-text-muted)', fontSize: '0.9rem'}}>{jobId && `Job ID: ${jobId}`}</div>
             </div>
 
             <div className={styles.grid}>
@@ -114,7 +114,7 @@ const ApplicantList = () => {
                 ))}
                 
                 {applicants.length === 0 && (
-                     <div style={{gridColumn: '1/-1', textAlign: 'center', padding: '40px', color: '#9ca3af', background: 'rgba(255,255,255,0.05)', borderRadius: '12px'}}>
+                     <div style={{gridColumn: '1/-1', textAlign: 'center', padding: '40px', color: 'var(--color-text-muted)', background: 'var(--color-surface-muted)', borderRadius: '12px', border: '1px solid var(--color-border)'}}>
                          <p>No applicants found.</p>
                      </div>
                  )}

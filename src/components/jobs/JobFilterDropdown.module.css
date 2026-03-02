@@ -3,12 +3,12 @@
     top: 100%;
     left: 0;
     min-width: 200px;
-    background: #1e1e1e;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: #ffffff;
+    border: 1px solid var(--color-border);
     border-radius: 8px;
     padding: 10px;
     z-index: 100;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    box-shadow: var(--shadow-lg);
     margin-top: 10px;
 }
 
@@ -18,13 +18,18 @@
 
 .searchInput {
     width: 100%;
-    background: rgba(255, 255, 255, 0.05);
-    border: none;
+    background: var(--color-surface-muted);
+    border: 1px solid var(--color-border);
     padding: 8px 12px;
     border-radius: 4px;
-    color: #fff;
+    color: var(--color-text-main);
     font-size: 0.9rem;
     outline: none;
+    transition: border-color 0.2s;
+}
+
+.searchInput:focus {
+    border-color: var(--color-primary);
 }
 
 .optionsList {
@@ -41,7 +46,7 @@
 }
 
 .optionsList::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.2);
+    background: var(--color-border);
     border-radius: 2px;
 }
 
@@ -51,14 +56,14 @@
     gap: 10px;
     cursor: pointer;
     font-size: 0.9rem;
-    color: #ccc;
+    color: var(--color-text-main);
     padding: 4px 6px;
     border-radius: 4px;
     transition: background 0.2s;
 }
 
 .optionItem:hover {
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--color-surface-muted);
 }
 
 .checkbox {
@@ -66,7 +71,7 @@
     -webkit-appearance: none;
     width: 16px;
     height: 16px;
-    border: 1px solid #555;
+    border: 1px solid var(--color-border);
     border-radius: 3px;
     background: transparent;
     cursor: pointer;
@@ -77,15 +82,14 @@
 }
 
 .checkbox:checked {
-    background: #FFD700;
-    /* Gold */
-    border-color: #FFD700;
+    background: var(--color-primary);
+    border-color: var(--color-primary);
 }
 
 .checkbox:checked::after {
     content: '✔';
     font-size: 10px;
-    color: #000;
+    color: #fff;
     position: absolute;
 }
 

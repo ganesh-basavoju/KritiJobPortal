@@ -39,7 +39,7 @@ const SavedJobs = () => {
                 </div>
             ) : (
                 <>
-                    <h1 className="text-gradient" style={{fontSize: '2rem', margin: 0, marginBottom: '1.5rem'}}>Saved Jobs</h1>
+                    <h1 style={{fontSize: '2rem', margin: 0, marginBottom: '1.5rem', color: 'var(--color-text-main)'}}>Saved Jobs</h1>
                     <div className="jobs-grid" style={{ 
                         display: 'grid', 
                         gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', 

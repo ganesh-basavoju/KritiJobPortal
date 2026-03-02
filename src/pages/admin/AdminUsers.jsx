@@ -57,7 +57,7 @@ const AdminUsers = () => {
         ? users 
         : users.filter(u => u.role === filter);
 
-    if (loading) return <div style={{padding:'20px', color:'white'}}>Loading Users...</div>;
+    if (loading) return <div style={{padding:'20px', color:'var(--color-text-main)'}}>Loading Users...</div>;
 
     return (
         <div className={styles.pageContainer}>
@@ -66,7 +66,7 @@ const AdminUsers = () => {
                 <div style={{display: 'flex', gap: '10px'}}>
                     <select 
                         className={styles.actionBtn} 
-                        style={{background: '#1f2937', border: '1px solid #374151', padding: '6px 12px', borderRadius: '6px', color: 'white'}}
+                        style={{border: '1px solid var(--color-border)', padding: '6px 12px', borderRadius: '6px', color: 'var(--color-text-main)'}}
                         value={filter}
                         onChange={(e) => setFilter(e.target.value)}
                     >
@@ -95,7 +95,7 @@ const AdminUsers = () => {
                             <tr key={user._id}>
                                 <td>
                                     <div style={{display: 'flex', alignItems: 'center', gap: '10px'}}>
-                                        <div style={{width: '32px', height: '32px', borderRadius: '50%', background: '#374151', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.8rem', fontWeight: 'bold', overflow: 'hidden'}}>
+                                        <div style={{width: '32px', height: '32px', borderRadius: '50%', background: 'var(--color-surface-muted)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.8rem', fontWeight: 'bold', overflow: 'hidden', color: 'var(--color-text-main)'}}>
                                             {user.avatarUrl ? <img src={user.avatarUrl} alt="" style={{width:'100%', height:'100%'}}/> : user.name.charAt(0)}
                                         </div>
                                         {user.name}
@@ -112,7 +112,7 @@ const AdminUsers = () => {
                                         {user.status}
                                     </span>
                                 </td>
-                                <td style={{color: '#9ca3af', fontSize: '0.9rem'}}>{user.createdAt ? format(new Date(user.createdAt), 'yyyy-MM-dd') : '-'}</td>
+                                <td style={{color: 'var(--color-text-muted)', fontSize: '0.9rem'}}>{user.createdAt ? format(new Date(user.createdAt), 'yyyy-MM-dd') : '-'}</td>
                                 <td>
                                     <div style={{display: 'flex'}}>
                                         <button className={`${styles.actionBtn} ${user.status === 'active' ? 'block' : 'active'}`} title={user.status === 'active' ? "Block User" : "Unblock User"} onClick={() => handleAction('block', user._id)}>

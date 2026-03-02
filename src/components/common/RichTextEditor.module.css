@@ -1,16 +1,17 @@
 .editorContainer {
-    border: 1px solid #334155; /* Slate-700 */
+    border: 1px solid var(--color-border);
     border-radius: 0.5rem;
-    background: #1e293b; /* Slate-800 */
+    background: #ffffff;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     transition: border-color 0.2s ease;
+    box-shadow: var(--shadow-sm);
 }
 
 .editorContainer:focus-within {
-    border-color: #ffd700; /* Gold */
-    box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.1);
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px rgba(1, 65, 163, 0.1);
 }
 
 .menuBar {
@@ -18,15 +19,15 @@
     align-items: center;
     gap: 0.5rem;
     padding: 0.5rem;
-    background: #0f172a; /* Slate-900 */
-    border-bottom: 1px solid #334155; /* Slate-700 */
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
     flex-wrap: wrap;
 }
 
 .menuBar button {
     background: transparent;
     border: none;
-    color: #94a3b8; /* Slate-400 */
+    color: var(--color-text-muted);
     cursor: pointer;
     padding: 0.25rem;
     border-radius: 0.25rem;
@@ -39,13 +40,13 @@
 }
 
 .menuBar button:hover:not(:disabled) {
-    background: #334155; /* Slate-700 */
-    color: #f8fafc; /* Slate-50 */
+    background: var(--color-surface-muted);
+    color: var(--color-primary);
 }
 
 .menuBar button.isActive {
-    background: #ffd700; /* Gold */
-    color: #0f172a; /* Slate-900 */
+    background: rgba(1, 65, 163, 0.1);
+    color: var(--color-primary);
 }
 
 .menuBar button:disabled {
@@ -56,7 +57,7 @@
 .divider {
     width: 1px;
     height: 1.25rem;
-    background: #334155; /* Slate-700 */
+    background: var(--color-border);
     margin: 0 0.25rem;
 }
 
@@ -69,7 +70,7 @@
     padding: 1rem;
     min-height: 200px;
     outline: none;
-    color: #e2e8f0; /* Slate-200 */
+    color: var(--color-text-main);
     line-height: 1.6;
     font-size: 0.95rem;
 }
@@ -87,7 +88,7 @@
 .editorContent h1,
 .editorContent h2,
 .editorContent h3 {
-    color: #f8fafc; /* Slate-50 */
+    color: var(--color-text-main);
     margin-top: 1rem;
     margin-bottom: 0.5rem;
     font-weight: 600;
@@ -102,21 +103,23 @@
 }
 
 .editorContent a {
-    color: #ffd700; /* Gold */
+    color: var(--color-primary);
     text-decoration: underline;
     cursor: pointer;
 }
 
 .editorContent code {
-    background: #334155; /* Slate-700 */
+    background: var(--color-surface-muted);
     padding: 0.2rem 0.4rem;
     border-radius: 0.25rem;
     font-family: monospace;
     font-size: 0.85em;
+    color: var(--color-secondary);
 }
 
 .editorContent pre {
-    background: #0f172a; /* Slate-900 */
+    background: #1e293b;
+    /* Keep code blocks dark for contrast */
     padding: 0.75rem;
     border-radius: 0.5rem;
     overflow-x: auto;
@@ -130,23 +133,23 @@
 }
 
 .editorContent blockquote {
-    border-left: 3px solid #ffd700; /* Gold */
+    border-left: 3px solid var(--color-primary);
     padding-left: 1rem;
     margin-left: 0;
     margin-bottom: 0.75rem;
     font-style: italic;
-    color: #94a3b8; /* Slate-400 */
+    color: var(--color-text-muted);
 }
 
 .editorContent hr {
     border: none;
-    border-top: 1px solid #334155; /* Slate-700 */
+    border-top: 1px solid var(--color-border);
     margin: 1.5rem 0;
 }
 
 /* Placeholder */
 .editorContent p.is-editor-empty:first-child::before {
-    color: #64748b; /* Slate-500 */
+    color: var(--color-text-muted);
     content: attr(data-placeholder);
     float: left;
     height: 0;
