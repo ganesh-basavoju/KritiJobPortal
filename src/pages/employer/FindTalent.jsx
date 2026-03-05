@@ -5,6 +5,7 @@ import api from '../../utils/api';
 import { useToast } from '../../context/ToastContext';
 import Button from '../../components/ui/Button';
 import { AuthContext } from '../../context/AuthContext';
+import MessageModal from '../../components/common/MessageModal';
 
 const FindTalent = () => {
     const [candidates, setCandidates] = useState([]);
@@ -22,6 +23,10 @@ const FindTalent = () => {
     // Profile Modal State
     const [selectedCandidate, setSelectedCandidate] = useState(null);
     const [modalLoading, setModalLoading] = useState(false);
+
+    // Message Modal State
+    const [messageTarget, setMessageTarget] = useState(null);
+    const [showMessageModal, setShowMessageModal] = useState(false);
 
     useEffect(() => {
         // Debounce search
@@ -62,24 +67,28 @@ const FindTalent = () => {
         navigate(`/dashboard/employer/candidate/${id}`);
     };
 
-    // Message Action
-    const handleMessage = async (userId) => {
-        const targetUserId = userId || selectedCandidate?.user?._id;
-        
-        if (targetUserId) {
-            try {
-                // Check if chat exists or create one
-                const res = await api.post('/chat', { userId: targetUserId });
-                if (res.data.success) {
-                    // Close modal if open
-                    setSelectedCandidate(null);
-                    // Navigate to chat with conversation ID
-                    navigate(`/dashboard/chat/${res.data.data._id}`);
-                }
-            } catch (err) {
-                 console.error(err);
-                 addToast('Failed to start conversation', 'error');
+    // Message Action - open modal
+    const handleMessageClick = (candidate) => {
+        setMessageTarget(candidate);
+        setShowMessageModal(true);
+    };
+
+    const handleSendMessage = async (message) => {
+        try {
+            if (!messageTarget?.userId) {
+                addToast('Cannot identify candidate', 'error');
+                return;
             }
+            // Create or find chat, then navigate
+            const res = await api.post('/chat', { userId: messageTarget.userId });
+            if (res.data.success) {
+                setShowMessageModal(false);
+                setMessageTarget(null);
+                navigate(`/dashboard/chat/${res.data.data._id}`);
+            }
+        } catch (err) {
+            console.error(err);
+            addToast('Failed to start conversation', 'error');
         }
     };
 
@@ -126,7 +135,21 @@ const FindTalent = () => {
                                     className={styles.avatar}
                                 />
                                 <div>
-                                    <h3 className={styles.name}>{candidate.name}</h3>
+                                    <div style={{display: 'flex', alignItems: 'center', gap: '8px'}}>
+                                        <h3 className={styles.name}>{candidate.name}</h3>
+                                        {candidate.isPremium && (
+                                            <span style={{
+                                                background: 'linear-gradient(135deg, #f59e0b, #d97706)',
+                                                color: 'white',
+                                                padding: '2px 8px',
+                                                borderRadius: '10px',
+                                                fontSize: '0.7rem',
+                                                fontWeight: 'bold',
+                                                textTransform: 'uppercase',
+                                                letterSpacing: '0.5px'
+                                            }}>★ Premium</span>
+                                        )}
+                                    </div>
                                     <p className={styles.title}>{candidate.title || 'Open to Work'}</p>
                                 </div>
                             </div>
@@ -151,7 +174,7 @@ const FindTalent = () => {
                                     className={`${styles.iconBtn} ${styles.msgBtn}`}
                                     onClick={(e) => {
                                         e.stopPropagation();
-                                        handleMessage(candidate.userId); // Pass UserID for chat
+                                        handleMessageClick(candidate);
                                     }}
                                     title="Send Message"
                                 >
@@ -224,7 +247,7 @@ const FindTalent = () => {
                                     <Button 
                                         variant="primary" 
                                         size="lg"
-                                        onClick={() => handleMessage(selectedCandidate.user._id)} // Pass UserID
+                                     onClick={() => handleMessageClick({ userId: selectedCandidate.user._id, name: selectedCandidate.user.name })}
                                         style={{background: 'var(--color-primary)', color: 'white', border: 'none'}}
                                     >
                                         <i className="fas fa-paper-plane" style={{marginRight: '8px'}}></i> Send Message
@@ -330,6 +353,14 @@ const FindTalent = () => {
                     </div>
                 </div>
             )}
+
+            <MessageModal 
+                isOpen={showMessageModal}
+                onClose={() => setShowMessageModal(false)}
+                onSend={handleSendMessage}
+                recipientName={messageTarget?.name}
+                jobTitle="Direct Message"
+            />
 
         </div>
     );

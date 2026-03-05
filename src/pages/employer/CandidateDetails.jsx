@@ -74,7 +74,21 @@ const CandidateDetails = () => {
                         className={styles.avatar}
                     />
                     <div className={styles.headerInfo}>
-                        <h1 className={styles.name}>{candidate.user.name}</h1>
+                        <div style={{display: 'flex', alignItems: 'center', gap: '10px'}}>
+                            <h1 className={styles.name}>{candidate.user.name}</h1>
+                            {candidate.isPremium && (
+                                <span style={{
+                                    background: 'linear-gradient(135deg, #f59e0b, #d97706)',
+                                    color: 'white',
+                                    padding: '3px 10px',
+                                    borderRadius: '12px',
+                                    fontSize: '0.75rem',
+                                    fontWeight: 'bold',
+                                    textTransform: 'uppercase',
+                                    letterSpacing: '0.5px'
+                                }}>★ Premium</span>
+                            )}
+                        </div>
                         <h2 className={styles.title}>{candidate.title || 'Open to Work'}</h2>
                         <div className={styles.metaTags}>
                             <div className={styles.metaItem}>

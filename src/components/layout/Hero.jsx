@@ -1,8 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from './Hero.module.css';
 import Button from '../ui/Button';
 
 const Hero = () => {
+  const navigate = useNavigate();
+  const [keyword, setKeyword] = useState('');
+  const [location, setLocation] = useState('');
+
+  const handleSearch = () => {
+    const params = new URLSearchParams();
+    if (keyword.trim()) params.set('keyword', keyword.trim());
+    if (location.trim()) params.set('location', location.trim());
+    params.set('page', '1');
+    navigate(`/jobs?${params.toString()}`);
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') handleSearch();
+  };
+
   return (
     <section className={styles.hero}>
       <div className={`focused-container ${styles.heroContainer}`}>
@@ -20,13 +37,25 @@ const Hero = () => {
           <div className={`${styles.searchBox} glass-card`}>
             <div className={styles.inputGroup}>
               <i className="fas fa-search"></i>
-              <input type="text" placeholder="Job title or keyword..." />
+              <input 
+                type="text" 
+                placeholder="Job title or keyword..." 
+                value={keyword}
+                onChange={(e) => setKeyword(e.target.value)}
+                onKeyDown={handleKeyDown}
+              />
             </div>
             <div className={styles.inputGroup}>
               <i className="fas fa-map-marker-alt"></i>
-              <input type="text" placeholder="Location" />
+              <input 
+                type="text" 
+                placeholder="Location" 
+                value={location}
+                onChange={(e) => setLocation(e.target.value)}
+                onKeyDown={handleKeyDown}
+              />
             </div>
-            <Button variant="cta" className={styles.searchBtn}>Search Jobs</Button>
+            <Button variant="cta" className={styles.searchBtn} onClick={handleSearch}>Search Jobs</Button>
           </div>
 
           <div className={styles.stats}>
