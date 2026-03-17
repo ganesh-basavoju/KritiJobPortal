@@ -27,6 +27,11 @@ import FindTalent from './pages/employer/FindTalent';
 import CandidateDetails from './pages/employer/CandidateDetails';
 import NotFound from './pages/NotFound';
 
+import ContactUs from './pages/legal/ContactUs';
+import HelpCenter from './pages/legal/HelpCenter';
+import PrivacyPolicy from './pages/legal/PrivacyPolicy';
+import TermsOfService from './pages/legal/TermsOfService';
+
 import AdminAuthGuard from './components/auth/AdminAuthGuard';
 import AdminOverview from './pages/admin/AdminOverview';
 import AdminUsers from './pages/admin/AdminUsers';
@@ -55,6 +60,11 @@ function App() {
                  <Route path="/company/:id" element={<CompanyDetails />} />
                  <Route path="/login" element={<Login />} />
                  <Route path="/signup" element={<Signup />} />
+                 
+                 <Route path="/contact" element={<ContactUs />} />
+                 <Route path="/help-center" element={<HelpCenter />} />
+                 <Route path="/privacy" element={<PrivacyPolicy />} />
+                 <Route path="/terms" element={<TermsOfService />} />
                  
                  <Route path="/dashboard" element={<DashboardLayout />}>
                     {/* Employer Routes */}

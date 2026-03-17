@@ -126,15 +126,21 @@ const JobFilterBar = ({ filters, onFilterChange }) => {
         );
     };
     
-    // Debounce salary updates
+    // Debounce keyword and salary updates
     useEffect(() => {
         const timer = setTimeout(() => {
-            if (filters && (localFilters.minSalary !== filters.minSalary || localFilters.maxSalary !== filters.maxSalary)) {
-                 notifyChange(localFilters);
+            if (filters) {
+                const keywordChanged = localFilters.keyword !== (filters.keyword || '');
+                const minSalChanged = localFilters.minSalary !== filters.minSalary;
+                const maxSalChanged = localFilters.maxSalary !== filters.maxSalary;
+
+                if (keywordChanged || minSalChanged || maxSalChanged) {
+                     notifyChange(localFilters);
+                }
             }
         }, 500);
         return () => clearTimeout(timer);
-    }, [localFilters.minSalary, localFilters.maxSalary]);
+    }, [localFilters.keyword, localFilters.minSalary, localFilters.maxSalary]);
 
     const handleSalaryChange = (index, value) => {
         const val = Number(value);
@@ -157,20 +163,20 @@ const JobFilterBar = ({ filters, onFilterChange }) => {
     <div className={styles.filterBar} ref={barRef}>
       
       {/* 1. Search / Job Title */}
-      <div className={styles.filterGroup} onClick={() => toggleDropdown('title')}>
+      <div className={styles.filterGroup}>
         <i className="fas fa-search"></i>
-        <div className={styles.inputArea}>
-            {renderInputContent(localFilters.keyword ? localFilters.keyword.split(',').filter(Boolean) : [], "Job Title")}
+        <div className={styles.inputArea} style={{ width: '100%' }}>
+            <input 
+                 type="text" 
+                 placeholder="Search job title or keyword..." 
+                 value={localFilters.keyword || ''}
+                 onChange={(e) => {
+                     const val = e.target.value;
+                     setLocalFilters(prev => ({ ...prev, keyword: val }));
+                 }}
+                 style={{ border: 'none', outline: 'none', background: 'transparent', width: '100%', fontSize: '0.95rem', color: 'var(--color-text-main)' }}
+            />
         </div>
-        <i className={`fas fa-chevron-down ${styles.chevron}`}></i>
-        <JobFilterDropdown 
-            title="Search"
-            options={options.titles}
-            selected={localFilters.keyword ? localFilters.keyword.split(',') : []}
-            onChange={(item) => handleTitleSelection(item)}
-            isOpen={activeDropdown === 'title'}
-            onClose={() => setActiveDropdown(null)}
-        />
       </div>
 
       <div className={styles.divider}></div>

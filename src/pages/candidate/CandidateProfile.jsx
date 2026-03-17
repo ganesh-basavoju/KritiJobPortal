@@ -74,12 +74,21 @@ const CandidateProfile = () => {
     const toggleEdit = async (section) => {
         // If switching from edit to view (save)
         if (editMode[section]) {
+            if (section === 'contact') {
+                const phoneRegex = /^\d{10}$/;
+                if (formData.phone && !phoneRegex.test(formData.phone.replace(/\D/g, ''))) {
+                    addToast('Please enter exactly 10 digits for the phone number.', 'error');
+                    return;
+                }
+            }
+
             try {
                 await api.put('/candidate/profile', {
                     title: formData.title,
                     location: formData.location,
                     about: formData.about,
                     skills: formData.skills,
+                    // If validated, save only the digits or the formatted string. Keeping original format here assuming backend is fine with it or digits.
                     phone: formData.phone,
                     avatarUrl: formData.avatarUrl
                 });

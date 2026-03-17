@@ -11,6 +11,7 @@ import React, { useState, useEffect } from 'react';
 const JobListing = () => {
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [initialLoad, setInitialLoad] = useState(true);
   const [searchParams, setSearchParams] = useSearchParams();
   const { user } = React.useContext(AuthContext); 
   const [savedJobIds, setSavedJobIds] = useState([]);
@@ -84,10 +85,13 @@ const JobListing = () => {
             }
         }
         
+        
         setLoading(false);
+        setInitialLoad(false);
       } catch (err) {
         console.error(err);
         setLoading(false);
+        setInitialLoad(false);
       }
     };
 
@@ -105,7 +109,7 @@ const JobListing = () => {
       setSavedJobIds(newSavedIds); // Update UI immediately
   }
 
-  if (loading) return <div className={`focused-container ${styles.pageContainer}`} style={{textAlign:'center', padding:'50px'}}>Loading jobs...</div>;
+  if (initialLoad) return <div className={`focused-container ${styles.pageContainer}`} style={{textAlign:'center', padding:'50px'}}><i className="fas fa-spinner fa-spin fa-2x"></i></div>;
 
   return (
     <>
@@ -124,7 +128,7 @@ const JobListing = () => {
           <SortDropdown />
         </div>
 
-        <div className={styles.jobsGrid}>
+        <div className={styles.jobsGrid} style={{ opacity: loading ? 0.5 : 1, transition: 'opacity 0.2s' }}>
           {jobs.map(job => (
               <JobCard 
                 key={job._id} 

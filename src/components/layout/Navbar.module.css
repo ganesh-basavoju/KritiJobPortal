@@ -28,6 +28,21 @@
     z-index: 1002;
 }
 
+.logoLink {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.logoImage {
+    height: 38px;
+    width: 38px;
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: var(--shadow-sm);
+}
+
 .navLinks {
     display: flex;
     list-style: none;

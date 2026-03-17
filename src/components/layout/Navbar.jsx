@@ -22,7 +22,10 @@ const Navbar = () => {
     <nav className={styles.navbar}>
       <div className={`focused-container ${styles.navContainer}`}>
         <div className={styles.logo}>
-          <Link to="/" className="text-gradient">KritiJob</Link>
+          <Link to="/" className={styles.logoLink}>
+            <img src="/images/logo.jpeg" alt="KritiJob Logo" className={styles.logoImage} />
+            <span className="text-gradient">KritiJob</span>
+          </Link>
         </div>
         
         <div className={styles.mobileToggle} onClick={toggleMenu}>

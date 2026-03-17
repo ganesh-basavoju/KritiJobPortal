@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styles from './Footer.module.css';
 
 const Footer = () => {
@@ -20,30 +21,30 @@ const Footer = () => {
                     <div className={styles.column}>
                         <h3>For Candidates</h3>
                         <ul>
-                            <li><a href="/jobs">Browse Jobs</a></li>
-                            <li><a href="/companies">Top Companies</a></li>
-                            <li><a href="#">Career Advice</a></li>
-                            <li><a href="#">Salary Guide</a></li>
+                            <li><Link to="/jobs">Browse Jobs</Link></li>
+                            <li><Link to="/companies">Top Companies</Link></li>
+                            <li><Link to="/help-center">Career Advice</Link></li>
+                            <li><Link to="/help-center">Salary Guide</Link></li>
                         </ul>
                     </div>
 
                     <div className={styles.column}>
                         <h3>For Employers</h3>
                         <ul>
-                            <li><a href="#">Post a Job</a></li>
-                            <li><a href="#">Talent Solutions</a></li>
-                            <li><a href="#">Pricing Plans</a></li>
-                            <li><a href="#">Success Stories</a></li>
+                            <li><Link to="/dashboard/employer/post-job">Post a Job</Link></li>
+                            <li><Link to="/dashboard/employer/find-talent">Talent Solutions</Link></li>
+                            <li><Link to="/about">Pricing Plans</Link></li>
+                            <li><Link to="/about">Success Stories</Link></li>
                         </ul>
                     </div>
 
                     <div className={styles.column}>
                         <h3>Support</h3>
                         <ul>
-                            <li><a href="#">Help Center</a></li>
-                            <li><a href="#">Contact Us</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Terms of Service</a></li>
+                            <li><Link to="/help-center">Help Center</Link></li>
+                            <li><Link to="/contact">Contact Us</Link></li>
+                            <li><Link to="/privacy">Privacy Policy</Link></li>
+                            <li><Link to="/terms">Terms of Service</Link></li>
                         </ul>
                     </div>
                 </div>
@@ -51,9 +52,9 @@ const Footer = () => {
                 <div className={styles.bottomBar}>
                     <p>&copy; {new Date().getFullYear()} KritiJob. Designed & Developed By <span className={styles.credit}><a href="https://www.onlyusmedia.in" target="_blank" rel="noopener noreferrer">OnlyUsMedia</a></span></p>
                     <div className={styles.legalLinks}>
-                        <a href="#">Privacy</a>
-                        <a href="#">Terms</a>
-                        <a href="#">Sitemap</a>
+                        <Link to="/privacy">Privacy</Link>
+                        <Link to="/terms">Terms</Link>
+                        <Link to="/contact">Contact</Link>
                     </div>
                 </div>
             </div>
