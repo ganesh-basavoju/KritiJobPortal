@@ -37,8 +37,8 @@ const HowItWorks = () => {
                 <div className={styles.content}>
                     <div className={styles.imageWrapper}>
                         <div className={styles.blob}></div>
-                        {/* We will need to move the generated image to this path or use the absolute path for now in dev */}
-                        <img src="/src/assets/images/how_it_works_illustration.png" alt="How it works" className={styles.illustration} />
+                        {/* Using the imported image variable so Vite can bundle it for production */}
+                        <img src={illustration} alt="How it works" className={styles.illustration} />
                         
                         {/* 3D Floating Card Overlay */}
                         <div className={`${styles.floatingCard} glass-card`}>

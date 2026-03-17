@@ -237,3 +237,15 @@
 .nextArrow {
     right: 20px;
 }
+
+@media (max-width: 768px) {
+    .categoriesSection {
+        padding: 2rem 15px;
+    }
+    .trustedSection {
+        padding: 2rem 15px;
+    }
+    .subtitle {
+        font-size: 0.95rem;
+    }
+}
