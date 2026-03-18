@@ -12,26 +12,49 @@ const Subscription = () => {
 
     const [loading, setLoading] = useState(true);
     const [status, setStatus] = useState(null);
+    const [history, setHistory] = useState([]);
     const [processing, setProcessing] = useState(false);
 
     useEffect(() => {
         if (!user || user.role !== 'candidate') {
             navigate('/dashboard');
         } else {
-            fetchStatus();
+            fetchStatusAndHistory();
         }
     }, [user, navigate]);
 
-    const fetchStatus = async () => {
+    const fetchStatusAndHistory = async () => {
         try {
-            const { data } = await api.get('/subscriptions/status');
-            if (data.success) {
-                setStatus(data.data);
-            }
+            const [statusRes, historyRes] = await Promise.all([
+                api.get('/subscriptions/status'),
+                api.get('/subscriptions/history')
+            ]);
+            
+            if (statusRes.data.success) setStatus(statusRes.data.data);
+            if (historyRes.data.success) setHistory(historyRes.data.data);
+            
         } catch (err) {
-            console.error('Failed to fetch subscription status', err);
+            console.error('Failed to fetch subscription data', err);
         } finally {
             setLoading(false);
+        }
+    };
+
+    const handleCancelRenew = async () => {
+        if (!window.confirm("Are you sure you want to cancel your auto-renewal? You will lose premium benefits when your current billing cycle expires.")) return;
+        
+        setProcessing(true);
+        try {
+            const { data } = await api.post('/subscriptions/cancel');
+            if (data.success) {
+                addToast(data.message, 'success');
+                fetchStatusAndHistory();
+            }
+        } catch (err) {
+            console.error(err);
+            addToast(err.response?.data?.message || 'Failed to cancel subscription', 'error');
+        } finally {
+            setProcessing(false);
         }
     };
 
@@ -64,7 +87,7 @@ const Subscription = () => {
 
                         if (verifyData.success) {
                             addToast('Subscription upgraded successfully!', 'success');
-                            fetchStatus(); // Refresh status
+                            fetchStatusAndHistory(); // Refresh status and history
                         } else {
                             addToast('Payment verification failed', 'error');
                         }
@@ -112,21 +135,43 @@ const Subscription = () => {
 
             {/* Current Status Widget */}
             <div className={styles.statusCard}>
-                <div className={styles.statusInfo}>
-                    <h3>Current Plan: {isPremium ? 'Premium' : 'Free'}</h3>
-                    {isPremium ? (
-                        <p>Your subscription is active until {new Date(status.subscriptionExpiresAt).toLocaleDateString()}</p>
-                    ) : (
-                        <p>You are on the free tier. Upgrade for unlimited applications!</p>
-                    )}
+                <div className={styles.statusCardTop}>
+                    <div className={styles.statusInfo}>
+                        <h3>Current Plan: {isPremium ? 'Premium' : 'Free'}</h3>
+                        {isPremium ? (
+                            <p>Your subscription is active until {new Date(status.subscriptionExpiresAt).toLocaleDateString()}</p>
+                        ) : (
+                            <p>You are on the free tier. Upgrade for unlimited applications!</p>
+                        )}
+                    </div>
+                    <div className={styles.usageStats}>
+                        <span className={styles.usageCount}>
+                            {status?.currentMonthApplications || 0} / {status?.applicationLimit}
+                        </span>
+                        <br />
+                        <span className={styles.usageLabel}>Applications Used This Month</span>
+                    </div>
                 </div>
-                <div className={styles.usageStats}>
-                    <span className={styles.usageCount}>
-                        {status?.currentMonthApplications || 0} / {status?.applicationLimit}
-                    </span>
-                    <br />
-                    <span className={styles.usageLabel}>Applications Used This Month</span>
-                </div>
+                
+                {isPremium && status?.activeSubscription && (
+                    <div style={{ marginTop: '1rem', width: '100%', borderTop: '1px solid var(--color-border)', paddingTop: '1rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                        <div>
+                            <strong>Auto-Renew: </strong> 
+                            <span style={{ color: status.activeSubscription.autoRenew !== false ? 'var(--color-success)' : 'var(--color-error)' }}>
+                                {status.activeSubscription.autoRenew !== false ? 'Enabled' : 'Disabled'}
+                            </span>
+                        </div>
+                        {status.activeSubscription.autoRenew !== false && (
+                            <button 
+                                onClick={handleCancelRenew} 
+                                disabled={processing}
+                                style={{ background: 'transparent', border: '1px solid var(--color-error)', color: 'var(--color-error)', padding: '0.5rem 1rem', borderRadius: '5px', cursor: 'pointer', fontSize: '0.85rem' }}
+                            >
+                                Cancel Auto-Renew
+                            </button>
+                        )}
+                    </div>
+                )}
             </div>
 
             <div className={styles.pricingGrid}>
@@ -166,6 +211,51 @@ const Subscription = () => {
                         {processing ? 'Processing...' : (isPremium ? 'Currently Active' : 'Upgrade Now')}
                     </button>
                 </div>
+            </div>
+
+            {/* Payment History Section */}
+            <div style={{ marginTop: '4rem' }}>
+                <h2 style={{ fontSize: '1.5rem', marginBottom: '1.5rem' }}>Payment History</h2>
+                {history.length === 0 ? (
+                    <div style={{ padding: '2rem', background: 'var(--color-surface)', borderRadius: '10px', textAlign: 'center', color: 'var(--color-text-muted)' }}>
+                        No payment history found.
+                    </div>
+                ) : (
+                    <div style={{ background: 'var(--color-surface)', borderRadius: '10px', overflow: 'hidden', border: '1px solid var(--color-border)' }}>
+                        <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left' }}>
+                            <thead>
+                                <tr style={{ background: 'var(--color-surface-muted)', borderBottom: '1px solid var(--color-border)' }}>
+                                    <th style={{ padding: '1rem' }}>Date</th>
+                                    <th style={{ padding: '1rem' }}>Plan</th>
+                                    <th style={{ padding: '1rem' }}>Amount</th>
+                                    <th style={{ padding: '1rem' }}>Status</th>
+                                    <th style={{ padding: '1rem' }}>Order ID</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {history.map(item => (
+                                    <tr key={item._id} style={{ borderBottom: '1px solid var(--color-border)' }}>
+                                        <td style={{ padding: '1rem' }}>{new Date(item.startDate).toLocaleDateString()}</td>
+                                        <td style={{ padding: '1rem', textTransform: 'capitalize' }}>{item.plan}</td>
+                                        <td style={{ padding: '1rem' }}>{item.currency} {(item.amount / 100).toFixed(2)}</td>
+                                        <td style={{ padding: '1rem' }}>
+                                            <span style={{ 
+                                                padding: '0.2rem 0.6rem', 
+                                                borderRadius: '20px', 
+                                                fontSize: '0.85rem',
+                                                background: item.paymentStatus === 'completed' ? 'rgba(16, 185, 129, 0.1)' : 'rgba(239, 68, 68, 0.1)',
+                                                color: item.paymentStatus === 'completed' ? '#10b981' : '#ef4444'
+                                            }}>
+                                                {item.paymentStatus}
+                                            </span>
+                                        </td>
+                                        <td style={{ padding: '1rem', fontFamily: 'monospace', fontSize: '0.9rem' }}>{item.razorpayOrderId}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                )}
             </div>
         </div>
     );

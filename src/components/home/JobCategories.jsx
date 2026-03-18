@@ -1,5 +1,6 @@
 import React from 'react';
 import Slider from 'react-slick';
+import { useNavigate } from 'react-router-dom';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import styles from './Home.module.css';
@@ -29,6 +30,8 @@ const categories = [
 ];
 
 const JobCategories = () => {
+    const navigate = useNavigate();
+
     const settings = {
         dots: false,
         infinite: true,
@@ -68,6 +71,10 @@ const JobCategories = () => {
         ]
     };
 
+    const handleCategoryClick = (title) => {
+        navigate(`/jobs?category=${encodeURIComponent(title)}`);
+    };
+
     return (
         <section className={styles.categoriesSection}>
             <div className="full-width-container">
@@ -82,7 +89,11 @@ const JobCategories = () => {
                     <Slider {...settings}>
                         {categories.map((cat, index) => (
                             <div key={index}> {/* Wrapper for slick slide */}
-                                <div className={styles.categoryCard}>
+                                <div 
+                                    className={styles.categoryCard} 
+                                    onClick={() => handleCategoryClick(cat.title)}
+                                    style={{ cursor: 'pointer' }}
+                                >
                                     <div className={styles.iconWrapper}>
                                         <i className={`fas ${cat.icon}`}></i>
                                     </div>

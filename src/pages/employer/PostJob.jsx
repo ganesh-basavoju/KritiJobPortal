@@ -15,6 +15,7 @@ const PostJob = () => {
 
     const [jobData, setJobData] = useState({
         title: '',
+        category: '',
         experienceLevel: '', 
         type: '', 
         location: '', 
@@ -54,6 +55,7 @@ const PostJob = () => {
                 title: jobData.title,
                 description: jobData.description,
                 type: jobData.type,
+                category: jobData.category,
                 location: jobData.location,
                 salaryRange: jobData.salaryRange,
                 experienceLevel: jobData.experienceLevel,
@@ -137,6 +139,26 @@ const PostJob = () => {
                 />
 
                 {/* Row 3 */}
+                <Select 
+                    label="Category"
+                    name="category" 
+                    value={jobData.category} 
+                    onChange={handleChange}
+                    placeholder="Select Category"
+                    options={[
+                        "Digital Marketing", 
+                        "Web Developer", 
+                        "Arts & Design", 
+                        "UI-UX Designer", 
+                        "Content Writing", 
+                        "Data Entry", 
+                        "Customer Support", 
+                        "Finance",
+                        "IT Jobs",
+                        "Non-IT"
+                    ]}
+                    required
+                />
                 <Input 
                     label="Location"
                     name="location" 
@@ -145,6 +167,8 @@ const PostJob = () => {
                     placeholder="e.g. New York, Remote"
                     required
                 />
+
+                 {/* Row 4 */}
                 <Input 
                     label="Salary Range"
                     name="salaryRange" 
@@ -153,8 +177,6 @@ const PostJob = () => {
                     placeholder="e.g. $100k - $120k"
                     required
                 />
-
-                {/* Row 4 */}
                 <div className={styles.fullWidth}>
                     <TagInput 
                         label="Skills"

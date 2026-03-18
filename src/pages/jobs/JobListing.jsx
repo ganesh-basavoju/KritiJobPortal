@@ -21,6 +21,7 @@ const JobListing = () => {
   // Initial filter state from URL
   const initialFilters = {
       keyword: searchParams.get('keyword') || '',
+      category: searchParams.get('category') ? searchParams.get('category').split(',') : [],
       location: searchParams.get('location') ? searchParams.get('location').split(',') : [],
       experienceLevel: searchParams.get('experienceLevel') ? searchParams.get('experienceLevel').split(',') : [],
       type: searchParams.get('type') ? searchParams.get('type').split(',') : [],
@@ -39,6 +40,7 @@ const JobListing = () => {
       if (newFilters.keyword) params.keyword = newFilters.keyword;
       
       // Arrays
+      if (newFilters.category && newFilters.category.length > 0) params.category = newFilters.category.join(',');
       if (newFilters.location && newFilters.location.length > 0) params.location = newFilters.location.join(',');
       if (newFilters.experienceLevel && newFilters.experienceLevel.length > 0) params.experienceLevel = newFilters.experienceLevel.join(',');
       if (newFilters.type && newFilters.type.length > 0) params.type = newFilters.type.join(',');

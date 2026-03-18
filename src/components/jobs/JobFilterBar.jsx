@@ -6,6 +6,7 @@ const JobFilterBar = ({ filters, onFilterChange }) => {
     // Local state for UI responsiveness, synced with props
     const [localFilters, setLocalFilters] = useState(filters || {
         keyword: '',
+        category: [],
         location: [],
         experienceLevel: [],
         type: [],
@@ -20,6 +21,7 @@ const JobFilterBar = ({ filters, onFilterChange }) => {
                 ...prev,
                 ...filters,
                 // Ensure arrays
+                category: Array.isArray(filters.category) ? filters.category : filters.category ? [filters.category] : [],
                 location: Array.isArray(filters.location) ? filters.location : filters.location ? [filters.location] : [],
                 experienceLevel: Array.isArray(filters.experienceLevel) ? filters.experienceLevel : filters.experienceLevel ? [filters.experienceLevel] : [],
                 type: Array.isArray(filters.type) ? filters.type : filters.type ? [filters.type] : [],
@@ -39,6 +41,7 @@ const JobFilterBar = ({ filters, onFilterChange }) => {
     // Options Data
     const options = {
         titles: ["Designer", "Developer", "Product Manager", "Marketing Specialist", "Data Analyst", "Sales Executive"],
+        categories: ["Digital Marketing", "Web Developer", "Arts & Design", "UI-UX Designer", "Content Writing", "Data Entry", "Customer Support", "Finance", "IT Jobs", "Non-IT"],
         locations: ["Delhi", "New York", "San Francisco", "London", "Berlin", "Tokyo"],
         experience: ["Entry Level", "Intermediate", "Expert"],
         types: ["Full-Time", "Part-Time", "Contract", "Freelance", "Internship"]
@@ -108,7 +111,8 @@ const JobFilterBar = ({ filters, onFilterChange }) => {
                     {selected[0]} <i className="fas fa-times" onClick={(e) => {
                         e.stopPropagation();
                         // Determine field based on placeholder
-                        const field = placeholder === "Experience" ? "experienceLevel" : 
+                        const field = placeholder === "Category" ? "category" :
+                                      placeholder === "Experience" ? "experienceLevel" : 
                                       placeholder === "Job Type" ? "type" : 
                                       placeholder === "Location" ? "location" : "keyword";
                                       
@@ -177,6 +181,25 @@ const JobFilterBar = ({ filters, onFilterChange }) => {
                  style={{ border: 'none', outline: 'none', background: 'transparent', width: '100%', fontSize: '0.95rem', color: 'var(--color-text-main)' }}
             />
         </div>
+      </div>
+
+      <div className={styles.divider}></div>
+
+      {/* Categories */}
+      <div className={styles.filterGroup} onClick={() => toggleDropdown('category')}>
+        <i className="fas fa-layer-group"></i>
+        <div className={styles.inputArea}>
+            {renderInputContent(localFilters.category, "Category")}
+        </div>
+        <i className={`fas fa-chevron-down ${styles.chevron}`}></i>
+        <JobFilterDropdown 
+            title="Category"
+            options={options.categories}
+            selected={localFilters.category || []}
+            onChange={(item) => handleSelection('category', item)}
+            isOpen={activeDropdown === 'category'}
+            onClose={() => setActiveDropdown(null)}
+        />
       </div>
 
       <div className={styles.divider}></div>
