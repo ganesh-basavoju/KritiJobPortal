@@ -6,7 +6,8 @@ import { ToastProvider } from './context/ToastContext';
 import Navbar from './components/layout/Navbar';
 import Home from './pages/Home';
 import Login from './pages/auth/Login';
-import Signup from './pages/auth/Signup';
+import Register from './pages/auth/Register';
+import RoleSelection from './pages/auth/RoleSelection';
 import DashboardLayout from './components/layout/DashboardLayout';
 import CompanyProfile from './pages/employer/CompanyProfile';
 import PostJob from './pages/employer/PostJob';
@@ -23,6 +24,8 @@ import SavedJobs from './pages/candidate/SavedJobs';
 import ResumeManager from './pages/candidate/ResumeManager';
 import Subscription from './pages/candidate/Subscription';
 import About from './pages/About';
+import SalaryGuide from './pages/SalaryGuide';
+
 import FindTalent from './pages/employer/FindTalent';
 import CandidateDetails from './pages/employer/CandidateDetails';
 import NotFound from './pages/NotFound';
@@ -54,12 +57,14 @@ function App() {
 
                  <Route path="/" element={<Home />} />
                  <Route path="/about" element={<About />} />
+                 <Route path="/salary-guide" element={<SalaryGuide />} />
                  <Route path="/jobs" element={<JobListing />} />
                  <Route path="/jobs/:id" element={<JobDetails />} />
                  <Route path="/companies" element={<CompanyListing />} />
                  <Route path="/company/:id" element={<CompanyDetails />} />
                  <Route path="/login" element={<Login />} />
-                 <Route path="/signup" element={<Signup />} />
+                 <Route path="/register" element={<Register />} />
+                 <Route path="/role-selection" element={<RoleSelection />} />
                  
                  <Route path="/contact" element={<ContactUs />} />
                  <Route path="/help-center" element={<HelpCenter />} />
