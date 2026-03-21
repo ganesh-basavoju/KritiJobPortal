@@ -1,14 +1,35 @@
-import React, { useContext } from 'react';
-import { Link, Outlet, useLocation } from 'react-router-dom';
+import React, { useContext, useEffect } from 'react';
+import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
-import ChatWidget from '../chat/ChatWidget';
 import styles from './DashboardLayout.module.css';
-import { useNavigate } from 'react-router-dom';
 
 const DashboardLayout = () => {
     const { user, logout } = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+
+    // Auto-redirect from /dashboard to default page based on role
+    useEffect(() => {
+        if (user && location.pathname === '/dashboard') {
+            if (user.role === 'candidate') {
+                navigate('/dashboard/candidate/profile', { replace: true });
+            } else if (user.role === 'employer') {
+                navigate('/dashboard/employer/company', { replace: true });
+            } else if (user.role === 'admin' || user.role === 'ADMIN') {
+                navigate('/dashboard/admin/overview', { replace: true });
+            }
+        }
+    }, [user, location.pathname, navigate]);
+
+    // Add body class to hide main navbar on mobile when dashboard is active
+    useEffect(() => {
+        document.body.classList.add('dashboard-active');
+        return () => document.body.classList.remove('dashboard-active');
+    }, []);
+
+    const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
+    const closeMobileMenu = () => setIsMobileMenuOpen(false);
 
     const logoutClick = () => {
         logout();
@@ -50,7 +71,24 @@ const DashboardLayout = () => {
 
     return (
         <div className={styles.dashboardContainer}>
-            <aside className={styles.sidebar}>
+            {/* Mobile Header Toggle */}
+            <div className={styles.mobileHeader}>
+                <Link to="/" className={styles.mobileLogo}>
+                    <img src="/images/logo.jpeg" alt="KritiJob" className={styles.mobileLogoImg} />
+                    <span className={styles.mobileLogoText}>KritiJob</span>
+                </Link>
+                <button className={styles.menuToggle} onClick={toggleMobileMenu}>
+                    <div className={styles.profileToggle}>
+                        <div className={styles.mobileAvatar}>{user.name.charAt(0)}</div>
+                        <i className={`fas ${isMobileMenuOpen ? 'fa-times' : 'fa-chevron-down'} ${styles.toggleIcon}`}></i>
+                    </div>
+                </button>
+            </div>
+
+            {/* Overlay */}
+            {isMobileMenuOpen && <div className={styles.overlay} onClick={closeMobileMenu}></div>}
+
+            <aside className={`${styles.sidebar} ${isMobileMenuOpen ? styles.mobileOpen : ''}`}>
                 <div className={styles.userInfo}>
                     <div className={styles.avatar}>
                         {user.name.charAt(0)}
@@ -67,6 +105,7 @@ const DashboardLayout = () => {
                             key={link.path} 
                             to={link.path} 
                             className={`${styles.navLink} ${location.pathname === link.path ? styles.active : ''}`}
+                            onClick={closeMobileMenu}
                         >
                             <i className={`fas ${link.icon}`}></i>
                             {link.label}
@@ -81,7 +120,7 @@ const DashboardLayout = () => {
             <main className={styles.content}>
                 <Outlet />
             </main>
-            <ChatWidget />
+
         </div>
     );
 };
